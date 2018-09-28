@@ -9,29 +9,42 @@ html {
 }
 
 header {
-    background-color: red;
+    background-color: white;
     display: block;
     color: black;
     font-family: 'Source Sans Pro', sans-serif;
+    vertical-align: center;
 }
 
-header div {
+header div:first-child {
     float: left;
 }
 
-header div img {
-    height: 10px;
+/* burger menu left-hand side */
+header div:first-child img {
+    height: 15px;
+    background-color: white;
+    display: inline;
+    padding-top: calc((60px - 15px) / 2); /* size logo - size burgermenu */
+    padding-bottom: calc((60px - 15px) / 2);
+    margin: 0 10px 0 10px;
+}
+header div:first-child h1 {
+    font-size: 20px;
+    height: 100%;
+    padding-top: 16px;
+    float: right;
 }
 
 header img {
     margin-left: auto;
     margin-right: auto;
-    height: 60px;
+    height: 40px;
     display: block;
-    margin: 0 auto;
+    padding: 10px 0 10px 0;
 }
 
-header h1 {
+header div:last-child {
     float: right;
 }
 

@@ -26,8 +26,10 @@
 
             <img src="./img/brainrainlogo.png">
 
-            <h1>You're my number: n</h1>
+            <div>
+                <h1>You're my number:</h1>
+                <div><p>n</p></div>
+            </div>
         </header>
-        Das ist ein Test.
     </body>
 </html>
