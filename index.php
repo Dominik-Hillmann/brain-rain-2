@@ -18,18 +18,24 @@
         <link rel="icon" type="image/png" href="favicon.ico">
     </head>
     <body>
+        <?php require "./libraries/util.inc.php"; ?>
         <header>
             <div>
                 <img src="./img/burgermenu.png">
                 <h1>Pfad mit Links</h1>
             </div>
 
-            <img src="./img/brainrainlogo.png">
+            <img src="./img/brainrainlogo.png" id="centerlogo">
 
-            <div>
+            <div id="number">
                 <h1>You're my number:</h1>
                 <div><p>n</p></div>
             </div>
         </header>
+        <div id="heading">
+            <h1>BRAINRAIN</h1>
+            <h2><?php echo num2Roman((int) date("Y")); ?></h2>
+        </div>
     </body>
+    <script src="./js/positioning.js"></script>
 </html>
