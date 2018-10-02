@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 * {
     margin: 0;
@@ -12,25 +13,9 @@ header {
     vertical-align: center;
 }
 
-header div:first-child {
-    float: left;
-}
 
-/* burger menu left-hand side */
-header div:first-child img {
-    height: 15px;
-    background-color: white;
-    display: inline;
-    padding-top: calc((60px - 15px) / 2); /* size logo - size burgermenu */
-    padding-bottom: calc((60px - 15px) / 2);
-    margin: 0 10px 0 10px;
-}
-header div:first-child h1 {
-    font-size: 20px;
-    height: 100%;
-    padding-top: 16px;
-    float: right;
-}
+
+
 header img {
     margin-left: auto;
     margin-right: auto;
@@ -38,20 +23,7 @@ header img {
     display: block;
     padding: 10px 0 10px 0;
 }
-#number {
-    float: right;
-    font-size: 10px;
-    margin-top: -43px;
-    margin-right: 10px;
-}
-#number div p {
-    font-size: 20px;
-    margin: 0 0 0 4px;
-}
-#number * {
-    display: inline;
-    font-family: 'Source Sans Pro', sans-serif;
-}
+
 
 
 
@@ -67,6 +39,9 @@ header img {
     margin: 0 auto;
 }
 
+
+
+
 footer {
     font-family: 'Trebuchet MS', sans-serif;
     background-color: lightgreen;
@@ -80,7 +55,7 @@ footer img {
 }
 footer div p {
     display: inline-block;
-    padding: 10px 5%;
+    padding: 10px 3%;
     border-top: 1px solid black;    
 }
 
@@ -114,6 +89,24 @@ footer div p {
 }
 #madewith {
     float: right;
-    margin: 0;
-    overflow: hidden;
+    margin: 0 0.5% 0 0;
+    border: none;
+    padding: 10px 0;
+    width: 168px;
 }
+#madewith img {
+    border-radius: 0;
+    background-color: inherit;
+    display: inline;
+    height: 12px;
+    margin: 0;
+}
+#madewith-pushback {
+    float: left;
+    margin: 0 0 0.5% 0;
+    border: none;
+    padding: 10px 0;
+    width: 168px;
+}
+
+

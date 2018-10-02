@@ -20,22 +20,26 @@
     <body>
         <?php require "./libraries/util.inc.php"; ?>
         <header>
-            <!-- <div>
-                <img src="./img/burgermenu.png">
-                <h1>Pfad mit Links</h1>
-            </div> -->
 
-            <img src="./img/brainrainlogo.png" id="centerlogo">
+            <div id="firstmenu">
+                <div>
+                    <img src="./img/burgermenu.png">
+                    <h1>Pfad mit Links</h1>
+                </div>
 
-            <!-- <div id="number">
-                <h1>You're my number:</h1>
-                <div><p>n</p></div>
-            </div> -->
+                <img src="./img/brainrainlogo.png" id="centerlogo">
+
+                <div id="number">
+                    <h1>You're my number:</h1>
+                    <div><p>n</p></div>
+                </div>
+            </div>
 
             <div id="heading">
                 <h1>BRAINRAIN</h1>
                 <h2><?php echo num2Roman((int) date("Y")); ?></h2>
             </div>
+
         </header>
         <!-- <div id="heading">
             <h1>BRAINRAIN</h1>
@@ -52,8 +56,9 @@
             </div>
 
             <div>
+                <p id="madewith-pushback">&nbsp;</p>
                 <p>Copyright &#x24B8; <?php echo date("Y"); ?> BRRAINRAIN, Greifswald, Germany. All rights reserved. <a>Imprint</a></p>
-                <p id="madewith">Made with <span id="love">&#9829;</span> and brain</p>
+                <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo.png"></a></p>
             </div>
         </footer>
 
