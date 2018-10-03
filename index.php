@@ -21,18 +21,18 @@
         <?php require "./libraries/util.inc.php"; ?>
         <header>
 
-            <div id="firstmenu">
-                <div>
+            <div id="firstmenu" class="menufloater">
+                <div id="path">
                     <img src="./img/burgermenu.png">
                     <h1>Pfad mit Links</h1>
                 </div>
 
-                <img src="./img/brainrainlogo.png" id="centerlogo">
-
-                <div id="number">
+                <div id="number" class="menufloater">
                     <h1>You're my number:</h1>
                     <div><p>n</p></div>
                 </div>
+
+                <img src="./img/brainrainlogo.png" id="centerlogo">
             </div>
 
             <div id="heading">
