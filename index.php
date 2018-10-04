@@ -41,10 +41,25 @@
             </div>
 
         </header>
-        <!-- <div id="heading">
-            <h1>BRAINRAIN</h1>
-            <h2><?php echo num2Roman((int) date("Y")); ?></h2>
-        </div> -->
+
+
+        <div id="main">
+            <div id="design">
+                <h1>GRAPHIC<br>DESIGN</h1>
+            </div><!--
+            --><div id="illustration" class="hasMargin">
+                <h1>ILLUS-<br>TRATION</h1>
+            </div><!--
+            --><div id="drawings" class="hasMargin">
+                <h1>DRAWINGS</h1>
+            </div><!--
+            --><div id="photography" class="hasMargin">
+                <h1>PHOTO-<br>GRAPHY</h1>
+            </div><!--
+            --><div id="writing">
+                <h1>WRITING</h1>
+            </div>
+        </div>
 
 
         <footer>
@@ -57,7 +72,7 @@
 
             <div>
                 <p id="madewith-pushback">&nbsp;</p>
-                <p>Copyright &#x24B8; <?php echo date("Y"); ?> BRRAINRAIN, Greifswald, Germany. All rights reserved. <a>Imprint</a></p>
+                <p>Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved. <a>Imprint</a></p>
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo.png"></a></p>
             </div>
         </footer>

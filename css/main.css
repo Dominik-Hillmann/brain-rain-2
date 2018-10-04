@@ -140,3 +140,30 @@ footer div p {
     padding: 10px 0;
     width: 168px;
 }
+
+
+#main {
+    background-color: lightseagreen;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+#main div {
+    display: inline-block;
+    color: white;
+    background-color: black;
+    text-align: center;
+    width: 17%;
+}
+
+/* if the 5 divisions have 17% width, the 
+   4 margins have to have (100% - 5 * 17%) / 4% */
+#drawings {
+    margin: 0 calc((100% - 5 * 17%) / 4);
+}
+#illustration {
+    margin-left: calc((100% - 5 * 17%) / 4);
+}
+#photography {
+    margin-right: calc((100% - 5 * 17%) / 4);
+}
