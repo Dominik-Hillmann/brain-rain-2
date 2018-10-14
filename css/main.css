@@ -145,7 +145,7 @@ footer div p {
 #main {
     background-color: lightseagreen;
     width: calc(100% - 40px);
-    margin: 0 auto;
+    margin: 2% auto;
     font-family: 'Trebuchet MS', sans-serif;
 }
 #main div {
@@ -154,6 +154,12 @@ footer div p {
     background-color: black;
     text-align: center;
     width: 17%;
+
+    background-image: url('../img/cube.gif');
+    background-size: cover;
+    height: 500px;
+
+    vertical-align: middle;
 }
 
 /* if the 5 divisions have 17% width, the 
@@ -166,4 +172,9 @@ footer div p {
 }
 #photography {
     margin-right: calc((100% - 5 * 17%) / 4);
+}
+
+#main div h1 {
+    vertical-align: middle;
+    display: block;
 }
