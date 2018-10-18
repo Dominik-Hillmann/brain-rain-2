@@ -29,7 +29,11 @@
 
                 <div id="number" class="menufloater">
                     <h1>You're my number:</h1>
-                    <div><p>n</p></div>
+                    <div><!--
+                        --><p>1</p><!--
+                        --><p>2</p><!--
+                        --><p>3</p>
+                    </div>
                 </div>
 
                 <img src="./img/brainrainlogo.png" id="centerlogo">
@@ -42,6 +46,11 @@
 
         </header>
 
+        <div id="about">
+            <p><span>ABOUT</span></p><!--
+            --><img src="./img/emptygap.png"><!--
+            --><p><span>HIRE ME - CONTACT</span></p>
+        </div>
 
         <div id="main">
             <div id="design">

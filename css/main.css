@@ -4,15 +4,15 @@
 * {
     margin: 0;
 }
-
+/*** FIRST LINE HEADER ***/
 header {
-    background-color: lightcoral;
+    background-color: white;
     display: block;
     color: black;
     font-family: 'Source Sans Pro', sans-serif;
     vertical-align: center;
+    margin-top: 10px;
 }
-
 #firstmenu {
     padding: 10px 0;
     font-size: 12px;
@@ -39,17 +39,28 @@ header {
 }
 #number div {
     margin-left: 20px;
+    display: inline-block;
+    vertical-align: middle;
 }
 #number div p {
-    display: inline-block;
-    font-size: 20px;
+    display: block;
+    font-size: 15px;
     vertical-align: middle;
     font-family: 'Trebuchet MS', sans-serif;
+}
+#number div p:last-child {
+    background: linear-gradient(to bottom, black 20%, transparent 80%);
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+}
+#number div p:first-child {
+    background: linear-gradient(to top, black 20%, transparent 80%);
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
 }
 #number * {
     display: inline;
 }
-
 header img {
     margin-left: auto;
     margin-right: auto;
@@ -57,7 +68,7 @@ header img {
     display: block;
 }
 
-
+/*** SECOND LINE HEADER ***/
 #heading {
     background-color: lightblue;
     font-family: 'Trebuchet MS', sans-serif;
@@ -73,7 +84,7 @@ header img {
     margin: 0 auto;
 }
 
-
+/*** FOOTER ***/
 footer {
     font-family: 'Trebuchet MS', sans-serif;
     background-color: lightgreen;
@@ -90,15 +101,14 @@ footer div p {
     padding: 10px 3%;
     border-top: 1px solid black;    
 }
-
 #facebook:hover {
-    background-color: #3B5998;
+    background-color: #3b5998;
     -webkit-transition: background-color 200ms linear;
     -ms-transition: background-color 200ms linear;
     transition: background-color 200ms linear;
 }
 #instagram:hover {
-    background-color: #DD2A7B;
+    background-color: #dd2a7b;
     -webkit-transition: background-color 200ms linear;
     -ms-transition: background-color 200ms linear;
     transition: background-color 200ms linear;
@@ -115,7 +125,6 @@ footer div p {
     -ms-transition: background-color 200ms linear;
     transition: background-color 200ms linear;
 }
-
 #love {
     color: red;
 }
@@ -141,7 +150,7 @@ footer div p {
     width: 168px;
 }
 
-
+/*** MIDDLE PART ***/
 #main {
     background-color: lightseagreen;
     width: calc(100% - 40px);
@@ -161,9 +170,13 @@ footer div p {
 
     vertical-align: middle;
 }
-
+#main div h1 {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
 /* if the 5 divisions have 17% width, the 
-   4 margins have to have (100% - 5 * 17%) / 4% */
+   4 margins have to have (100% - 5 * 17%) / 4 */
 #drawings {
     margin: 0 calc((100% - 5 * 17%) / 4);
 }
@@ -174,7 +187,33 @@ footer div p {
     margin-right: calc((100% - 5 * 17%) / 4);
 }
 
-#main div h1 {
+#about {
+    background-color: chartreuse;
+    margin: auto;
+    width: calc(100% - 40px);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+}
+
+#about * {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    margin: auto;
+    height: 50px;
     vertical-align: middle;
-    display: block;
+}
+#about img {
+    width: 30px;
+    background-color: white;
+    background-image: url('../img/gap.png');
+    background-size: cover;
+}
+#about p {
+    width: calc((100% - 30px) / 2);
+    text-align: center;
+}
+#about p span {
+    margin-top: -5px;
+    height: 10px;
 }
