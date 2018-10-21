@@ -1,0 +1,62 @@
+#writing-main {
+    margin: 0 auto 20px auto;
+    width: calc(100% - 100px);
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.row {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.text-3, .text-2, .text-1 {
+    display: inline-block;
+    width: 32%;
+
+    position: relative;
+}
+.text-3:first-child, .text-2:first-child {
+    margin-right: calc((100% - 3 * 32%) / 2);
+}
+
+.text-3:last-child {
+    margin-left: calc((100% - 3 * 32%) / 2);
+}
+
+.text-1 *, .text-2 *, .text-3 * {
+    display: block;
+    text-align: center;
+}
+.text-1 h1, .text-2 h1, .text-3 h1 {
+    margin: 50px 0 15px 0;
+    color: white;
+}
+.text-1 p, .text-2 p, .text-3 p {
+    margin: 0 0 50px 0;
+    color: white
+}
+.text-background {
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -2;
+    overflow: hidden;
+    background: linear-gradient(to right, black 20%, transparent 80%);
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+}
+.background-background{
+    /* to have colored background which is not possible in text-background */
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+    background-color: rgba(48, 48, 48, 0.75);
+}

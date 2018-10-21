@@ -24,7 +24,7 @@
             <div id="firstmenu" class="menufloater">
                 <div id="path">
                     <img src="./img/burgermenu.png">
-                    <h1>Pfad mit Links</h1>
+                    <h1>Home</h1>
                 </div>
 
                 <div id="number" class="menufloater">

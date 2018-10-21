@@ -1,0 +1,52 @@
+#pics-main {
+    margin: 0 auto 20px auto;
+    width: calc(100% - 100px);
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.row {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  
+    background-color: brown;
+}
+
+.pic-3, .pic-2, .pic-1 {
+    display: inline-block;
+    width: 32%;
+
+    position: relative;
+    background-image: url('../img/cube.gif');
+    background-size: cover;
+}
+.pic-3:first-child, .pic-2:first-child {
+    margin-right: calc((100% - 3 * 32%) / 2);
+}
+
+.pic-3:last-child {
+    margin-left: calc((100% - 3 * 32%) / 2);
+}
+
+.pic-1 *, .pic-2 *, .pic-3 * {
+    display: block;
+    text-align: center;
+}
+.pic-1 h1, .pic-2 h1, .pic-3 h1 {
+    margin: 50px 0 15px 0;
+    color: white;
+}
+.pic-1 p, .pic-2 p, .pic-3 p {
+    margin: 0 0 50px 0;
+    color: white;
+}
+.text-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+    background-size: cover;
+}

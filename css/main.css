@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
 * {
     margin: 0;
 }
@@ -11,7 +19,7 @@ header {
     color: black;
     font-family: 'Source Sans Pro', sans-serif;
     vertical-align: center;
-    margin-top: 10px;
+    margin: 10px 0 20px 0;
 }
 #firstmenu {
     padding: 10px 0;
@@ -39,22 +47,22 @@ header {
 }
 #number div {
     margin-left: 20px;
+    margin-top: -18px;
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
 }
 #number div p {
     display: block;
-    font-size: 15px;
-    vertical-align: middle;
+    font-size: 20px;
     font-family: 'Trebuchet MS', sans-serif;
 }
 #number div p:last-child {
-    background: linear-gradient(to bottom, black 20%, transparent 80%);
+    background: linear-gradient(to bottom, black 10%, transparent 70%);
 	  -webkit-background-clip: text;
 	  -webkit-text-fill-color: transparent;
 }
 #number div p:first-child {
-    background: linear-gradient(to top, black 20%, transparent 80%);
+    background: linear-gradient(to top, black 10%, transparent 70%);
 	  -webkit-background-clip: text;
 	  -webkit-text-fill-color: transparent;
 }
@@ -153,8 +161,8 @@ footer div p {
 /*** MIDDLE PART ***/
 #main {
     background-color: lightseagreen;
-    width: calc(100% - 40px);
-    margin: 2% auto;
+    width: calc(100% - 100px);
+    margin: 20px auto;
     font-family: 'Trebuchet MS', sans-serif;
 }
 #main div {
@@ -190,7 +198,7 @@ footer div p {
 #about {
     background-color: chartreuse;
     margin: auto;
-    width: calc(100% - 40px);
+    width: calc(100% - 100px);
     font-family: 'Trebuchet MS', sans-serif;
     font-size: 25px;
 }
