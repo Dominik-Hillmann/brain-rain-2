@@ -18,6 +18,19 @@
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
     </head>
+
+
+    <div id="currently-shown">
+        <!-- here to cover all of the body -->
+        <img src="./img/cross.png" id="cross">
+        <div>
+            <img src="./img/arrow_links.png" class="arrow">
+            <img src="./img/arrow_rechts.png" class="arrow">
+            <img src="./img/Volyova.jpg" id="the-main-pic">
+        </div>
+    </div>
+
+
     <body>
         <?php require "./libraries/util.inc.php"; ?>
         <header>
@@ -47,23 +60,22 @@
 
         </header>
 
+
         <!-- Idee: hier vielleicht mit JS Elemente bei Änderung der Breite aushängen und dann wieder einhängen -->
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main">
             <div class="row"><!--                
+                --><div class="pic-3" style="background-image:url('./img/Volyova.jpg')">
+                    <h1>TITEL</h1>
+                    <p>DATUM</p>
+                </div><!--
+
                 --><div class="pic-3">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--
 
                 --><div class="pic-3">
-                <div class="image-background" style="background-image:url('./img/cube.gif')">&nbsp;</div>
-                    <h1>TITEL</h1>
-                    <p>DATUM</p>
-                </div><!--
-
-                --><div class="pic-3">
-                <div class="image-background" style="background-image:url('./img/cube.gif')">&nbsp;</div>
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div>
@@ -71,13 +83,11 @@
 
             <div class="row">
                 <div class="pic-2">
-                    <div class="image-background" style="background-image:url('./img/cube.gif')">&nbsp;</div>
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--
 
                 --><div class="pic-2">
-                    <div class="image-background" style="background-image:url('./img/cube.gif')">&nbsp;</div>
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div>
@@ -85,7 +95,6 @@
 
             <div class="row">
                 <div class="pic-1">
-                    <div class="image-background" style="background-image:url('./img/cube.gif')">&nbsp;</div>
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div>

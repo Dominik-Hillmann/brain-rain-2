@@ -19,6 +19,7 @@
     position: relative;
     background-image: url('../img/cube.gif');
     background-size: cover;
+    text-shadow: 0px 0px 5px #000;
 }
 .pic-3:first-child, .pic-2:first-child {
     margin-right: calc((100% - 3 * 32%) / 2);
@@ -33,11 +34,12 @@
     text-align: center;
 }
 .pic-1 h1, .pic-2 h1, .pic-3 h1 {
-    margin: 50px 0 15px 0;
+    margin: 65px 0 15px 0;
     color: white;
+
 }
 .pic-1 p, .pic-2 p, .pic-3 p {
-    margin: 0 0 50px 0;
+    margin: 0 0 65px 0;
     color: white;
 }
 .text-background {
@@ -49,4 +51,40 @@
     z-index: -1;
     overflow: hidden;
     background-size: cover;
+}
+
+#currently-shown {
+    height: calc(98%);
+    width: calc(98%);
+    margin: 0 1% 0 1%;
+    z-index: 2;
+    position: absolute;
+    background-color: rgba(100, 200, 200, 0.75);
+    border-radius: 10px;
+}
+#currently-shown div {
+    display: block;
+}
+#cross {
+    float: right;
+    height: 30px;
+    margin: 10px 10px 0 0;
+}
+#currently-shown div {
+    height: calc(100% - (30px + 10px + 10px)); /* margin and height of the cross + 10px*/
+    width: 100%;
+    margin-top: 50px; /* cross height + margins */
+}
+.arrow {
+    height: 100px;
+    margin: calc(50% - (100px / 2)) 10px 10px 10px;
+    float: right;
+}
+.arrow:first-child {
+    float: left;
+}
+
+#the-main-pic {
+    height: 200px;
+    margin: auto;
 }
