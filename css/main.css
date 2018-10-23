@@ -19,7 +19,8 @@ header {
     color: black;
     font-family: 'Source Sans Pro', sans-serif;
     vertical-align: center;
-    margin: 10px 0 20px 0;
+    margin: 0 0 20px 0;
+    padding-top: 10px;
 }
 #firstmenu {
     padding: 10px 0;

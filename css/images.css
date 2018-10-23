@@ -19,7 +19,7 @@
     position: relative;
     background-image: url('../img/cube.gif');
     background-size: cover;
-    text-shadow: 0px 0px 5px #000;
+    text-shadow: 0px 0px 5px black;
 }
 .pic-3:first-child, .pic-2:first-child {
     margin-right: calc((100% - 3 * 32%) / 2);
@@ -53,38 +53,41 @@
     background-size: cover;
 }
 
+/* everything concerned with the image preview */
 #currently-shown {
     height: calc(98%);
     width: calc(98%);
-    margin: 0 1% 0 1%;
+    margin: 10px 1% 0 1%;
     z-index: 2;
     position: absolute;
-    background-color: rgba(100, 200, 200, 0.75);
+    background-color: rgba(20, 20, 20, 0.98);
     border-radius: 10px;
-}
-#currently-shown div {
-    display: block;
 }
 #cross {
     float: right;
     height: 30px;
     margin: 10px 10px 0 0;
 }
-#currently-shown div {
-    height: calc(100% - (30px + 10px + 10px)); /* margin and height of the cross + 10px*/
+#main-pic-container {
+    height: calc(100% - (30px + 10px + 10px + 100px)); /* margin and height of the cross + 10px*/
     width: 100%;
     margin-top: 50px; /* cross height + margins */
+    display: flex;
+    align-content: center;
 }
-.arrow {
-    height: 100px;
-    margin: calc(50% - (100px / 2)) 10px 10px 10px;
+.arrow {    
+    height: 75px;
+    margin: 0 5%;
+}
+.arrow:last-child {
     float: right;
 }
-.arrow:first-child {
-    float: left;
-}
-
 #the-main-pic {
-    height: 200px;
+    height: 90%;
     margin: auto;
 }
+.hide {
+    display: none;
+    opacity: 0;
+}
+

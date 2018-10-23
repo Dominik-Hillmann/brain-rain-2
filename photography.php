@@ -23,10 +23,12 @@
     <div id="currently-shown">
         <!-- here to cover all of the body -->
         <img src="./img/cross.png" id="cross">
+        <div id="main-pic-container">
+            <img src="./img/Volyova.jpg" id="the-main-pic">
+        </div>
         <div>
             <img src="./img/arrow_links.png" class="arrow">
             <img src="./img/arrow_rechts.png" class="arrow">
-            <img src="./img/Volyova.jpg" id="the-main-pic">
         </div>
     </div>
 
@@ -65,7 +67,7 @@
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main">
             <div class="row"><!--                
-                --><div class="pic-3" style="background-image:url('./img/Volyova.jpg')">
+                --><div class="pic-3" style="background-image:url('./img/Volyova.jpg')" onclick="unhidePic('./img/cube.gif')">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--
@@ -118,5 +120,5 @@
         </footer>
 
     </body>
-    <script src="./js/positioning.js"></script>
+    <script src="./js/image_preview.js"></script>
 </html>
