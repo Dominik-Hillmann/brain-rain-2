@@ -9,7 +9,7 @@
     width: 100%;
     margin-bottom: 20px;
   
-    background-color: brown;
+    /*background-color: brown;*/
 }
 
 .pic-3, .pic-2, .pic-1 {
@@ -20,6 +20,8 @@
     background-image: url('../img/cube.gif');
     background-size: cover;
     text-shadow: 0px 0px 5px black;
+    box-shadow: 5px 5px 20px 0px black;
+    border-radius: 4px;
 }
 .pic-3:first-child, .pic-2:first-child {
     margin-right: calc((100% - 3 * 32%) / 2);
@@ -60,13 +62,14 @@
     margin: 10px 1% 0 1%;
     z-index: 2;
     position: absolute;
-    background-color: rgba(20, 20, 20, 0.98);
+    background-color: rgba(20, 20, 20, 0.8);
     border-radius: 10px;
 }
 #cross {
     float: right;
     height: 30px;
     margin: 10px 10px 0 0;
+    cursor: pointer;
 }
 #main-pic-container {
     height: calc(100% - (30px + 10px + 10px + 100px)); /* margin and height of the cross + 10px*/
@@ -78,6 +81,7 @@
 .arrow {    
     height: 75px;
     margin: 0 5%;
+    cursor: pointer;
 }
 .arrow:last-child {
     float: right;
@@ -85,9 +89,27 @@
 #the-main-pic {
     height: 90%;
     margin: auto;
+    border-radius: 3px;
+    box-shadow: 10px 10px 25px 15px black;
+}
+@keyframes disappearAnimation {
+    from { opacity: 1; } to { opacity: 0; }
+}
+@keyframes appearAnimation {
+    from { opacity: 0; } to { opacity: 1; }
 }
 .hide {
     display: none;
     opacity: 0;
+}
+.disappearing {
+    opacity: 0;
+    animation-name: disappearAnimation;
+    animation-duration: 300ms;
+}
+.appearing {
+    opacity: 1;
+    animation-name: appearAnimation;
+    animation-duration: 300ms;
 }
 

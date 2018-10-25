@@ -3,7 +3,7 @@
     <head>
     <!-- Basic Page Needs -->
         <meta charset="utf-8">
-        <title>BRAINRAIN - Writing</title>
+        <title>BRAINRAIN - Photography</title>
         <meta name="description" content="">
         <meta name="author" content="Dominik Hillmann">
 
@@ -19,16 +19,20 @@
         <link rel="icon" type="image/png" href="favicon.ico">
     </head>
 
+    <!--<div id="hidden-img-list" class="hidden">
+
+        <img
+    </div>-->
 
     <div id="currently-shown">
         <!-- here to cover all of the body -->
         <img src="./img/cross.png" id="cross">
         <div id="main-pic-container">
-            <img src="./img/Volyova.jpg" id="the-main-pic">
+            <img src="./img/cube.gif" id="the-main-pic">
         </div>
         <div>
             <img src="./img/arrow_links.png" class="arrow">
-            <img src="./img/arrow_rechts.png" class="arrow">
+            <img src="./img/arrow_rechts.png" class="arrow" onclick="nextPic();">
         </div>
     </div>
 
@@ -67,36 +71,36 @@
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main">
             <div class="row"><!--                
-                --><div class="pic-3" style="background-image:url('./img/Volyova.jpg')" onclick="unhidePic('./img/cube.gif')">
+                --><div class="pic-3 pic" style="background-image:url('./img/Volyova.jpg')" onclick="currPic=document.querySelectorAll('.pic-3')[0];unhidePic('./img/Volyova.jpg');">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--
 
-                --><div class="pic-3">
+                --><div class="pic-3 pic">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--
 
-                --><div class="pic-3">
+                --><div class="pic-3 pic">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="pic-2">
+                <div class="pic-2 pic">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--
 
-                --><div class="pic-2">
+                --><div class="pic-2 pic">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="pic-1">
+                <div class="pic-1 pic">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div>
