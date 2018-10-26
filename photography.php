@@ -31,7 +31,7 @@
             <img src="./img/cube.gif" id="the-main-pic">
         </div>
         <div>
-            <img src="./img/arrow_links.png" class="arrow">
+            <img src="./img/arrow_links.png" class="arrow" onclick="prevPic()">
             <img src="./img/arrow_rechts.png" class="arrow" onclick="nextPic();">
         </div>
     </div>
@@ -71,36 +71,36 @@
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main">
             <div class="row"><!--                
-                --><div class="pic-3 pic" style="background-image:url('./img/Volyova.jpg')" onclick="currPic=document.querySelectorAll('.pic-3')[0];unhidePic('./img/Volyova.jpg');">
+                --><div class="pic-3 pic" style="background-image:url('./img/Volyova.jpg')" onclick="currPic=document.querySelectorAll('.pic')[0];unhidePic('./img/Volyova.jpg');">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--
 
-                --><div class="pic-3 pic">
+                --><div class="pic-3 pic" style="background-image:url('./img/0216-hd-engineering-arts.png')" onclick="currPic=document.querySelectorAll('.pic')[1];unhidePic('./img/0216-hd-engineering-arts.png');">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--
 
-                --><div class="pic-3 pic">
+                --><div class="pic-3 pic" style="background-image:url('./img/4006-large_flakes_of_snow.jpg')" onclick="currPic=document.querySelectorAll('.pic')[2];unhidePic('./img/4006-large_flakes_of_snow.jpg');">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="pic-2 pic">
+                <div class="pic-2 pic" style="background-image:url('./img/8610947261_1eed4f5b29_b.jpg')" onclick="currPic=document.querySelectorAll('.pic')[3];unhidePic('./img/8610947261_1eed4f5b29_b.jpg');">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--
 
-                --><div class="pic-2 pic">
+                --><div class="pic-2 pic" style="background-image:url('./img/Complexity-map_castellani_w.jpg')" onclick="currPic=document.querySelectorAll('.pic')[4];unhidePic('./img/Complexity-map_castellani_w.jpg');">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="pic-1 pic">
+            <div class="pic-1 pic" style="background-image:url('./img/Screenshot_55.png')" onclick="currPic=document.querySelectorAll('.pic')[5];unhidePic('./img/Screenshot_55.png');">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div>

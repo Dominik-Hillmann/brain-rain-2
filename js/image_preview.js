@@ -13,10 +13,6 @@ function unhidePic(picLink) {
     let mainPic = currShown.querySelector("#the-main-pic");
     mainPic.src = picLink;
 
-    // console.log(currPic);
-    // console.log(allPicsArr);
-    // console.log();
-
     currShown.classList.add("appearing");
     currShown.classList.remove("hide");
     setTimeout(function () {
@@ -26,21 +22,50 @@ function unhidePic(picLink) {
 
 function nextPic() {
     let currPicIndex = allPicsArr.findIndex(e => e == currPic);
-    let nextPicIndex = (currPicIndex >= allPicsArr.length) ? 0 : currPicIndex + 1;
-    console.log(
-        "len:", allPicsArr.length, 
-        "currPicIndex", currPicIndex,
-        "nextPicIndex", nextPicIndex
-    );
-    // 0 ... n Array
-    // 1 ... n + 1 == length
-    // Ueber den naechsten Index das Bild herausfinden, animieren, src austuschen:
-        // opacity raus
-        // src tauschen
-        // opacity rein
+    let nextPicIndex = (currPicIndex + 1 >= allPicsArr.length) ? 0 : currPicIndex + 1;
+
+    let mainPic = document.querySelector("#the-main-pic");
+    mainPic.classList.add("disappearing");
+
+    setTimeout(function () {
+        currPic = allPicsArr[nextPicIndex];
+        style = currPic.currentStyle || window.getComputedStyle(currPic, false);
+        backImgURL = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+        mainPic.src = backImgURL;
+        // animation
+        mainPic.classList.add("appearing");
+        mainPic.classList.remove("disappearing");
+        mainPic.classList.remove("appearing");        
+    }, 295); // a bit shorter to not have the clipping effectct
 }
 
+function prevPic() {
+    let currPicIndex = allPicsArr.findIndex(e => e == currPic);
+    let nextPicIndex = (currPicIndex - 1 < 0) ? allPicsArr.length - 1 : currPicIndex - 1;
+
+    let mainPic = document.querySelector("#the-main-pic");
+    mainPic.classList.remove("appearing");
+    mainPic.classList.add("disappearing");
+
+    setTimeout(function () {
+        currPic = allPicsArr[nextPicIndex];
+        style = currPic.currentStyle || window.getComputedStyle(currPic, false);
+        backImgURL = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+        mainPic.src = backImgURL;
+        // animation
+        mainPic.classList.add("appearing");
+        mainPic.classList.remove("disappearing");
+        mainPic.classList.remove("appearing");        
+    }, 295); // a bit shorter to not have the clipping effect
+}
+/**
+ * Bei Aufruf aus Auflistung
+ *      wird currPic besetzt mit dem aktuellen Element
+ *      es wäre möglich, alle wieder 
+ */
+
 let currPic; // defined if picture is clicked upon
+let currPicIndex = 0;
 
 let allPics = document.querySelectorAll(".pic");
 allPicsArr = []; // turn allPics into array
