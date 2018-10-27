@@ -63,7 +63,7 @@
     margin: 10px 1% 0 1%;
     z-index: 2;
     position: absolute;
-    background-color: rgba(20, 20, 20, 0.8);
+    /*background-color: rgba(20, 20, 20, 0.8);*/
     border-radius: 10px;
 }
 #cross {
@@ -71,6 +71,7 @@
     height: 30px;
     margin: 10px 10px 0 0;
     cursor: pointer;
+    filter: drop-shadow(8px 8px 5px black);
 }
 #main-pic-container {
     height: calc(100% - (30px + 10px + 10px + 100px)); /* margin and height of the cross + 10px*/
@@ -83,6 +84,7 @@
     height: 75px;
     margin: 0 5%;
     cursor: pointer;
+    filter: drop-shadow(8px 8px 5px black);
 }
 .arrow:last-child {
     float: right;
@@ -91,7 +93,7 @@
     height: 90%;
     margin: auto;
     border-radius: 3px;
-    box-shadow: 10px 10px 25px 15px black;
+    box-shadow: 8px 8px 15px black;
 }
 @keyframes disappearAnimation {
     from { opacity: 1; } to { opacity: 0; }
@@ -113,6 +115,29 @@
     animation-name: appearAnimation;
     animation-duration: 300ms;
 }
-
+@keyframes blurAnimation {
+    from { 
+        filter: blur(0px); 
+    } to { 
+        filter: blur(20px); 
+    }
+}
+@keyframes unblurAnimation {
+    from { 
+        filter: blur(20px); 
+    } to { 
+        filter: blur(0px); 
+    }
+}
+.blur {
+    filter: blur(20px);
+    animation-name: blurAnimation;
+    animation-duration: 300ms;
+}
+.unblur {
+    filter: blur(0px);
+    animation-name: unblurAnimation;
+    animation-duration: 300ms;
+}
 /* MERKEN: filter: blur(10px);
 

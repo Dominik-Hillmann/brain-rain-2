@@ -71,7 +71,7 @@
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main">
             <div class="row"><!--                
-                --><div class="pic-3 pic" style="background-image:url('./img/Volyova.jpg')" onclick="currPic=document.querySelectorAll('.pic')[0];unhidePic('./img/Volyova.jpg');">
+                --><div class="pic-3 pic" style="background-image:url('./img/Volyova.jpg')" onclick="currPic=document.querySelectorAll('.pic')[0];blurBackground(20);unhidePic('./img/Volyova.jpg');">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--

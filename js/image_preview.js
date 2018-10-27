@@ -2,6 +2,8 @@ function hidePic() {
     let currShown = document.querySelector("#currently-shown");
     currShown.classList.add("disappearing");
 
+    // unblurBackground();
+
     setTimeout(function () {
         currShown.classList.add("hide");
         currShown.classList.remove("disappearing");
@@ -58,6 +60,33 @@ function prevPic() {
         mainPic.classList.remove("appearing");        
     }, 295); // a bit shorter to not have the clipping effect
 }
+
+function blurBackground() {
+    let toBeBlurred = [
+        document.querySelector("header"),
+        document.querySelector("footer"),
+        Array.from(document.querySelectorAll(".row"))
+    ].flat();
+
+    for (e of toBeBlurred) 
+        e.classList.add("blur");
+}
+
+function unblurBackground() {
+    let toBeUnBlurred = [
+        document.querySelector("header"),
+        document.querySelector("footer"),
+        Array.from(document.querySelectorAll(".row"))
+    ].flat();
+
+    for (e of toBeUnBlurred) 
+        e.classList.add("unblur");
+    
+    setTimeout(function() {
+        for (e of toBeUnBlurred)
+            e.classList.remove("blur");
+    }, 295);
+}
 /**
  * Bei Aufruf aus Auflistung
  *      wird currPic besetzt mit dem aktuellen Element
@@ -67,9 +96,8 @@ function prevPic() {
 let currPic; // defined if picture is clicked upon
 let currPicIndex = 0;
 
-let allPics = document.querySelectorAll(".pic");
 allPicsArr = []; // turn allPics into array
-for (pic of allPics) 
+for (pic of document.querySelectorAll(".pic")) 
     allPicsArr.push(pic); 
 
 let cross = document.querySelector("#cross");
