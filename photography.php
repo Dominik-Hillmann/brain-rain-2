@@ -24,15 +24,26 @@
         <img
     </div>-->
 
-    <div id="currently-shown">
+    <div id="currently-shown" class="hide">
         <!-- here to cover all of the body -->
-        <img src="./img/cross.png" id="cross">
+        <img src="./img/cross.png" id="cross" onclick="unblurBackground();">
         <div id="main-pic-container">
             <img src="./img/cube.gif" id="the-main-pic">
         </div>
         <div>
-            <img src="./img/arrow_links.png" class="arrow" onclick="prevPic()">
-            <img src="./img/arrow_rechts.png" class="arrow" onclick="nextPic();">
+            <img src="./img/arrow_links.png" class="arrow" onclick="prevPic();"><!--
+            --><img src="./img/arrow_rechts.png" class="arrow" onclick="nextPic();"><!--
+
+            --><div id="curr-pic-info">
+                <img src="./img/arrow_neg_links.png"><!--
+                --><img src="./img/arrow_neg_rechts.png">
+                <div>
+                    <h1>TITEL</h1><!--
+                    --><p>DATUM</p><!--
+                    --><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
         </div>
     </div>
 

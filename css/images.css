@@ -139,5 +139,21 @@
     animation-name: unblurAnimation;
     animation-duration: 300ms;
 }
-/* MERKEN: filter: blur(10px);
 
+#currently-shown div:last-child {
+    background-color: blueviolet;
+}
+#curr-pic-info {
+    display: inline-block;
+    width: 50%;
+  float: left;
+}
+
+#curr-pic-info div * {
+    display: block;
+}
+#curr-pic-info img,
+#curr-pic-info div {
+    display: inline-block;
+    height: 75px;
+}

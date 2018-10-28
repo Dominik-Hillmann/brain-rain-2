@@ -68,8 +68,9 @@ function blurBackground() {
         Array.from(document.querySelectorAll(".row"))
     ].flat();
 
-    for (e of toBeBlurred) 
+    for (e of toBeBlurred) {
         e.classList.add("blur");
+    }
 }
 
 function unblurBackground() {
@@ -83,8 +84,10 @@ function unblurBackground() {
         e.classList.add("unblur");
     
     setTimeout(function() {
-        for (e of toBeUnBlurred)
+        for (e of toBeUnBlurred) {
             e.classList.remove("blur");
+            e.classList.remove("unblur");
+        }
     }, 295);
 }
 /**
@@ -96,9 +99,7 @@ function unblurBackground() {
 let currPic; // defined if picture is clicked upon
 let currPicIndex = 0;
 
-allPicsArr = []; // turn allPics into array
-for (pic of document.querySelectorAll(".pic")) 
-    allPicsArr.push(pic); 
+allPicsArr = Array.from(document.querySelectorAll(".pic"));
 
 let cross = document.querySelector("#cross");
 cross.addEventListener("click", hidePic);
