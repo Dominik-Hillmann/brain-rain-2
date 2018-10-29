@@ -30,13 +30,13 @@
         <div id="main-pic-container">
             <img src="./img/cube.gif" id="the-main-pic">
         </div>
-        <div>
+        <div id="curr-pic-info-wrapper">
             <img src="./img/arrow_links.png" class="arrow" onclick="prevPic();"><!--
-            --><img src="./img/arrow_rechts.png" class="arrow" onclick="nextPic();"><!--
+            --><img src="./img/arrow_rechts.png" class="arrow" id="rarrow" onclick="nextPic();"><!--
 
             --><div id="curr-pic-info">
                 <img src="./img/arrow_neg_links.png"><!--
-                --><img src="./img/arrow_neg_rechts.png">
+                --><img src="./img/arrow_neg_rechts.png" id="r-inner-arrow">
                 <div>
                     <h1>TITEL</h1><!--
                     --><p>DATUM</p><!--
@@ -82,7 +82,7 @@
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main">
             <div class="row"><!--                
-                --><div class="pic-3 pic" style="background-image:url('./img/Volyova.jpg')" onclick="currPic=document.querySelectorAll('.pic')[0];blurBackground(20);unhidePic('./img/Volyova.jpg');">
+                --><div class="pic-3 pic" style="background-image:url('./img/Volyova.jpg')" onclick="currPic=document.querySelectorAll('.pic')[0];blurBackground();unhidePic('./img/Volyova.jpg');">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div><!--

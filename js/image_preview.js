@@ -83,7 +83,7 @@ function unblurBackground() {
     for (e of toBeUnBlurred) 
         e.classList.add("unblur");
     
-    setTimeout(function() {
+    setTimeout(function () {
         for (e of toBeUnBlurred) {
             e.classList.remove("blur");
             e.classList.remove("unblur");
