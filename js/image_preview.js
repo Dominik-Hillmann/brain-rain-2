@@ -98,8 +98,7 @@ function unblurBackground() {
 
 let currPic; // defined if picture is clicked upon
 let currPicIndex = 0;
-
-allPicsArr = Array.from(document.querySelectorAll(".pic"));
+let allPicsArr = Array.from(document.querySelectorAll(".pic"));
 
 let cross = document.querySelector("#cross");
 cross.addEventListener("click", hidePic);

@@ -145,12 +145,17 @@
 }
 
 #curr-pic-info-wrapper div {
-    width: 60%;
+    width: 70%;
     overflow: hidden;
     float: none;
 }
+#curr-pic-info-wrapper h1,
+#curr-pic-info-wrapper p {
+    background-color: white;
+}
 #curr-pic-info-wrapper div img:first-child {
     float: left;
+    width: calc((100% - 70%) / 2)
 }
 #r-inner-arrow {
     float: right;
@@ -158,8 +163,14 @@
 #curr-pic-info-wrapper img {
     filter: drop-shadow(8px 8px 5px black);
 }
-.arrow {float: left;}
-#rarrow {
-    
-    float: right;
+#curr-pic-info img {
+}
+#curr-pic-info img:first-child {
+}
+.arrow { float: left; }
+#rarrow { float: right; }
+#curr-pic-info div:last-child {
+    background-color: white;
+    height: 100%;
+    display: block;
 }
