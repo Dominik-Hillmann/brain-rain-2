@@ -35,11 +35,11 @@
             --><img src="./img/arrow_rechts.png" class="arrow" id="rarrow" onclick="nextPic();"><!--
 
             --><div id="curr-pic-info">
-                <img src="./img/arrow_neg_links.png"><!--
-                --><img src="./img/arrow_neg_rechts.png" id="r-inner-arrow">
                 <div>
-                    <h1>TITEL</h1><!--
-                    --><p>DATUM</p><!--
+                    <div id="title-and-date">
+                        <h1>Titel</h1><!--
+                        --><p>Datum</p>
+                    </div><!--
                     --><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </div>
             </div>
