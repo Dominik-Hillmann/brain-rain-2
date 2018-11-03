@@ -33,17 +33,9 @@
         <div id="curr-pic-info-wrapper">
             <img src="./img/arrow_links.png" class="arrow" onclick="prevPic();"><!--
             --><img src="./img/arrow_rechts.png" class="arrow" id="rarrow" onclick="nextPic();"><!--
-
             --><div id="curr-pic-info">
-                <div>
-                    <div id="title-and-date">
-                        <h1>Titel</h1><!--
-                        --><p>Datum</p>
-                    </div><!--
-                    --><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                </div>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
             </div>
-
         </div>
     </div>
 

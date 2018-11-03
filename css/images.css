@@ -76,7 +76,7 @@
 #main-pic-container {
     height: calc(100% - (30px + 10px + 10px + 100px)); /* margin and height of the cross + 10px*/
     width: 100%;
-    margin-top: 50px; /* cross height + margins */
+    /*margin-top: 10px; /* cross height + margins */
     display: flex;
     align-content: center;
 }
@@ -138,28 +138,29 @@
     margin-bottom: 50px;
 }
 .arrow {
-    height: 100px;
+    /*height: 140px;*/
     float: right;
     cursor: pointer;
-    filter: drop-shadow(8px 8px 5px black);
+    filter: drop-shadow(5px 5px 3px black);
     margin: 0 2%;
 }
 .arrow:first-child {
     float: left;
 }
 #curr-pic-info {
-    background-color: burlywood;
-    width: 70%;
+    background-color: white;
+    width: 61.8%;
     margin: 0 auto;
     font-family: 'Trebuchet MS';
+    border-radius: 80px;
+    text-align: center;
+    filter: drop-shadow(5px 5px 6px black);
 }
-
-#title-and-date {
-    background-color: white;
-    height: 100px;
-    border-radius: 50px;
+#curr-pic-info p {
+    width: 61.8%;
+    text-align: left;
+    display: inline-block;
+    margin: 20px;
     
 }
-#curr-pic-info div div:last-child {
-  
-}
+/* TITEL und DATUM NUR IN KLEIN; NUR TEXT BEI GROSSER ANZEIGE*/

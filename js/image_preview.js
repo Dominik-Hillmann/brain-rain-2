@@ -19,6 +19,7 @@ function unhidePic(picLink) {
     currShown.classList.remove("hide");
     setTimeout(function () {
         currShown.classList.remove("appearing");
+        updateArrowHeights();
     }, 300);
 }
 
@@ -37,7 +38,9 @@ function nextPic() {
         // animation
         mainPic.classList.add("appearing");
         mainPic.classList.remove("disappearing");
-        mainPic.classList.remove("appearing");        
+        mainPic.classList.remove("appearing");
+
+        updateArrowHeights();
     }, 295); // a bit shorter to not have the clipping effectct
 }
 
@@ -57,7 +60,9 @@ function prevPic() {
         // animation
         mainPic.classList.add("appearing");
         mainPic.classList.remove("disappearing");
-        mainPic.classList.remove("appearing");        
+        mainPic.classList.remove("appearing");
+        
+        updateArrowHeights();
     }, 295); // a bit shorter to not have the clipping effect
 }
 
@@ -89,6 +94,16 @@ function unblurBackground() {
             e.classList.remove("unblur");
         }
     }, 295);
+}
+
+
+function updateArrowHeights() {
+    let arrows = document.querySelectorAll(".arrow");
+    let textHeight = document.querySelector("#curr-pic-info-wrapper").offsetHeight;
+
+    for (arrow of arrows) {
+        arrow.style.height = textHeight + "px";
+    }
 }
 /**
  * Bei Aufruf aus Auflistung
