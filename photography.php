@@ -127,5 +127,6 @@
         </footer>
 
     </body>
+    <script src="./js/positioning.js"></script>
     <script src="./js/image_preview.js"></script>
 </html>
