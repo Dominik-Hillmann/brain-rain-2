@@ -52,7 +52,7 @@
             --><p><span>HIRE ME - CONTACT</span></p>
         </div>
 
-        <div id="main">
+        <div id="main" class="main-content">
             <div id="design">
                 <h1>GRAPHIC<br>DESIGN</h1>
             </div><!--
@@ -88,4 +88,5 @@
 
     </body>
     <script src="./js/positioning.js"></script>
+    <script src="./js/header.js"></script>
 </html>

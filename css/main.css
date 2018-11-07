@@ -21,6 +21,11 @@ header {
     vertical-align: center;
     margin: 0 0 20px 0;
     padding-top: 10px;
+    z-index: 1;
+
+    width: 100%;
+    
+    position: fixed; /***/
 }
 #firstmenu {
     padding: 10px 0;
@@ -225,4 +230,9 @@ footer div p {
 #about p span {
     margin-top: -5px;
     height: 10px;
+}
+
+.main-content {
+    background-color: darksalmon;
+    padding-top: 168px; /*148 header height + 20*/
 }

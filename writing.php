@@ -129,4 +129,5 @@
 
     </body>
     <script src="./js/positioning.js"></script>
+    <script src="./js/header.js"></script>
 </html>

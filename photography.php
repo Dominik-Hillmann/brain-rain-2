@@ -72,7 +72,7 @@
 
         <!-- Idee: hier vielleicht mit JS Elemente bei Änderung der Breite aushängen und dann wieder einhängen -->
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
-        <div id="pics-main">
+        <div id="pics-main" class="main-content">
             <div class="row"><!--                
                 --><div class="pic-3 pic" style="background-image:url('./img/Volyova.jpg')" onclick="currPic=document.querySelectorAll('.pic')[0];blurBackground();unhidePic('./img/Volyova.jpg');">
                     <h1>TITEL</h1>
@@ -103,7 +103,21 @@
             </div>
 
             <div class="row">
-            <div class="pic-1 pic" style="background-image:url('./img/Screenshot_55.png')" onclick="currPic=document.querySelectorAll('.pic')[5];unhidePic('./img/Screenshot_55.png');">
+                <div class="pic-1 pic" style="background-image:url('./img/Screenshot_55.png')" onclick="currPic=document.querySelectorAll('.pic')[5];unhidePic('./img/Screenshot_55.png');">
+                    <h1>TITEL</h1>
+                    <p>DATUM</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="pic-1 pic" style="background-image:url('./img/Screenshot_55.png')" onclick="currPic=document.querySelectorAll('.pic')[5];unhidePic('./img/Screenshot_55.png');">
+                    <h1>TITEL</h1>
+                    <p>DATUM</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="pic-1 pic" style="background-image:url('./img/Screenshot_55.png')" onclick="currPic=document.querySelectorAll('.pic')[5];unhidePic('./img/Screenshot_55.png');">
                     <h1>TITEL</h1>
                     <p>DATUM</p>
                 </div>
@@ -129,4 +143,5 @@
     </body>
     <script src="./js/positioning.js"></script>
     <script src="./js/image_preview.js"></script>
+    <script src="./js/header.js"></script>
 </html>
