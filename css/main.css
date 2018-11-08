@@ -14,7 +14,6 @@ a:hover {
 }
 /*** FIRST LINE HEADER ***/
 header {
-    background-color: white;
     display: block;
     color: black;
     font-family: 'Source Sans Pro', sans-serif;
@@ -32,6 +31,7 @@ header {
     font-size: 12px;
     width: calc(100% - 100px);
     margin: 0 auto;
+    background-color: white;
 }
 #path {
     float: left;
@@ -235,4 +235,33 @@ footer div p {
 .main-content {
     background-color: darksalmon;
     padding-top: 168px; /*148 header height + 20*/
+}
+
+
+@keyframes headerDisappear {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+    }
+}
+
+@keyframes headerAppear {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+.retract {
+    opacity: 0;
+    animation-name: headerDisappear;
+    animation-duration: 200ms;
+    background-color: none;
+}
+
+.extend {
+    opacity: 1;
+    animation: headerAppear 200ms;
 }
