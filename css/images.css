@@ -68,7 +68,7 @@
 }
 #cross {
     float: right;
-    height: 30px;
+    height: 40px;
     margin: 10px 10px 0 0;
     cursor: pointer;
     filter: drop-shadow(8px 8px 5px black);
@@ -160,7 +160,12 @@
     width: 61.8%;
     text-align: left;
     display: inline-block;
-    margin: 20px;
-    
+    margin: 0 0 10px 0;
+}
+#curr-pic-info h1 {
+    font-family: 'Trebuchet MS', sans-serif;
+    padding: 10px 0;
+    display: block;
+    color: rgb(64, 130, 53);
 }
 /* TITEL und DATUM NUR IN KLEIN; NUR TEXT BEI GROSSER ANZEIGE*/
