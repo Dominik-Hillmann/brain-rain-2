@@ -28,4 +28,20 @@
         }
         return $returnValue;
     }
+
+    const PICINFOPATH = '../pic-info/'; 
+
+    function getPicInfo($fileName) {
+        // returns information about a picture
+        echo PICINFOPATH . $fileName;
+        $infoFile = fopen("../pic-info/volyova.json", 'r');
+        $info = json_decode(fgets($infoFile));
+        fclose($infoFile);
+        
+        return $info;
+    }
+
+    function orderMedia($media) {
+        
+    }
 ?>

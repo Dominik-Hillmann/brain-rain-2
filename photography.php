@@ -31,7 +31,7 @@
             <img src="./img/cube.gif" id="the-main-pic">
         </div>
         <div id="curr-pic-info-wrapper">
-            <img src="./img/arrow_links.png_colored" class="arrow" onclick="prevPic();"><!--
+            <img src="./img/arrow_links_colored.png" class="arrow" onclick="prevPic();"><!--
             --><img src="./img/arrow_rechts_colored.png" class="arrow" id="rarrow" onclick="nextPic();"><!--
             --><div id="curr-pic-info">
                 <h1>Titel, ein langer Titel</h1>
@@ -143,6 +143,9 @@
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo.png"></a></p>
             </div>
         </footer>
+        <?php
+            var_dump(getPicInfo('volyova.json'));
+        ?>
 
     </body>
     <script src="./js/positioning.js"></script>
