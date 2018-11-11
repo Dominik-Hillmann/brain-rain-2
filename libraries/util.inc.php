@@ -29,19 +29,20 @@
         return $returnValue;
     }
 
-    const PICINFOPATH = '../pic-info/'; 
-
+    
     function getPicInfo($fileName) {
-        // returns information about a picture
-        echo PICINFOPATH . $fileName;
-        $infoFile = fopen("../pic-info/volyova.json", 'r');
-        $info = json_decode(fgets($infoFile));
-        fclose($infoFile);
-        
-        return $info;
+        return json_decode(file_get_contents(
+            $_SERVER['DOCUMENT_ROOT'] . "/pic-info/" . $fileName, 
+            "r"
+        ));
     }
 
     function orderMedia($media) {
-        
+        // bucket sort by date
+        $buckets = [];
+        foreach ($media as $fileName) {
+            array_push($buckets, []);
+        }
+        echo count($buckets);
     }
 ?>

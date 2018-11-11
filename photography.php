@@ -24,6 +24,8 @@
         <img
     </div>-->
 
+    <?php require "./libraries/util.inc.php"; ?>
+
     <div id="currently-shown" class="hide">
         <!-- here to cover all of the body -->
         <img src="./img/cross_colored.png" id="cross" onclick="unblurBackground();">
@@ -42,7 +44,6 @@
 
 
     <body>
-        <?php require "./libraries/util.inc.php"; ?>
         <header>
 
             <div id="inner-header-wrapper">
@@ -144,7 +145,17 @@
             </div>
         </footer>
         <?php
-            var_dump(getPicInfo('volyova.json'));
+        
+            $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . "/pic-info");
+            echo count($fileNames);
+            $fileNames = array_splice($fileNames, 2);
+            orderMedia($fileNames);
+            
+            foreach ($fileNames as $fileName) {
+                echo "<br>";
+                var_dump(getPicInfo($fileName));
+            }
+
         ?>
 
     </body>
