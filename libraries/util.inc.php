@@ -29,20 +29,40 @@
         return $returnValue;
     }
 
+    function prependZero($num) {
+        // if number is smaller than 10, zero will prepended
+        return $num < 10 ? 0 . $num : (string) $num;
+    }
+
     
     function getPicInfo($fileName) {
+        // returns object with information about a picture from ../pic-info
         return json_decode(file_get_contents(
-            $_SERVER['DOCUMENT_ROOT'] . "/pic-info/" . $fileName, 
-            "r"
+            $_SERVER['DOCUMENT_ROOT'] . '/pic-info/' . $fileName, 
+            'r'
         ));
     }
 
-    function orderMedia($media) {
-        // bucket sort by date
+    function printInfo($picInfo, $numPicInRow, $maxNumInRow) {
+        //
+        echo '<div class="pic-' . $maxNumInRow .' pic" ';
+        echo 'style="background-image:url(\'./img/' . $picInfo->filename . '\')" ';
+        echo 'onclick="currPic=document.querySelectorAll(\'.pic\')[' . $numPicInRow . '];';
+        echo 'blurBackground();unhidePic(\'./img/' . $picInfo->filename . '\');">';
+        echo '<h1>' . $picInfo->name . '</h1>';
+        echo '<p>' .
+            prependZero($picInfo->day) . '.' .
+            prependZero($picInfo->month) . '.' .
+            $picInfo->year . '</p></div>';
+    }
+
+    function orderPicInfo($allPicInfo) {
+        // bucket sort by date, returns sorted array
         $buckets = [];
-        foreach ($media as $fileName) {
+        foreach ($allPicInfo as $info) {
             array_push($buckets, []);
+            echo $info->year . ' ';
         }
-        echo count($buckets);
+        // echo count($buckets);
     }
 ?>

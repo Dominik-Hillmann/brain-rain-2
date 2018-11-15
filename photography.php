@@ -8,7 +8,6 @@
         <meta name="author" content="Dominik Hillmann">
 
     <!-- Mobile Specific Metas -->
-        <meta>
 
     <!-- CSS links -->
         <link rel="stylesheet" href="./css/main.css">
@@ -78,57 +77,33 @@
         <!-- Idee: hier vielleicht mit JS Elemente bei Änderung der Breite aushängen und dann wieder einhängen -->
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main" class="main-content">
-            <div class="row"><!--                
-                --><div class="pic-3 pic" style="background-image:url('./img/Volyova.jpg')" onclick="currPic=document.querySelectorAll('.pic')[0];blurBackground();unhidePic('./img/Volyova.jpg');">
-                    <h1>TITEL</h1>
-                    <p>DATUM</p>
-                </div><!--
+            <?php
+                $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/pic-info');
+                $fileNames = array_splice($fileNames, 2); // get rid of . and ..
 
-                --><div class="pic-3 pic" style="background-image:url('./img/0216-hd-engineering-arts.png')" onclick="currPic=document.querySelectorAll('.pic')[1];unhidePic('./img/0216-hd-engineering-arts.png');">
-                    <h1>TITEL</h1>
-                    <p>DATUM</p>
-                </div><!--
+                $allPicInfo = [];
+                foreach ($fileNames as $fileName) {
+                    array_push($allPicInfo, getPicInfo($fileName));
+                }
+            
+                # orderPicInfo($allPicInfo); später!
+                $allPicInfo = array_chunk($allPicInfo, 3);
+                # var_dump($allPicInfo);
 
-                --><div class="pic-3 pic" style="background-image:url('./img/4006-large_flakes_of_snow.jpg')" onclick="currPic=document.querySelectorAll('.pic')[2];unhidePic('./img/4006-large_flakes_of_snow.jpg');">
-                    <h1>TITEL</h1>
-                    <p>DATUM</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="pic-2 pic" style="background-image:url('./img/8610947261_1eed4f5b29_b.jpg')" onclick="currPic=document.querySelectorAll('.pic')[3];unhidePic('./img/8610947261_1eed4f5b29_b.jpg');">
-                    <h1>TITEL</h1>
-                    <p>DATUM</p>
-                </div><!--
-
-                --><div class="pic-2 pic" style="background-image:url('./img/Complexity-map_castellani_w.jpg')" onclick="currPic=document.querySelectorAll('.pic')[4];unhidePic('./img/Complexity-map_castellani_w.jpg');">
-                    <h1>TITEL</h1>
-                    <p>DATUM</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="pic-1 pic" style="background-image:url('./img/Screenshot_55.png')" onclick="currPic=document.querySelectorAll('.pic')[5];unhidePic('./img/Screenshot_55.png');">
-                    <h1>TITEL</h1>
-                    <p>DATUM</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="pic-1 pic" style="background-image:url('./img/Screenshot_55.png')" onclick="currPic=document.querySelectorAll('.pic')[5];unhidePic('./img/Screenshot_55.png');">
-                    <h1>TITEL</h1>
-                    <p>DATUM</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="pic-1 pic" style="background-image:url('./img/Screenshot_55.png')" onclick="currPic=document.querySelectorAll('.pic')[5];unhidePic('./img/Screenshot_55.png');">
-                    <h1>TITEL</h1>
-                    <p>DATUM</p>
-                </div>
-            </div>
+                foreach ($allPicInfo as $subPicInfo) {
+                    echo '<div class="row">';
+                    for ($i = 0; $i < count($subPicInfo); $i++) {
+                        printInfo(
+                            $subPicInfo[$i],
+                            $i + 1, 
+                            count($subPicInfo)
+                        );
+                    }
+                    echo '</div>';
+                }
+                // fuer Informationen am Anfang drucken lassen, vestecken, mit JS auswaehlen, dann ueber gleiche Funktion woe Bildwechsel
+            ?>
         </div>
-
 
         <footer>
             <div>
@@ -144,22 +119,10 @@
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo.png"></a></p>
             </div>
         </footer>
-        <?php
-        
-            $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . "/pic-info");
-            echo count($fileNames);
-            $fileNames = array_splice($fileNames, 2);
-            orderMedia($fileNames);
-            
-            foreach ($fileNames as $fileName) {
-                echo "<br>";
-                var_dump(getPicInfo($fileName));
-            }
-
-        ?>
-
     </body>
+
     <script src="./js/positioning.js"></script>
     <script src="./js/image_preview.js"></script>
     <script src="./js/header.js"></script>
+
 </html>
