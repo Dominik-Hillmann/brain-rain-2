@@ -1,8 +1,7 @@
 function hidePic() {
+    // 
     let currShown = document.querySelector("#currently-shown");
     currShown.classList.add("disappearing");
-
-    // unblurBackground();
 
     setTimeout(function () {
         currShown.classList.add("hide");
@@ -11,6 +10,7 @@ function hidePic() {
 }
 
 function unhidePic(picLink) {
+    // 
     let currShown = document.querySelector("#currently-shown");
     let mainPic = currShown.querySelector("#the-main-pic");
     mainPic.src = picLink;
@@ -19,11 +19,22 @@ function unhidePic(picLink) {
     currShown.classList.remove("hide");
     setTimeout(function () {
         currShown.classList.remove("appearing");
+        
+        let currPicIndex = allPicsArr.findIndex(e => e == currPic);
+        let nextPicIndex = (currPicIndex - 1 < 0) ? allPicsArr.length - 1 : currPicIndex - 1;
+        // setPicInfo(
+        //     allPicsInfo[nextPicIndex].name,
+        //     allPicsInfo[nextPicIndex].description
+        // );
+        // console.log(allPicsArr);
+        console.log([currPicIndex, nextPicIndex, allPicsArr.length]);
+        console.log(allPicsArr[nextPicIndex]);
         updateArrowHeights();
     }, 300);
 }
 
 function nextPic() {
+    // 
     let currPicIndex = allPicsArr.findIndex(e => e == currPic);
     let nextPicIndex = (currPicIndex + 1 >= allPicsArr.length) ? 0 : currPicIndex + 1;
 
@@ -35,6 +46,10 @@ function nextPic() {
         style = currPic.currentStyle || window.getComputedStyle(currPic, false);
         backImgURL = style.backgroundImage.slice(4, -1).replace(/"/g, "");
         mainPic.src = backImgURL;
+        setPicInfo(
+            allPicsInfo[nextPicIndex].name,
+            allPicsInfo[nextPicIndex].description
+        );
         // animation
         mainPic.classList.add("appearing");
         mainPic.classList.remove("disappearing");
@@ -45,6 +60,7 @@ function nextPic() {
 }
 
 function prevPic() {
+    // 
     let currPicIndex = allPicsArr.findIndex(e => e == currPic);
     let nextPicIndex = (currPicIndex - 1 < 0) ? allPicsArr.length - 1 : currPicIndex - 1;
 
@@ -57,6 +73,10 @@ function prevPic() {
         style = currPic.currentStyle || window.getComputedStyle(currPic, false);
         backImgURL = style.backgroundImage.slice(4, -1).replace(/"/g, "");
         mainPic.src = backImgURL;
+        setPicInfo(
+            allPicsInfo[nextPicIndex].name,
+            allPicsInfo[nextPicIndex].description
+        );
         // animation
         mainPic.classList.add("appearing");
         mainPic.classList.remove("disappearing");
@@ -67,6 +87,7 @@ function prevPic() {
 }
 
 function blurBackground() {
+    // 
     let toBeBlurred = [
         document.querySelector("header"),
         document.querySelector("footer"),
@@ -79,6 +100,7 @@ function blurBackground() {
 }
 
 function unblurBackground() {
+    // 
     let toBeUnBlurred = [
         document.querySelector("header"),
         document.querySelector("footer"),
@@ -98,6 +120,7 @@ function unblurBackground() {
 
 
 function updateArrowHeights() {
+    // 
     let arrows = document.querySelectorAll(".arrow");
     let textHeight = document.querySelector("#curr-pic-info-wrapper").offsetHeight;
 
@@ -105,15 +128,34 @@ function updateArrowHeights() {
         arrow.style.height = textHeight + "px";
     }
 }
-/**
- * Bei Aufruf aus Auflistung
- *      wird currPic besetzt mit dem aktuellen Element
- *      es wäre möglich, alle wieder 
- */
 
+function setPicInfo(title, description) {
+    // 
+    currPicDescription.innerHTML = description;
+    currPicName.innerHTML = title;
+}
+
+// global variables for the
 let currPic; // defined if picture is clicked upon
 let currPicIndex = 0;
+
 let allPicsArr = Array.from(document.querySelectorAll(".pic"));
+let allPicsInfo = [];
+for (info of Array.from(document.querySelectorAll('.hidden-pic-info'))) {
+    allPicsInfo.push({
+        name: info.querySelector('h1').innerHTML,
+        description: info.querySelector('p').innerHTML,
+    });
+}
+
+if (allPicsArr.length != allPicsInfo.length) 
+    throw new Error("Unequal amount of pics and descriptions.")
+
+let tempPicInfo = document.querySelector('#curr-pic-info');
+let currPicDescription = tempPicInfo.querySelector('p');
+let currPicName = tempPicInfo.querySelector('h1');
 
 let cross = document.querySelector("#cross");
 cross.addEventListener("click", hidePic);
+
+

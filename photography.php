@@ -119,6 +119,17 @@
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo.png"></a></p>
             </div>
         </footer>
+        <div id="pic-texts" style="display:none;">
+            <?php
+                foreach ($allPicInfo as $subPicInfo) {
+                    foreach ($subPicInfo as $picInfo) {
+                        echo '<div class="hidden-pic-info">';
+                        echo '<h1>'. $picInfo->name .'</h1>';
+                        echo '<p>'. $picInfo->description .'</p></div>';
+                    }                    
+                }
+            ?>
+        </div>
     </body>
 
     <script src="./js/positioning.js"></script>
