@@ -31,7 +31,7 @@
 
     function prependZero($num) {
         // if number is smaller than 10, zero will prepended
-        return $num < 10 ? 0 . $num : (string) $num;
+        return $num < 10 ? '0' . $num : (string) $num;
     }
 
     
@@ -43,18 +43,43 @@
         ));
     }
 
-    function printInfo($picInfo, $numPicInRow, $maxNumInRow) {
-        //
-        echo '<div class="pic-' . $maxNumInRow .' pic" ';
-        echo 'style="background-image:url(\'./img/' . $picInfo->filename . '\')" ';
-        echo 'onclick="currPic=document.querySelectorAll(\'.pic\')[' . $numPicInRow . '];';
-        echo 'blurBackground();unhidePic(\'./img/' . $picInfo->filename . '\');">';
-        echo '<h1>' . $picInfo->name . '</h1>';
-        echo '<p>' .
-            prependZero($picInfo->day) . '.' .
-            prependZero($picInfo->month) . '.' .
-            $picInfo->year . '</p></div>';
+    class InfoPrinter {
+        private $printedIndex;
+
+        function __construct() {
+            $this->printedIndex = 0;
+        }
+
+        function getIndex() {
+            return $this->printedIndex;
+        }
+
+        function printNext($picInfo, $maxNumInRow) {
+            echo '<div class="pic-' . $maxNumInRow .' pic" ';
+            echo 'style="background-image:url(\'./img/' . $picInfo->filename . '\')" ';
+            echo 'onclick="currPic=document.querySelectorAll(\'.pic\')[' . $this->printedIndex . '];';
+            echo 'blurBackground();unhidePic(\'./img/' . $picInfo->filename . '\');">';
+            echo '<h1>' . $picInfo->name . '</h1>';
+            echo '<p>' .
+                prependZero($picInfo->day) . '.' .
+                prependZero($picInfo->month) . '.' .
+                $picInfo->year . '</p></div>';
+            
+            $this->printedIndex++;
+        }
     }
+    // function printInfo($picInfo, $numPicInRow, $maxNumInRow) {
+    //     //
+    //     echo '<div class="pic-' . $maxNumInRow .' pic" ';
+    //     echo 'style="background-image:url(\'./img/' . $picInfo->filename . '\')" ';
+    //     echo 'onclick="currPic=document.querySelectorAll(\'.pic\')[' . $numPicInRow . '];';
+    //     echo 'blurBackground();unhidePic(\'./img/' . $picInfo->filename . '\');">';
+    //     echo '<h1>' . $picInfo->name . '</h1>';
+    //     echo '<p>' .
+    //         prependZero($picInfo->day) . '.' .
+    //         prependZero($picInfo->month) . '.' .
+    //         $picInfo->year . '</p></div>';
+    // }
 
     function orderPicInfo($allPicInfo) {
         // bucket sort by date, returns sorted array

@@ -21,14 +21,11 @@ function unhidePic(picLink) {
         currShown.classList.remove("appearing");
         
         let currPicIndex = allPicsArr.findIndex(e => e == currPic);
-        let nextPicIndex = (currPicIndex - 1 < 0) ? allPicsArr.length - 1 : currPicIndex - 1;
-        // setPicInfo(
-        //     allPicsInfo[nextPicIndex].name,
-        //     allPicsInfo[nextPicIndex].description
-        // );
-        // console.log(allPicsArr);
-        console.log([currPicIndex, nextPicIndex, allPicsArr.length]);
-        console.log(allPicsArr[nextPicIndex]);
+        setPicInfo(
+            allPicsInfo[currPicIndex].name,
+            allPicsInfo[currPicIndex].description
+        );
+        
         updateArrowHeights();
     }, 300);
 }
@@ -159,3 +156,4 @@ let cross = document.querySelector("#cross");
 cross.addEventListener("click", hidePic);
 
 
+// 31 ab 19 Uhr, bis 2./3.

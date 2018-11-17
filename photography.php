@@ -87,21 +87,20 @@
                 }
             
                 # orderPicInfo($allPicInfo); später!
-                $allPicInfo = array_chunk($allPicInfo, 3);
+                $allPicInfo = array_chunk($allPicInfo, ceil(count($allPicInfo) / 3));
                 # var_dump($allPicInfo);
-
+                
+                $infoPrinter = new InfoPrinter();
                 foreach ($allPicInfo as $subPicInfo) {
                     echo '<div class="row">';
                     for ($i = 0; $i < count($subPicInfo); $i++) {
-                        printInfo(
-                            $subPicInfo[$i],
-                            $i + 1, 
+                        $infoPrinter->printNext(
+                            $subPicInfo[$i], 
                             count($subPicInfo)
                         );
                     }
                     echo '</div>';
                 }
-                // fuer Informationen am Anfang drucken lassen, vestecken, mit JS auswaehlen, dann ueber gleiche Funktion woe Bildwechsel
             ?>
         </div>
 
