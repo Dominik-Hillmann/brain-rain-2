@@ -86,9 +86,8 @@
                     array_push($allPicInfo, getPicInfo($fileName));
                 }
             
-                # orderPicInfo($allPicInfo); später!
+                #$allPicInfo = orderPicInfo($allPicInfo);
                 $allPicInfo = array_chunk($allPicInfo, ceil(count($allPicInfo) / 3));
-                # var_dump($allPicInfo);
                 
                 $infoPrinter = new InfoPrinter();
                 foreach ($allPicInfo as $subPicInfo) {
@@ -129,6 +128,16 @@
                 }
             ?>
         </div>
+        <?php
+            try {
+                #5 / 0;
+                echo count([]);
+            } catch (Exception $e) {
+                echo 'Alles gut';
+            } finally {
+                echo 'Test';
+            }
+        ?>
     </body>
 
     <script src="./js/positioning.js"></script>

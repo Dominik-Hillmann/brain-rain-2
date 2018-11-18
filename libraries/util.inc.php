@@ -68,26 +68,23 @@
             $this->printedIndex++;
         }
     }
-    // function printInfo($picInfo, $numPicInRow, $maxNumInRow) {
-    //     //
-    //     echo '<div class="pic-' . $maxNumInRow .' pic" ';
-    //     echo 'style="background-image:url(\'./img/' . $picInfo->filename . '\')" ';
-    //     echo 'onclick="currPic=document.querySelectorAll(\'.pic\')[' . $numPicInRow . '];';
-    //     echo 'blurBackground();unhidePic(\'./img/' . $picInfo->filename . '\');">';
-    //     echo '<h1>' . $picInfo->name . '</h1>';
-    //     echo '<p>' .
-    //         prependZero($picInfo->day) . '.' .
-    //         prependZero($picInfo->month) . '.' .
-    //         $picInfo->year . '</p></div>';
-    // }
 
     function orderPicInfo($allPicInfo) {
         // bucket sort by date, returns sorted array
+        $originalLen = count($allPicInfo);
         $buckets = [];
-        foreach ($allPicInfo as $info) {
-            array_push($buckets, []);
-            echo $info->year . ' ';
+
+
+        while (0 != count($allPicInfo)) {
+            $years, $months, $days = [];
+            foreach ($allPicInfo as $info) {
+                array_push($years, $info->year);
+            }
         }
+
+        # durch alle Elemente
+        # wenn min neu, dann neuer Arr mit Ele daran
+        # wenn nicht neu, dann dran
         // echo count($buckets);
     }
 ?>
