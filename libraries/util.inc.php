@@ -69,18 +69,76 @@
         }
     }
 
+    function bucketSort($arr) { }
+
     function orderPicInfo($allPicInfo) {
         // bucket sort by date, returns sorted array
         $originalLen = count($allPicInfo);
         $buckets = [];
 
+        $years = $months = $days = [];
+        foreach ($allPicInfo as $info) {
+            array_push($years, $info->year);
+            array_push($months, $info->month);
+            array_push($days, $info->day);
+        }
+        // var_dump($years);
+        asort($years);
+        // var_dump($years);
 
-        while (0 != count($allPicInfo)) {
-            $years, $months, $days = [];
-            foreach ($allPicInfo as $info) {
-                array_push($years, $info->year);
+        $yearBuckets = $monthBuckets = $dayBuckets = $indexBuckets = [];
+        // echo count($yearBuckets);
+        $lastElement = NULL;
+        foreach ($years as $index => $year) {
+            echo $index . "=>" . $year . "<br>";
+            if (count($yearBuckets) == 0) {
+                // completely new ==> push first array
+                array_push($yearBuckets, [$year]);
+                array_push($indexBuckets, [$index]);
+
+            } else if ($year == $lastElement) {
+                // if the element is the same as before, push it to array with same value
+                array_push($yearBuckets[count($yearBuckets) - 1], $year);
+                array_push($indexBuckets[count($indexBuckets) - 1], $index);
+
+            } else {
+                // otherwise 
+                array_push($yearBuckets, [$year]);
+                array_push($indexBuckets, [$index]);
+            }
+            
+            $lastElement = $year;
+        }
+
+        foreach ($yearBuckets as $yearBucket) {
+            if (count($yearBucket) > 1) {
+
             }
         }
+        var_dump($yearBuckets); echo "<br>"; print_r($indexBuckets);
+        // ich sortiere zunächst nach Jahren
+        # wenn es in den Jahren Elemente des gleichen Jahres gibt, dann sortiere ich nach
+
+        // $yearBuckets = [];
+        // $indexBuckets = [];
+        // for ($i = 0; $i < count($years); $i++) {
+        //     $curMin = min($years);
+        //     $curMinIndex = array_search($curMin, $years);
+        //     $years[$curMinIndex] = 99999999;
+
+        //     if (count($yearBuckets) != 0) {
+        //         $pushed = FALSE;
+        //         foreach ($yearBuckets as $bucket) {
+        //             if ($bucket[0] == $curMin) {
+                        
+        //                 $pushed = TRUE;
+        //             }
+        //         }
+        //     } else {
+        //         array_push($yearBuckets, [$curMin]);
+        //         array_push($indexBuckets, [$curMinIndex]);
+        //     }
+        #  }
 
         # durch alle Elemente
         # wenn min neu, dann neuer Arr mit Ele daran

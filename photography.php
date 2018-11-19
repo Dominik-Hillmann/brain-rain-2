@@ -86,7 +86,7 @@
                     array_push($allPicInfo, getPicInfo($fileName));
                 }
             
-                #$allPicInfo = orderPicInfo($allPicInfo);
+                /*$allPicInfo = */orderPicInfo($allPicInfo);
                 $allPicInfo = array_chunk($allPicInfo, ceil(count($allPicInfo) / 3));
                 
                 $infoPrinter = new InfoPrinter();
@@ -129,13 +129,26 @@
             ?>
         </div>
         <?php
-            try {
-                #5 / 0;
-                echo count([]);
-            } catch (Exception $e) {
-                echo 'Alles gut';
-            } finally {
-                echo 'Test';
+            // try {
+            //     #5 / 0;
+            //     // echo min([]);
+            //     echo count([]);
+            // } catch (Exception $e) {
+            //     echo 'Alles gut';
+            // } finally {
+            //     echo 'Test';
+            // }
+
+            $arr = [5, 4, 4, 74, 3];
+            foreach ($arr as $k => $e) {
+                echo $k . "|||" . $e;
+                echo "<br>";
+            }
+            echo "<br><br>";
+            asort($arr);
+            foreach ($arr as $k => $e) {
+                echo $k . "|||" . $e;
+                echo "<br>";
             }
         ?>
     </body>
