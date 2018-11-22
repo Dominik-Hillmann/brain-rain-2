@@ -85,7 +85,6 @@
         // var_dump($years);
         asort($years);
         // var_dump($years);
-
         $yearBuckets = $monthBuckets = $dayBuckets = $indexBuckets = [];
         // echo count($yearBuckets);
         $lastElement = NULL;
@@ -105,44 +104,48 @@
                 // otherwise 
                 array_push($yearBuckets, [$year]);
                 array_push($indexBuckets, [$index]);
-            }
-            
+            }            
             $lastElement = $year;
         }
 
-        foreach ($yearBuckets as $yearBucket) {
-            if (count($yearBucket) > 1) {
-
+        // create array where at a certain year's position there's no its corresponding month
+        $monthBuckets = $yearBuckets;
+        for ($i = 0; $i < count($indexBuckets); $i++) {
+            // gebe den monthBuckets Monate gemäß Zuordnung 
+            for ($j = 0; $j < count($indexBuckets[$i]); $j++) {
+                $monthBuckets[$i][$j] = $months[$indexBuckets[$i][$j]];
             }
+
+
+
+
+
+
+            // sortiere in einem Bucket die Monate und prüfe, ob gleiche Monate existieren            
+            asort($monthBuckets[$i]);
+
+            // hier Array
+
+
+            $lastMonth = NULL; 
+
+            foreach ($monthBuckets[$i] as $index => $month) {
+                if ($month == $lastElement)
+
+                $lastElement = $month;
+            }
+
+           
+            # umfasse wieder mit einem Array
+            
         }
-        var_dump($yearBuckets); echo "<br>"; print_r($indexBuckets);
-        // ich sortiere zunächst nach Jahren
-        # wenn es in den Jahren Elemente des gleichen Jahres gibt, dann sortiere ich nach
+        var_dump($yearBuckets);
+        echo "<br>";
+        var_dump($monthBuckets);
 
-        // $yearBuckets = [];
-        // $indexBuckets = [];
-        // for ($i = 0; $i < count($years); $i++) {
-        //     $curMin = min($years);
-        //     $curMinIndex = array_search($curMin, $years);
-        //     $years[$curMinIndex] = 99999999;
-
-        //     if (count($yearBuckets) != 0) {
-        //         $pushed = FALSE;
-        //         foreach ($yearBuckets as $bucket) {
-        //             if ($bucket[0] == $curMin) {
-                        
-        //                 $pushed = TRUE;
-        //             }
-        //         }
-        //     } else {
-        //         array_push($yearBuckets, [$curMin]);
-        //         array_push($indexBuckets, [$curMinIndex]);
-        //     }
-        #  }
-
-        # durch alle Elemente
-        # wenn min neu, dann neuer Arr mit Ele daran
-        # wenn nicht neu, dann dran
-        // echo count($buckets);
+        # ordne nach Jahren, mit einem 
+            # Array in Jahren und eine
+        // var_dump($yearBuckets); echo "<br>"; print_r($indexBuckets);
+       
     }
 ?>

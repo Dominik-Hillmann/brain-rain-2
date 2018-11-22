@@ -150,6 +150,9 @@
                 echo $k . "|||" . $e;
                 echo "<br>";
             }
+
+            $test = [2];
+            asort($test);
         ?>
     </body>
 

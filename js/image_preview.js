@@ -104,9 +104,9 @@ function unblurBackground() {
         Array.from(document.querySelectorAll(".row"))
     ].flat();
 
-    for (e of toBeUnBlurred) 
+    for (e of toBeUnBlurred) {
         e.classList.add("unblur");
-    
+    }
     setTimeout(function () {
         for (e of toBeUnBlurred) {
             e.classList.remove("blur");
