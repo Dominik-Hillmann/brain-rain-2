@@ -72,6 +72,9 @@
     function bucketSort($arr) { }
 
     function orderPicInfo($allPicInfo) {
+        # bessere Idee: konvertiere alle zu UNIX time, ordne, nutze Indeizes
+
+
         // bucket sort by date, returns sorted array
         $originalLen = count($allPicInfo);
         $buckets = [];
@@ -115,33 +118,39 @@
             for ($j = 0; $j < count($indexBuckets[$i]); $j++) {
                 $monthBuckets[$i][$j] = $months[$indexBuckets[$i][$j]];
             }
-
-
-
-
-
-
-            // sortiere in einem Bucket die Monate und prüfe, ob gleiche Monate existieren            
+            // sortiere in einem Bucket            
             asort($monthBuckets[$i]);
 
             // hier Array
+            // $lastMonth = NULL; 
 
+            // foreach ($monthBuckets[$i] as $index => $month) {
+            //     if ($month == $lastElement)
 
-            $lastMonth = NULL; 
-
-            foreach ($monthBuckets[$i] as $index => $month) {
-                if ($month == $lastElement)
-
-                $lastElement = $month;
-            }
-
-           
+            //     $lastElement = $month;
+            // }           
             # umfasse wieder mit einem Array
             
         }
+        
+        // übertrage Indizes wieder auf den Indexarray
+        $months2nd = $monthBuckets;
+        for ($i = 0; $i < count($indexBuckets); $i++) {
+            $j = 0;
+            foreach ($monthBuckets[$i] as $index => $month) {
+                $indexBuckets[$i][$j] = $index;
+                $j++;
+            }
+        }
+
+
+
+
         var_dump($yearBuckets);
         echo "<br>";
         var_dump($monthBuckets);
+        echo "<br><br>";
+        var_dump($indexBuckets);
 
         # ordne nach Jahren, mit einem 
             # Array in Jahren und eine
