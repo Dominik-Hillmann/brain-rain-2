@@ -55,10 +55,14 @@
         }
 
         function printNext($picInfo, $maxNumInRow) {
-            echo '<div class="pic-' . $maxNumInRow .' pic" ';
+            //
+            echo '<div class="pic-' . $maxNumInRow .' pic" '; // sorrounding div
             echo 'style="background-image:url(\'./img/' . $picInfo->filename . '\')" ';
+            // JS to be executed when clicked
             echo 'onclick="currPic=document.querySelectorAll(\'.pic\')[' . $this->printedIndex . '];';
-            echo 'blurBackground();unhidePic(\'./img/' . $picInfo->filename . '\');">';
+            echo 'blurBackground();unhidePic(\'./img/' . $picInfo->filename . '\');';
+            echo 'scrollToMainPic();">';
+            // title and date, gets ordered later on
             echo '<h1>' . $picInfo->name . '</h1>';
             echo '<p>' .
                 prependZero($picInfo->day) . '.' .
@@ -69,92 +73,24 @@
         }
     }
 
-    function bucketSort($arr) { }
 
-    function orderPicInfo($allPicInfo) {
-        # bessere Idee: konvertiere alle zu UNIX time, ordne, nutze Indeizes
-
-
-        // bucket sort by date, returns sorted array
-        $originalLen = count($allPicInfo);
-        $buckets = [];
-
-        $years = $months = $days = [];
-        foreach ($allPicInfo as $info) {
-            array_push($years, $info->year);
-            array_push($months, $info->month);
-            array_push($days, $info->day);
-        }
-        // var_dump($years);
-        asort($years);
-        // var_dump($years);
-        $yearBuckets = $monthBuckets = $dayBuckets = $indexBuckets = [];
-        // echo count($yearBuckets);
-        $lastElement = NULL;
-        foreach ($years as $index => $year) {
-            echo $index . "=>" . $year . "<br>";
-            if (count($yearBuckets) == 0) {
-                // completely new ==> push first array
-                array_push($yearBuckets, [$year]);
-                array_push($indexBuckets, [$index]);
-
-            } else if ($year == $lastElement) {
-                // if the element is the same as before, push it to array with same value
-                array_push($yearBuckets[count($yearBuckets) - 1], $year);
-                array_push($indexBuckets[count($indexBuckets) - 1], $index);
-
-            } else {
-                // otherwise 
-                array_push($yearBuckets, [$year]);
-                array_push($indexBuckets, [$index]);
-            }            
-            $lastElement = $year;
+    function orderInfo($allInfo) {
+        // creates array ordered by date
+        $unixTimes = [];
+        foreach ($allInfo as $info) {
+            array_push(
+                $unixTimes, 
+                strtotime($info->day . "." . $info->month . "." . $info->year)
+            );
         }
 
-        // create array where at a certain year's position there's no its corresponding month
-        $monthBuckets = $yearBuckets;
-        for ($i = 0; $i < count($indexBuckets); $i++) {
-            // gebe den monthBuckets Monate gemäß Zuordnung 
-            for ($j = 0; $j < count($indexBuckets[$i]); $j++) {
-                $monthBuckets[$i][$j] = $months[$indexBuckets[$i][$j]];
-            }
-            // sortiere in einem Bucket            
-            asort($monthBuckets[$i]);
-
-            // hier Array
-            // $lastMonth = NULL; 
-
-            // foreach ($monthBuckets[$i] as $index => $month) {
-            //     if ($month == $lastElement)
-
-            //     $lastElement = $month;
-            // }           
-            # umfasse wieder mit einem Array
-            
-        }
+        asort($unixTimes);
         
-        // übertrage Indizes wieder auf den Indexarray
-        $months2nd = $monthBuckets;
-        for ($i = 0; $i < count($indexBuckets); $i++) {
-            $j = 0;
-            foreach ($monthBuckets[$i] as $index => $month) {
-                $indexBuckets[$i][$j] = $index;
-                $j++;
-            }
+        $reInfo = [];
+        foreach ($unixTimes as $index => $time) {
+            array_push($reInfo, $allInfo[$index]);
         }
 
-
-
-
-        var_dump($yearBuckets);
-        echo "<br>";
-        var_dump($monthBuckets);
-        echo "<br><br>";
-        var_dump($indexBuckets);
-
-        # ordne nach Jahren, mit einem 
-            # Array in Jahren und eine
-        // var_dump($yearBuckets); echo "<br>"; print_r($indexBuckets);
-       
+        return array_reverse($reInfo);
     }
-?>
+?>  

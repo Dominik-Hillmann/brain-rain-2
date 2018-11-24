@@ -132,6 +132,15 @@ function setPicInfo(title, description) {
     currPicName.innerHTML = title;
 }
 
+function scrollToMainPic() {
+    // scrolls to main pic if pic gets clicked
+    let mainPic = document.querySelector('#pics-main');
+    mainPic.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth'
+    });
+}
+
 // global variables for the
 let currPic; // defined if picture is clicked upon
 let currPicIndex = 0;
