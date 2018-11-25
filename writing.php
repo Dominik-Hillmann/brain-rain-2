@@ -49,10 +49,41 @@
 
         <!-- Idee: hier vielleicht mit JS Elemente bei Änderung der Breite aushängen und dann wieder einhängen -->
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
-        <div id="writing-main">
+        <div id="writing-main" class="main-content">
             <div class="row"><!--
                 
-                --><div class="text-3">
+                -->
+                <?php
+                    $folderName = 'writing-info';
+
+                    $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
+                    $fileNames = array_splice($fileNames, 2); // get rid of . and ..
+                    
+                    $allWritingsInfo = [];
+                    foreach ($fileNames as $fileName) {
+                        array_push($allWritingsInfo, getInfo($fileName, $folderName));
+                    }
+                    
+                    // chunk the ordered arrays into arrays of the size of a row
+                    $allWritingsInfo = array_chunk(
+                        orderInfo($allWritingsInfo),
+                        ceil(count($allWritingsInfo) / 3)
+                    );
+                                   
+                    $infoPrinter = new InfoPrinter();
+                    foreach ($allWritingsInfo as $subPicInfo) {
+                        echo '<div class="row">';
+                        for ($i = 0; $i < count($subPicInfo); $i++) {
+                            $infoPrinter->printNext(
+                                $subPicInfo[$i], 
+                                count($subPicInfo)
+                            );
+                        }
+                        echo '</div>';
+                    }
+                ?>
+                
+                <div class="text-3">
                     <div class="text-background">
                         <div class="background-background">&nbsp;</div>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -126,7 +157,9 @@
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo.png"></a></p>
             </div>
         </footer>
-
+        <?php
+            for ($i = 0; $i < 20; $i++) echo '<br>';
+        ?>
     </body>
     <script src="./js/positioning.js"></script>
     <script src="./js/header.js"></script>

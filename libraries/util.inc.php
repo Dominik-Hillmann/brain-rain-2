@@ -2,20 +2,21 @@
     function num2Roman($number) {
         // source: https://stackoverflow.com/questions/14994941/numbers-to-roman-numbers-with-php
         $map = [
-            'M' => 1000, 
+            'M'  => 1000, 
             'CM' => 900, 
-            'D' => 500, 
+            'D'  => 500, 
             'CD' => 400, 
-            'C' => 100, 
+            'C'  => 100, 
             'XC' => 90, 
-            'L' => 50, 
+            'L'  => 50, 
             'XL' => 40, 
-            'X' => 10, 
+            'X'  => 10, 
             'IX' => 9, 
-            'V' => 5, 
+            'V'  => 5, 
             'IV' => 4, 
-            'I' => 1
+            'I'  => 1
         ];
+
         $returnValue = '';
         while ($number > 0) {
             foreach ($map as $roman => $int) {
@@ -30,21 +31,21 @@
     }
 
     function prependZero($num) {
-        // if number is smaller than 10, zero will prepended
+        // if number is smaller than 10, a zero will be prepended
         return $num < 10 ? '0' . $num : (string) $num;
     }
 
     
-    function getPicInfo($fileName) {
+    function getInfo($fileName, $folderName) {
         // returns object with information about a picture from ../pic-info
         return json_decode(file_get_contents(
-            $_SERVER['DOCUMENT_ROOT'] . '/pic-info/' . $fileName, 
+            $_SERVER['DOCUMENT_ROOT'] . '/' . $folderName . '/' . $fileName, 
             'r'
         ));
     }
 
-    class InfoPrinter {
-        private $printedIndex;
+    abstract class InfoPrinter {
+        protected $printedIndex;
 
         function __construct() {
             $this->printedIndex = 0;
@@ -52,6 +53,17 @@
 
         function getIndex() {
             return $this->printedIndex;
+        }
+
+        // has to be implemented differently dependent on whether pics or text are contained
+        abstract function printNext($picInfo, $maxNumInRow);
+    }
+
+    class anyPicInfoPrinter extends InfoPrinter {
+        //
+        
+        function __construct() {
+            parent::__construct();
         }
 
         function printNext($picInfo, $maxNumInRow) {
@@ -71,6 +83,12 @@
             
             $this->printedIndex++;
         }
+    }
+
+    class writingsInfoPrinter extends InfoPrinter {
+        //
+
+        function printNext($picInfo, $maxNumInRow) { }
     }
 
 

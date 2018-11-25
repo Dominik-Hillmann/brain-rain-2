@@ -78,18 +78,20 @@
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main" class="main-content">
             <?php
-                $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/pic-info');
+                $folderName = 'pic-info';
+
+                $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
                 $fileNames = array_splice($fileNames, 2); // get rid of . and ..
 
                 $allPicInfo = [];
                 foreach ($fileNames as $fileName) {
-                    array_push($allPicInfo, getPicInfo($fileName));
+                    array_push($allPicInfo, getInfo($fileName, $folderName));
                 }
             
                 $allPicInfo = orderInfo($allPicInfo);
                 $allPicInfo = array_chunk($allPicInfo, ceil(count($allPicInfo) / 3));
                 
-                $infoPrinter = new InfoPrinter();
+                $infoPrinter = new anyPicInfoPrinter();
                 foreach ($allPicInfo as $subPicInfo) {
                     echo '<div class="row">';
                     for ($i = 0; $i < count($subPicInfo); $i++) {
