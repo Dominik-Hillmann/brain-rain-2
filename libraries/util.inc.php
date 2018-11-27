@@ -30,11 +30,6 @@
         return $returnValue;
     }
 
-    function prependZero($num) {
-        // if number is smaller than 10, a zero will be prepended
-        return $num < 10 ? '0' . $num : (string) $num;
-    }
-
     
     function getInfo($fileName, $folderName) {
         // returns object with information about a picture from ../pic-info
@@ -55,11 +50,16 @@
             return $this->printedIndex;
         }
 
+        protected function prependZero($num) {
+            // if number is smaller than 10, a zero will be prepended
+            return $num < 10 ? '0' . $num : (string) $num;
+        }
+
         // has to be implemented differently dependent on whether pics or text are contained
         abstract function printNext($picInfo, $maxNumInRow);
     }
 
-    class anyPicInfoPrinter extends InfoPrinter {
+    class AnyPicInfoPrinter extends InfoPrinter {
         //
         
         function __construct() {
@@ -77,18 +77,37 @@
             // title and date, gets ordered later on
             echo '<h1>' . $picInfo->name . '</h1>';
             echo '<p>' .
-                prependZero($picInfo->day) . '.' .
-                prependZero($picInfo->month) . '.' .
+                $this->prependZero($picInfo->day) . '.' .
+                $this->prependZero($picInfo->month) . '.' .
                 $picInfo->year . '</p></div>';
             
             $this->printedIndex++;
         }
     }
 
-    class writingsInfoPrinter extends InfoPrinter {
-        //
-
-        function printNext($picInfo, $maxNumInRow) { }
+    class WritingsInfoPrinter extends InfoPrinter {
+        function printNext($info, $maxNumInRow) {
+            // <div class="text-3"> ****
+            //     <div class="text-background">
+            //         <div class="background-background">&nbsp;</div>
+            //***** */         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            //     </div>
+            //     <h1>TITEL</h1>****
+            //     <p>DATUM</p>****
+            // </div>
+            echo '<div class="text-' . $maxNumInRow . '">';
+            echo '<div class="text-background">';
+            echo '<div class="background-background">&nbsp;</div>';
+            echo $info->text . '</div>';
+            echo '<h1>' . $info->name . '</h1>';
+            echo '<p>' .
+                $this->prependZero($info->day) . '.' .
+                $this->prependZero($info->month) . '.' .
+                $info->year . 
+                '</p></div>';
+            
+            $this->printedIndex++;
+        }
     }
 
 

@@ -91,7 +91,7 @@
                 $allPicInfo = orderInfo($allPicInfo);
                 $allPicInfo = array_chunk($allPicInfo, ceil(count($allPicInfo) / 3));
                 
-                $infoPrinter = new anyPicInfoPrinter();
+                $infoPrinter = new AnyPicInfoPrinter();
                 foreach ($allPicInfo as $subPicInfo) {
                     echo '<div class="row">';
                     for ($i = 0; $i < count($subPicInfo); $i++) {
