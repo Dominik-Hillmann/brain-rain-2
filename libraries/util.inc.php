@@ -87,24 +87,25 @@
 
     class WritingsInfoPrinter extends InfoPrinter {
         function printNext($info, $maxNumInRow) {
-            // <div class="text-3"> ****
-            //     <div class="text-background">
-            //         <div class="background-background">&nbsp;</div>
-            //***** */         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-            //     </div>
-            //     <h1>TITEL</h1>****
-            //     <p>DATUM</p>****
-            // </div>
-            echo '<div class="text-' . $maxNumInRow . '">';
+            //
+
+            $date = $this->prependZero($info->day) . '.' . 
+                $this->prependZero($info->month) . '.' . 
+                $info->year;
+
+            echo '<div class="text-' . $maxNumInRow . '" ';
+
+            echo 'onclick="window.open(\'./read-text.php?';
+            echo 'date=' . urlencode($date) . '&';
+            echo 'text=' . urlencode($info->text) . '&';
+            echo 'title=' . urlencode($info->name);
+            echo '\', \'_blank\', \'\'); return false;">';
+
             echo '<div class="text-background">';
             echo '<div class="background-background">&nbsp;</div>';
             echo $info->text . '</div>';
             echo '<h1>' . $info->name . '</h1>';
-            echo '<p>' .
-                $this->prependZero($info->day) . '.' .
-                $this->prependZero($info->month) . '.' .
-                $info->year . 
-                '</p></div>';
+            echo '<p>' . $date . '</p></div>';
             
             $this->printedIndex++;
         }
