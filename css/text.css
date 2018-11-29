@@ -1,3 +1,47 @@
-#text-body {
-    background-color: red;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway:700');
+@import url('https://fonts.googleapis.com/css?family=Catamaran:300');
+
+
+.main-content {
+    margin: 0 auto 20px auto;
+    width: calc(100% - 100px);
+}
+
+#text-schmuck {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    
+    border-bottom: 1px solid black;
+}
+
+#inner-text-wrapper {
+    max-width: 700px;
+    margin: auto;
+}
+#inner-text-wrapper div {
+    /*margin-bottom: ;*/
+    
+}
+#inner-text-wrapper div h1 {
+    font-size: 40px;
+}
+#inner-text-wrapper div h2 {
+    font-size: 24px;
+    
+}
+
+#inner-text-wrapper div h1,
+#inner-text-wrapper div h2 {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-family: 'Catamaran', sans-serif;
+}
+
+
+#inner-text-wrapper p {
+    font-size: 18px;
+    line-height: 26px; /* 18 hoch + 6 oben und unten je */
+    text-align: justify;
+    font-family: 'Open Sans';
 }

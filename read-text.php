@@ -24,7 +24,7 @@
             <div id="firstmenu" class="menufloater">
                 <div id="path">
                     <img src="./img/burgermenu.png">
-                    <h1><a href="http://brain-rain.net">Menu</a> / Writing / <?php echo $_GET['title']; ?></h1>
+                    <h1><a href="http://brain-rain.net">Menu</a> / <a href="./writing.php">Writing</a> / <?php echo $_GET['title']; ?></h1>
                 </div>
 
                 <div id="number" class="menufloater">
@@ -46,7 +46,16 @@
 
         </header>
 
-        <div class="main-content"><?php var_dump($_GET); ?></div>
+        <div class="main-content">
+            <div id="inner-text-wrapper">
+            <div id="text-schmuck">READ TEXT: <?php echo strtoupper($_GET['title']); ?></div>
+                <div>
+                    <h1><?php echo $_GET['title']; ?></h1>
+                    <h2><?php echo $_GET['date']; ?></h2>
+                </div>
+                <p><?php echo $_GET['text']; ?></p>
+            </div>
+        </div>
 
         <footer>
             <div>
