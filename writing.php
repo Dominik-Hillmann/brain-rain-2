@@ -51,7 +51,7 @@
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="writing-main" class="main-content">
             <?php
-                $folderName = 'writing-info';
+                $folderName = 'info/writing-info';
 
                 $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
                 $fileNames = array_splice($fileNames, 2); // get rid of . and ..

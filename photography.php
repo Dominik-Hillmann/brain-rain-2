@@ -78,7 +78,7 @@
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main" class="main-content">
             <?php
-                $folderName = 'pic-info';
+                $folderName = 'info/pic-info';
 
                 $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
                 $fileNames = array_splice($fileNames, 2); // get rid of . and ..
