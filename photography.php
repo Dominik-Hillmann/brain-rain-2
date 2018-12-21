@@ -85,7 +85,11 @@
 
                 $allPicInfo = [];
                 foreach ($fileNames as $fileName) {
-                    array_push($allPicInfo, getInfo($fileName, $folderName));
+                    $info = getInfo($fileName, $folderName);
+
+                    if (!$info->secret) {
+                        array_push($allPicInfo, $info);
+                    }
                 }
             
                 $allPicInfo = orderInfo($allPicInfo);

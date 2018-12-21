@@ -58,7 +58,11 @@
                     
                 $allWritingsInfo = [];
                 foreach ($fileNames as $fileName) {
-                    array_push($allWritingsInfo, getInfo($fileName, $folderName));
+                    $info = getInfo($fileName, $folderName);
+
+                    if (!$info->secret) {
+                        array_push($allWritingsInfo, $info);
+                    }                    
                 }
 
                 // chunk the ordered arrays into arrays of the size of a row: 3
