@@ -41,9 +41,11 @@
 
     abstract class InfoPrinter {
         protected $printedIndex;
+        protected $infoArr;
 
-        function __construct() {
+        function __construct($infoArr) {
             $this->printedIndex = 0;
+            $this->infoArr = $infoArr;
         }
 
         function getIndex() {
@@ -57,13 +59,14 @@
 
         // has to be implemented differently dependent on whether pics or text are contained
         abstract function printNext($picInfo, $maxNumInRow);
+        abstract function printContainedInfo();
     }
 
     class AnyPicInfoPrinter extends InfoPrinter {
         //
         
-        function __construct() {
-            parent::__construct();
+        function __construct($infoArr) {
+            parent::__construct($infoArr);
         }
 
         function printNext($picInfo, $maxNumInRow) {
@@ -99,7 +102,7 @@
             echo 'date=' . urlencode($date) . '&';
             echo 'text=' . urlencode($info->text) . '&';
             echo 'title=' . urlencode($info->name);
-            echo '\', \'_blank\', \'\'); return false;">';
+            echo '\', \'_blank\', \'\');return false;">';
 
             echo '<div class="text-background">';
             echo '<div class="background-background">&nbsp;</div>';

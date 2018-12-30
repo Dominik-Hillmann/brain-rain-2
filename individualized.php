@@ -3,7 +3,7 @@
     <head>
     <!-- Basic Page Needs -->
         <meta charset="utf-8">
-        <title>BRAINRAIN - Photography</title>
+        <title>BRAINRAIN - Individualized</title>
         <meta name="description" content="">
         <meta name="author" content="Dominik Hillmann">
 
@@ -12,16 +12,11 @@
     <!-- CSS links -->
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/images.css">
-        <!-- <link rel="stylesheet" href="css/mobile.css"> -->
+        <link rel="stylesheet" href="./css/writing.css">
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
     </head>
-
-    <!--<div id="hidden-img-list" class="hidden">
-
-        <img
-    </div>-->
 
     <?php require "./libraries/util.inc.php"; ?>
 
@@ -73,11 +68,128 @@
 
         </header>
 
-        <div id="main" style="padding-top:200px;">
-            <?php var_dump($_POST); ?>
+        <div id="pics-main" class="main-content" style="padding-top:200px;">
+            <?php
+                // Teil 1: anhand Passwort richtige JSON wählen
+
+                // alle user fetchen
+                $folderName = '/TEMP__USER_STORAGE';
+                $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . $folderName);
+                $fileNames = array_splice($fileNames, 2); // get rid of . and ..
+
+                $userInfo = NULL;
+                foreach ($fileNames as $fileName) {
+                    $userJSON = getInfo($fileName, $folderName);
+
+                    // WICHTIG: später Verschlüsselung
+                    if ($userJSON->pw == $_POST['pw']) {
+                        $userInfo = $userJSON;
+                    }
+                }
+                
+                // Anzeige, wenn Passwort zu keinem passt (User nicht gefunden, oder so)
+                if ($userInfo == NULL) {
+                    var_dump($_POST);
+                    echo '<br>' . 'Kein User mit diesem Kennwort gefunden';
+                } else {
+                    // Nun einmal die Stories darstellen, einmal die Bilder darstellen
+                    // var_dump($userInfo);
+
+                    // Bilder fetchen
+                    $wantedNames = $userInfo->pics;
+
+                    $picFolderName = '/info/pic-info';
+                    $picNames = scandir($_SERVER['DOCUMENT_ROOT'] . $picFolderName);
+                    $picNames = array_splice($picNames, 2); // get rid of . and ..
+                    
+                    $wantedPicInfo = [];
+                    foreach ($picNames as $picName) {
+                        $info = getInfo($picName, $picFolderName);
+                    
+                        if (in_array($info->name, $wantedNames)) {
+                            array_push($wantedPicInfo, $info);
+                        }                    
+                    }
+
+                    $wantedPicInfo = orderInfo($wantedPicInfo);
+                    $wantedPicInfo = array_chunk($wantedPicInfo, 3);
+                    
+                    // Bilder drucken
+                    $picPrinter = new AnyPicInfoPrinter();
+                    foreach ($wantedPicInfo as $subPicInfo) {
+                        echo '<div class="row">';
+                        for ($i = 0; $i < count($subPicInfo); $i++) {
+                            $picPrinter->printNext(
+                                $subPicInfo[$i], 
+                                count($subPicInfo)
+                            );
+                        }
+                        echo '</div>';
+                    }
+                    
+                    
+                    // Writings
+                    $wantedWritingNames = $userInfo->writings;
+
+                    $writFolderName = '/info/writing-info';
+                    $writNames = scandir($_SERVER['DOCUMENT_ROOT'] . $writFolderName);
+                    $writNames = array_splice($writNames, 2); // get rid of . and ..
+                        
+                    $wantedWritInfos = [];
+                    foreach ($writNames as $writName) {
+                        $info = getInfo($writName, $writFolderName);
+    
+                        if (in_array($info->name, $wantedWritingNames)) {
+                            array_push($wantedWritInfos, $info);
+                        }                    
+                    }
+    
+                    // chunk the ordered arrays into arrays of the size of a row: 3
+                    $wantedWritInfos = array_chunk(orderInfo($wantedWritInfos), 3);
+                                       
+                    $infoPrinter = new WritingsInfoPrinter();
+                    foreach ($wantedWritInfos as $infoRow) {
+                        $numElements = count($infoRow);
+    
+                        echo '<div class="row">';
+                        for ($i = 0; $i < $numElements; $i++) {
+                            $infoPrinter->printNext(
+                                $infoRow[$i], 
+                                $numElements
+                            );
+                        }
+                        echo '</div>';
+                    }
+                } // else
+            ?>
         </div>
 
+        <footer>
+            <div>
+                <a href="#"><img src="./img/logos/instagram.png" id="instagram"></a>
+                <a href="#"><img src="./img/logos/twitter.png" id="twitter"></a>
+                <a href="#"><img src="./img/logos/facebook.png" id="facebook"></a>
+                <a href="#"><img src="./img/logos/youtube.png" id="youtube"></a>
+            </div>
 
+            <div>
+                <p id="madewith-pushback">&nbsp;</p>
+                <p>Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved. <a>Imprint</a></p>
+                <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo.png"></a></p>
+            </div>
+        </footer>
+
+        <div id="pic-texts" style="display:none;">
+            <?php
+                foreach ($wantedPicInfo as $subPicInfo) {
+                    foreach ($subPicInfo as $picInfo) {
+                        echo '<div class="hidden-pic-info">';
+                        echo '<h1>'. $picInfo->name .'</h1>';
+                        echo '<p>'. $picInfo->description .'</p></div>';
+                    }                    
+                }
+            ?>
+        </div>
     </body>
 
     <script src="./js/positioning.js"></script>

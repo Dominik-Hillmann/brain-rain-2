@@ -6,7 +6,7 @@ function hidePic() {
     setTimeout(function () {
         currShown.classList.add("hide");
         currShown.classList.remove("disappearing");
-    }, 300); // animations has to 300ms long
+    }, 300); // animations has to be 300ms long
 }
 
 function unhidePic(picLink) {
@@ -154,8 +154,9 @@ for (info of Array.from(document.querySelectorAll('.hidden-pic-info'))) {
     });
 }
 
-if (allPicsArr.length != allPicsInfo.length) 
-    throw new Error("Unequal amount of pics and descriptions.")
+if (allPicsArr.length != allPicsInfo.length) {
+    throw new Error("Unequal amount of pics and descriptions.");
+}
 
 let tempPicInfo = document.querySelector('#curr-pic-info');
 let currPicDescription = tempPicInfo.querySelector('p');
@@ -163,6 +164,3 @@ let currPicName = tempPicInfo.querySelector('h1');
 
 let cross = document.querySelector("#cross");
 cross.addEventListener("click", hidePic);
-
-
-// 31 ab 19 Uhr, bis 2./3.
