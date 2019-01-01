@@ -91,8 +91,13 @@
                         array_push($allPicInfo, $info);
                     }
                 }
+
+                var_dump($allPicInfo);
+
+                $picPrinter = new AnyPicInfoPrinter($allPicInfo);
+                $picPrinter->printContainedInfo();
             
-                $allPicInfo = orderInfo($allPicInfo);
+                /*$allPicInfo = orderInfo($allPicInfo);
                 $allPicInfo = array_chunk($allPicInfo, ceil(count($allPicInfo) / 3));
                 
                 $infoPrinter = new AnyPicInfoPrinter();
@@ -105,7 +110,7 @@
                         );
                     }
                     echo '</div>';
-                } 
+                }*/
             ?>
         </div>
 
@@ -125,7 +130,7 @@
         </footer>
         <div id="pic-texts" style="display:none;">
             <?php
-                foreach ($allPicInfo as $subPicInfo) {
+                foreach ($picPrinter->getChunkedInfo() as $subPicInfo) {
                     foreach ($subPicInfo as $picInfo) {
                         echo '<div class="hidden-pic-info">';
                         echo '<h1>'. $picInfo->name .'</h1>';

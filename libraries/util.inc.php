@@ -45,16 +45,40 @@
 
         function __construct($infoArr) {
             $this->printedIndex = 0;
-            $this->infoArr = $infoArr;
+            $this->infoArr = $this->orderInfo($infoArr);
         }
 
-        function getIndex() {
+        function getChunkedInfo() {
+            return array_chunk($this->infoArr, 3);
+        }
+
+        protected function getIndex() {
             return $this->printedIndex;
         }
 
         protected function prependZero($num) {
             // if number is smaller than 10, a zero will be prepended
             return $num < 10 ? '0' . $num : (string) $num;
+        }
+
+        protected function orderInfo($allInfo) {
+            // creates array ordered by date, independet of type of info
+            $unixTimes = [];
+            foreach ($allInfo as $info) {
+                array_push(
+                    $unixTimes, 
+                    strtotime($info->day . "." . $info->month . "." . $info->year)
+                );
+            }
+    
+            asort($unixTimes);
+            
+            $reInfo = [];
+            foreach ($unixTimes as $index => $time) {
+                array_push($reInfo, $allInfo[$index]);
+            }
+    
+            return array_reverse($reInfo);
         }
 
         // has to be implemented differently dependent on whether pics or text are contained
@@ -66,7 +90,7 @@
         //
         
         function __construct($infoArr) {
-            parent::__construct($infoArr);
+            $this->infoArr = $infoArr;
         }
 
         function printNext($picInfo, $maxNumInRow) {
@@ -86,8 +110,24 @@
             
             $this->printedIndex++;
         }
-    }
 
+        function printContainedInfo() {
+            //
+            $chunkedInfoArr = array_chunk($this->infoArr, 3);
+                
+            foreach ($chunkedInfoArr as $subPicInfo) {
+                echo '<div class="row">';
+                for ($i = 0; $i < count($subPicInfo); $i++) {
+                    $this->printNext(
+                        $subPicInfo[$i], 
+                        count($subPicInfo)
+                    );
+                }                
+                echo '</div>';
+            } 
+        }
+    }
+    /*
     class WritingsInfoPrinter extends InfoPrinter {
         function printNext($info, $maxNumInRow) {
             //
@@ -113,8 +153,8 @@
             $this->printedIndex++;
         }
     }
-
-
+    */
+/*
     function orderInfo($allInfo) {
         // creates array ordered by date
         $unixTimes = [];
@@ -134,4 +174,5 @@
 
         return array_reverse($reInfo);
     }
+    */
 ?>  
