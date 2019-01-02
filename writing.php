@@ -52,7 +52,6 @@
         <div id="writing-main" class="main-content">
             <?php
                 $folderName = 'info/writing-info';
-
                 $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
                 $fileNames = array_splice($fileNames, 2); // get rid of . and ..
                     
@@ -66,21 +65,8 @@
                 }
 
                 // chunk the ordered arrays into arrays of the size of a row: 3
-                $allWritingsInfo = array_chunk(orderInfo($allWritingsInfo), 3);
-                                   
-                $infoPrinter = new WritingsInfoPrinter();
-                foreach ($allWritingsInfo as $infoRow) {
-                    $numElements = count($infoRow);
-
-                    echo '<div class="row">';
-                    for ($i = 0; $i < $numElements; $i++) {
-                        $infoPrinter->printNext(
-                            $infoRow[$i], 
-                            $numElements
-                        );
-                    }
-                    echo '</div>';
-                }
+                $writPrinter = new WritingsInfoPrinter($allWritingsInfo);
+                $writPrinter->printContainedInfo();
             ?>               
         </div>
 

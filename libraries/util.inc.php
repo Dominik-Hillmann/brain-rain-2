@@ -43,11 +43,6 @@
         protected $printedIndex;
         protected $infoArr;
 
-        function __construct($infoArr) {
-            $this->printedIndex = 0;
-            $this->infoArr = $this->orderInfo($infoArr);
-        }
-
         function getChunkedInfo() {
             return array_chunk($this->infoArr, 3);
         }
@@ -90,7 +85,8 @@
         //
         
         function __construct($infoArr) {
-            $this->infoArr = $infoArr;
+            $this->printedIndex = 0;
+            $this->infoArr = $this->orderInfo($infoArr);
         }
 
         function printNext($picInfo, $maxNumInRow) {
@@ -125,10 +121,17 @@
                 }                
                 echo '</div>';
             } 
-        }
-    }
-    /*
+        } // printContainedInfo
+    } // AnyPicInfoPrinter
+    
     class WritingsInfoPrinter extends InfoPrinter {
+        //
+
+        function __construct($infoArr) {
+            $this->printedIndex = 0;
+            $this->infoArr = $this->orderInfo($infoArr);
+        }
+
         function printNext($info, $maxNumInRow) {
             //
 
@@ -152,27 +155,23 @@
             
             $this->printedIndex++;
         }
-    }
-    */
-/*
-    function orderInfo($allInfo) {
-        // creates array ordered by date
-        $unixTimes = [];
-        foreach ($allInfo as $info) {
-            array_push(
-                $unixTimes, 
-                strtotime($info->day . "." . $info->month . "." . $info->year)
-            );
-        }
 
-        asort($unixTimes);
-        
-        $reInfo = [];
-        foreach ($unixTimes as $index => $time) {
-            array_push($reInfo, $allInfo[$index]);
-        }
+        public function printContainedInfo() {
+            // 
+            $chunkedInfoArr = array_chunk($this->infoArr, 3);
+                                   
+            foreach ($chunkedInfoArr as $infoRow) {
+                $numElements = count($infoRow);
 
-        return array_reverse($reInfo);
-    }
-    */
-?>  
+                echo '<div class="row">';
+                for ($i = 0; $i < $numElements; $i++) {
+                    $this->printNext(
+                        $infoRow[$i],
+                        $numElements
+                    );
+                }
+                echo '</div>';
+            }
+        } // printContainedInfo
+    } // WritingsInfoPrinter
+?>

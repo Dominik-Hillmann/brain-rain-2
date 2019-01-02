@@ -111,24 +111,11 @@
                         }                    
                     }
 
-                    $wantedPicInfo = orderInfo($wantedPicInfo);
-                    $wantedPicInfo = array_chunk($wantedPicInfo, 3);
+                    $picPrinter = new AnyPicInfoPrinter($wantedPicInfo);
+                    $picPrinter->printContainedInfo();
+                                       
                     
-                    // Bilder drucken
-                    $picPrinter = new AnyPicInfoPrinter();
-                    foreach ($wantedPicInfo as $subPicInfo) {
-                        echo '<div class="row">';
-                        for ($i = 0; $i < count($subPicInfo); $i++) {
-                            $picPrinter->printNext(
-                                $subPicInfo[$i], 
-                                count($subPicInfo)
-                            );
-                        }
-                        echo '</div>';
-                    }
-                    
-                    
-                    // Writings
+                    // writings
                     $wantedWritingNames = $userInfo->writings;
 
                     $writFolderName = '/info/writing-info';
@@ -144,22 +131,8 @@
                         }                    
                     }
     
-                    // chunk the ordered arrays into arrays of the size of a row: 3
-                    $wantedWritInfos = array_chunk(orderInfo($wantedWritInfos), 3);
-                                       
-                    $infoPrinter = new WritingsInfoPrinter();
-                    foreach ($wantedWritInfos as $infoRow) {
-                        $numElements = count($infoRow);
-    
-                        echo '<div class="row">';
-                        for ($i = 0; $i < $numElements; $i++) {
-                            $infoPrinter->printNext(
-                                $infoRow[$i], 
-                                $numElements
-                            );
-                        }
-                        echo '</div>';
-                    }
+                    $writPrinter = new WritingsInfoPrinter($wantedWritInfos);
+                    $writPrinter->printContainedInfo();
                 } // else
             ?>
         </div>

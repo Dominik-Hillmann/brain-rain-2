@@ -84,7 +84,7 @@
         <?php
         /*
             Grundidee:
-        verschlüsselte Passwörter außerhalb des Ordners speichern, auf den Nutzer zugreifen können
+            verschlüsselte Passwörter außerhalb des Ordners speichern, auf den Nutzer zugreifen können
             dieser Ordner enthält je
             das verschlüsselte Passwort
             eine Liste von

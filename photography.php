@@ -78,8 +78,8 @@
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main" class="main-content">
             <?php
+                // get information about pictures
                 $folderName = 'info/pic-info';
-
                 $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
                 $fileNames = array_splice($fileNames, 2); // get rid of . and ..
 
@@ -92,25 +92,9 @@
                     }
                 }
 
-                var_dump($allPicInfo);
-
+                // echo pictures and information
                 $picPrinter = new AnyPicInfoPrinter($allPicInfo);
                 $picPrinter->printContainedInfo();
-            
-                /*$allPicInfo = orderInfo($allPicInfo);
-                $allPicInfo = array_chunk($allPicInfo, ceil(count($allPicInfo) / 3));
-                
-                $infoPrinter = new AnyPicInfoPrinter();
-                foreach ($allPicInfo as $subPicInfo) {
-                    echo '<div class="row">';
-                    for ($i = 0; $i < count($subPicInfo); $i++) {
-                        $infoPrinter->printNext(
-                            $subPicInfo[$i], 
-                            count($subPicInfo)
-                        );
-                    }
-                    echo '</div>';
-                }*/
             ?>
         </div>
 
@@ -130,6 +114,7 @@
         </footer>
         <div id="pic-texts" style="display:none;">
             <?php
+                // echo descriptions and names in hidden div so that the JS functions can use it to change descriptions when displayed
                 foreach ($picPrinter->getChunkedInfo() as $subPicInfo) {
                     foreach ($subPicInfo as $picInfo) {
                         echo '<div class="hidden-pic-info">';
