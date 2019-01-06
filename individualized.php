@@ -79,11 +79,11 @@
 
                 $userInfo = NULL;
                 foreach ($fileNames as $fileName) {
-                    $userJSON = getInfo($fileName, $folderName);
+                    $currentUser = getInfo($fileName, $folderName);
 
                     // WICHTIG: später Verschlüsselung
-                    if ($userJSON->pw == $_POST['pw']) {
-                        $userInfo = $userJSON;
+                    if (password_verify($_POST['pw'], $currentUser->pw)) {
+                        $userInfo = $currentUser;
                     }
                 }
                 
@@ -111,7 +111,7 @@
                         }                    
                     }
 
-                    $picPrinter = new AnyPicInfoPrinter($wantedPicInfo);
+                    $picPrinter = new PicInfoPrinter($wantedPicInfo);
                     $picPrinter->printContainedInfo();
                                        
                     

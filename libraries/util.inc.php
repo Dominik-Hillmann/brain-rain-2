@@ -40,6 +40,7 @@
     }
 
     abstract class InfoPrinter {
+        //
         protected $printedIndex;
         protected $infoArr;
 
@@ -78,10 +79,11 @@
 
         // has to be implemented differently dependent on whether pics or text are contained
         abstract function printNext($picInfo, $maxNumInRow);
+        
         abstract function printContainedInfo();
     }
 
-    class AnyPicInfoPrinter extends InfoPrinter {
+    class PicInfoPrinter extends InfoPrinter {
         //
         
         function __construct($infoArr) {
@@ -109,14 +111,14 @@
 
         function printContainedInfo() {
             //
-            $chunkedInfoArr = array_chunk($this->infoArr, 3);
+            $chunkedInfo = array_chunk($this->infoArr, 3);
                 
-            foreach ($chunkedInfoArr as $subPicInfo) {
+            foreach ($chunkedInfo as $subInfo) {
                 echo '<div class="row">';
-                for ($i = 0; $i < count($subPicInfo); $i++) {
+                for ($i = 0; $i < count($subInfo); $i++) {
                     $this->printNext(
-                        $subPicInfo[$i], 
-                        count($subPicInfo)
+                        $subInfo[$i], 
+                        count($subInfo)
                     );
                 }                
                 echo '</div>';
@@ -158,9 +160,9 @@
 
         public function printContainedInfo() {
             // 
-            $chunkedInfoArr = array_chunk($this->infoArr, 3);
+            $chunkedInfo = array_chunk($this->infoArr, 3);
                                    
-            foreach ($chunkedInfoArr as $infoRow) {
+            foreach ($chunkedInfo as $infoRow) {
                 $numElements = count($infoRow);
 
                 echo '<div class="row">';

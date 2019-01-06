@@ -78,7 +78,6 @@
         <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="pics-main" class="main-content">
             <?php
-                // get information about pictures
                 $folderName = 'info/pic-info';
                 $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
                 $fileNames = array_splice($fileNames, 2); // get rid of . and ..
@@ -87,13 +86,13 @@
                 foreach ($fileNames as $fileName) {
                     $info = getInfo($fileName, $folderName);
 
-                    if (!$info->secret) {
+                    if (! $info->secret) {
                         array_push($allPicInfo, $info);
                     }
                 }
 
                 // echo pictures and information
-                $picPrinter = new AnyPicInfoPrinter($allPicInfo);
+                $picPrinter = new PicInfoPrinter($allPicInfo);
                 $picPrinter->printContainedInfo();
             ?>
         </div>
