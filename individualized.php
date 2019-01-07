@@ -81,7 +81,6 @@
                 foreach ($fileNames as $fileName) {
                     $currentUser = getInfo($fileName, $folderName);
 
-                    // WICHTIG: später Verschlüsselung
                     if (password_verify($_POST['pw'], $currentUser->pw)) {
                         $userInfo = $currentUser;
                     }

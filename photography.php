@@ -18,13 +18,7 @@
         <link rel="icon" type="image/png" href="favicon.ico">
     </head>
 
-    <!--<div id="hidden-img-list" class="hidden">
-
-        <img
-    </div>-->
-
-    <?php require "./libraries/util.inc.php"; ?>
-
+    <!-- Everything that is not show as default like the menu or pic displays -->
     <div id="currently-shown" class="hide">
         <!-- here to cover all of the body -->
         <img src="./img/cross_colored.png" id="cross" onclick="unblurBackground();">
@@ -67,6 +61,7 @@
 
                 <div id="heading">
                     <h1>BRAINRAIN</h1>
+                    <?php require './libraries/util.inc.php'; ?>
                     <h2><?php echo num2Roman((int) date("Y")); ?></h2>
                 </div>
             <!--</div>-->

@@ -83,12 +83,14 @@ function prevPic() {
     }, 295); // a bit shorter to not have the clipping effect
 }
 
-function blurBackground() {
-    // 
+function blurBackground(additional = []) {
+    // blurs footer and header by default
+    // additional Elements can be blurred, too, by including additional elements
     let toBeBlurred = [
         document.querySelector("header"),
         document.querySelector("footer"),
-        Array.from(document.querySelectorAll(".row"))
+        Array.from(document.querySelectorAll(".row")),
+        additional
     ].flat();
 
     for (e of toBeBlurred) {
@@ -96,12 +98,13 @@ function blurBackground() {
     }
 }
 
-function unblurBackground() {
+function unblurBackground(additional = []) {
     // 
     let toBeUnBlurred = [
         document.querySelector("header"),
         document.querySelector("footer"),
-        Array.from(document.querySelectorAll(".row"))
+        Array.from(document.querySelectorAll(".row")),
+        additional
     ].flat();
 
     for (e of toBeUnBlurred) {
