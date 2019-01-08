@@ -286,9 +286,11 @@ footer div p {
 }
 #menu-heading {
     background-color: red;
+    width: 50%;
 }
 #menu-options  {
     background-color: green;
+    width: 50%;
 }
 
 
