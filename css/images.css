@@ -86,51 +86,6 @@
     margin: auto;
     border-radius: 3px;
 }
-@keyframes disappearAnimation {
-    from { opacity: 1; } to { opacity: 0; }
-}
-@keyframes appearAnimation {
-    from { opacity: 0; } to { opacity: 1; }
-}
-.hide {
-    display: none;
-    opacity: 0;
-}
-.disappearing {
-    opacity: 0;
-    animation-name: disappearAnimation;
-    animation-duration: 300ms;
-}
-.appearing {
-    opacity: 1;
-    animation-name: appearAnimation;
-    animation-duration: 300ms;
-}
-@keyframes blurAnimation {
-    from { 
-        filter: blur(0px); 
-    } to { 
-        filter: blur(20px); 
-    }
-}
-@keyframes unblurAnimation {
-    from { 
-        filter: blur(20px); 
-    } to { 
-        filter: blur(0px); 
-    }
-}
-.blur {
-    filter: blur(20px);
-    animation-name: blurAnimation;
-    animation-duration: 300ms;
-}
-.unblur {
-    filter: blur(0px);
-    animation-name: unblurAnimation;
-    animation-duration: 300ms;
-}
-
 
 
 #curr-pic-info-wrapper {

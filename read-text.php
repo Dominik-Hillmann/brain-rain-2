@@ -13,6 +13,7 @@
     <!-- CSS links -->
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/text.css">
+        <link rel="stylesheet" href="./css/menu.css">
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
@@ -23,7 +24,7 @@
 
             <div id="firstmenu" class="menufloater">
                 <div id="path">
-                    <img src="./img/burgermenu.png">
+                    <img src="./img/burgermenu.png" onclick="showMenu();">
                     <h1><a href="http://brain-rain.net">Menu</a> / <a href="./writing.php">Writing</a> / <?php echo $_GET['title']; ?></h1>
                 </div>
 
@@ -73,5 +74,7 @@
         </footer>
     </body>
     <script src="./js/positioning.js"></script>
+    <script src="./js/image_preview.js"></script>
     <script src="./js/header.js"></script>
+    <script src="./js/main_menu.js"></script>
 </html>

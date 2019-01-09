@@ -1,5 +1,6 @@
+/**** Functions ****/
 function hidePic() {
-    // 
+    // closes the image preview
     let currShown = document.querySelector("#currently-shown");
     currShown.classList.add("disappearing");
 
@@ -10,7 +11,7 @@ function hidePic() {
 }
 
 function unhidePic(picLink) {
-    // 
+    // opens the image preview, picLink is the location of the picture in the file system
     let currShown = document.querySelector("#currently-shown");
     let mainPic = currShown.querySelector("#the-main-pic");
     mainPic.src = picLink;
@@ -20,19 +21,19 @@ function unhidePic(picLink) {
     setTimeout(function () {
         currShown.classList.remove("appearing");
         
-        let currPicIndex = allPicsArr.findIndex(e => e == currPic);
+        let currPicIndex = allPicsArr.findIndex((e) => e == currPic);
         setPicInfo(
             allPicsInfo[currPicIndex].name,
             allPicsInfo[currPicIndex].description
         );
         
-        updateArrowHeights();
+        updateArrowHeights(); // because
     }, 300);
 }
 
 function nextPic() {
-    // 
-    let currPicIndex = allPicsArr.findIndex(e => e == currPic);
+    // shows the next picture in row of the current website
+    let currPicIndex = allPicsArr.findIndex((e) => e == currPic);
     let nextPicIndex = (currPicIndex + 1 >= allPicsArr.length) ? 0 : currPicIndex + 1;
 
     let mainPic = document.querySelector("#the-main-pic");
@@ -58,7 +59,7 @@ function nextPic() {
 
 function prevPic() {
     // 
-    let currPicIndex = allPicsArr.findIndex(e => e == currPic);
+    let currPicIndex = allPicsArr.findIndex((e) => e == currPic);
     let nextPicIndex = (currPicIndex - 1 < 0) ? allPicsArr.length - 1 : currPicIndex - 1;
 
     let mainPic = document.querySelector("#the-main-pic");
@@ -91,9 +92,9 @@ function blurBackground(additional = []) {
         document.querySelector("footer"),
         Array.from(document.querySelectorAll(".row")),
         additional
-    ].flat();
+    ].flat().filter((e) => e != null);
 
-    for (e of toBeBlurred) {
+    for (let e of toBeBlurred) {
         e.classList.add("blur");
     }
 }
@@ -105,13 +106,13 @@ function unblurBackground(additional = []) {
         document.querySelector("footer"),
         Array.from(document.querySelectorAll(".row")),
         additional
-    ].flat();
+    ].flat().filter((e) => e != null);
 
-    for (e of toBeUnBlurred) {
+    for (let e of toBeUnBlurred) {
         e.classList.add("unblur");
     }
-    setTimeout(function () {
-        for (e of toBeUnBlurred) {
+    setTimeout(() => {
+        for (let e of toBeUnBlurred) {
             e.classList.remove("blur");
             e.classList.remove("unblur");
         }
@@ -124,7 +125,7 @@ function updateArrowHeights() {
     let arrows = document.querySelectorAll(".arrow");
     let textHeight = document.querySelector("#curr-pic-info-wrapper").offsetHeight;
 
-    for (arrow of arrows) {
+    for (let arrow of arrows) {
         arrow.style.height = textHeight + "px";
     }
 }
@@ -144,13 +145,15 @@ function scrollToMainPic() {
     });
 }
 
-// global variables for the
-let currPic; // defined if picture is clicked upon
+
+/**** Global Variables ****/
+let currPic; // initialized when picture is clicked
 let currPicIndex = 0;
 
+// get all pictures and the information about them from a hidden div
 let allPicsArr = Array.from(document.querySelectorAll(".pic"));
 let allPicsInfo = [];
-for (info of Array.from(document.querySelectorAll('.hidden-pic-info'))) {
+for (let info of Array.from(document.querySelectorAll('.hidden-pic-info'))) {
     allPicsInfo.push({
         name: info.querySelector('h1').innerHTML,
         description: info.querySelector('p').innerHTML,
@@ -161,9 +164,25 @@ if (allPicsArr.length != allPicsInfo.length) {
     throw new Error("Unequal amount of pics and descriptions.");
 }
 
+// initialize variables that will contain information, etc.
 let tempPicInfo = document.querySelector('#curr-pic-info');
 let currPicDescription = tempPicInfo.querySelector('p');
 let currPicName = tempPicInfo.querySelector('h1');
 
-let cross = document.querySelector("#cross");
-cross.addEventListener("click", hidePic);
+// Closing of image preview if clicked anywhere but on description and arrows
+// wird geschlossen, wenn außerhalb von Pfeilen, Beschreibung oder Bild geklickt
+let overlayPreview = document.querySelector('#currently-shown');
+overlayPreview.addEventListener('click', () => {
+    hidePic();
+    unblurBackground();
+}, false);
+
+// Ausnahmen
+let propStop = (event) => event.stopPropagation();
+let arrows = document.querySelectorAll('.arrow');
+let leftArrow = arrows[0];
+let rightArrow = arrows[1];
+
+leftArrow.addEventListener('click', propStop, false);
+rightArrow.addEventListener('click', propStop, false);
+tempPicInfo.addEventListener('click', propStop, false);

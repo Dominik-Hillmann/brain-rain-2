@@ -12,6 +12,7 @@
     <!-- CSS links -->
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/images.css">
+        <link rel="stylesheet" href="./css/menu.css">
         <!-- <link rel="stylesheet" href="css/mobile.css"> -->
 
     <!-- Favicon -->
@@ -19,6 +20,20 @@
     </head>
 
     <!-- Everything that is not show as default like the menu or pic displays -->
+    <div id="menu" class="hide">
+        <div id="menu-heading">
+            <img src="./img/brainrainlogo.png">
+            <h1>BRAINRAIN</h1>
+        </div>
+        <div id="menu-options">
+            <p><span>&bull;</span>GRAPHIC DESIGN</p>
+            <p><span>&bull;</span>ILLUSTRATION</p>
+            <p><span>&bull;</span>DRAWINGS</p>
+            <p><span>&bull;</span>PHOTOGRAPHY</p>
+            <p><span>&bull;</span>WRITING</p>
+        </div>
+    </div>
+
     <div id="currently-shown" class="hide">
         <!-- here to cover all of the body -->
         <img src="./img/cross_colored.png" id="cross" onclick="unblurBackground();">
@@ -42,7 +57,7 @@
             <div id="inner-header-wrapper">
                 <div id="firstmenu" class="menufloater">
                     <div id="path">
-                        <img src="./img/burgermenu.png">
+                        <img src="./img/burgermenu.png" onclick="showMenu();">
                         <h1><a href="http://brain-rain.net">Menu</a> / Photography</h1>
                     </div>
 
@@ -59,12 +74,11 @@
                 </div>
             </div>
 
-                <div id="heading">
-                    <h1>BRAINRAIN</h1>
-                    <?php require './libraries/util.inc.php'; ?>
-                    <h2><?php echo num2Roman((int) date("Y")); ?></h2>
-                </div>
-            <!--</div>-->
+            <div id="heading">
+                <h1>BRAINRAIN</h1>
+                <?php require './libraries/util.inc.php'; ?>
+                <h2><?php echo num2Roman((int) date("Y")); ?></h2>
+            </div>
 
         </header>
 
@@ -127,5 +141,5 @@
     <script src="./js/positioning.js"></script>
     <script src="./js/image_preview.js"></script>
     <script src="./js/header.js"></script>
-
+    <script src="./js/main_menu.js"></script>
 </html>

@@ -1,0 +1,17 @@
+#menu {
+    z-index: 2;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /*background-color: rgba(16 , 34, 53, .9); /* dark purple, Verlauf, später? */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    color: white;
+}
+#menu-heading {
+    background-color: red;
+    width: 50%;
+}
+#menu-options  {
+    background-color: green;
+    width: 50%;
+}

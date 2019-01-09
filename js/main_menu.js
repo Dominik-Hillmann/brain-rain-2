@@ -1,5 +1,5 @@
 function showMenu() {
-    // let menu = document.querySelector('#menu');
+    // Lets the main menu appear smoothly.
     let additionalBlurred = [
         document.querySelector('#main'),
         document.querySelector('#about')
@@ -7,9 +7,14 @@ function showMenu() {
 
     blurBackground(additionalBlurred);
     appearSmoothly(overlayMenu);
+    overlayMenu.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth'
+    });
 }
 
 function hideMenu() {
+    // Lets the main menu disappear smoothly.
     let additionalUnblurred = [
         document.querySelector('#main'),
         document.querySelector('#about')
@@ -20,43 +25,25 @@ function hideMenu() {
 }
 
 function appearSmoothly(e) {
-    // 
-    e.classList.add("appearing");
-    e.classList.remove("hide");
+    // If element e is currently hidden, it will smoothly fade in.
+    e.classList.add('appearing');
+    e.classList.remove('hide');
     setTimeout(function () {
-        e.classList.remove("appearing");
+        e.classList.remove('appearing');
     }, 300);
 }
 
 function disappearSmoothly(e) {
-    // 
-    e.classList.add("disappearing");
+    // If element e isn't currently hidden, it will disappear smoothly.
+    e.classList.add('disappearing');
     setTimeout(function () {
-        e.classList.add("hide");
-        e.classList.remove("disappearing");
+        e.classList.add('hide');
+        e.classList.remove('disappearing');
     }, 300);
 }
 
 let overlayMenu = document.querySelector('#menu');
 let except = document.querySelector('#menu-options');
 
-overlayMenu.addEventListener("click", function () {
-    alert("wrapper");
-}, false);
-except.addEventListener("click", function (event) {
-    alert("except");
-    event.stopPropagation(); //this is important! If removed, you'll get both alerts
-}, false);
-
-
-// weg, wenn außerhalb bestimmter divs geklickt https://www.reddit.com/r/javascript/comments/461f0y/body_onclick_except_certain_divs/let burger = document.querySelector('#');
-
-/*
-blurBackground(addBlurringEles);
-setTimeout(function () {
-    unblurBackground(addBlurringEles);
-    setTimeout(function () {
-        blurBackground(addBlurringEles);
-    }, 5000);
-}, 5000);
-*/
+overlayMenu.addEventListener('click', hideMenu, false);
+except.addEventListener('click', event => event.stopPropagation(), false);

@@ -13,18 +13,34 @@
     <!-- CSS links -->
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/writing.css">
+        <link rel="stylesheet" href="./css/menu.css">
         <!-- <link rel="stylesheet" href="css/mobile.css"> -->
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
     </head>
+    <!-- Everything that is not show as default like the menu or pic displays -->
+    <div id="menu" class="hide">
+        <div id="menu-heading">
+            <img src="./img/brainrainlogo.png">
+            <h1>BRAINRAIN</h1>
+        </div>
+        <div id="menu-options">
+            <p><span>&bull;</span>GRAPHIC DESIGN</p>
+            <p><span>&bull;</span>ILLUSTRATION</p>
+            <p><span>&bull;</span>DRAWINGS</p>
+            <p><span>&bull;</span>PHOTOGRAPHY</p>
+            <p><span>&bull;</span>WRITING</p>
+        </div>
+    </div>
+
     <body>
         <?php require "./libraries/util.inc.php"; ?>
         <header>
 
             <div id="firstmenu" class="menufloater">
                 <div id="path">
-                    <img src="./img/burgermenu.png">
+                    <img src="./img/burgermenu.png" onclick="showMenu();">
                     <h1><a href="http://brain-rain.net">Menu</a> / Writing</h1>
                 </div>
 
@@ -90,5 +106,7 @@
         ?>
     </body>
     <script src="./js/positioning.js"></script>
+    <script src="./js/image_preview.js"></script>
     <script src="./js/header.js"></script>
+    <script src="./js/main_menu.js"></script>
 </html>

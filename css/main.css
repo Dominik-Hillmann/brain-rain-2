@@ -259,38 +259,60 @@ footer div p {
         opacity: 1;
     }
 }
-
 .retract {
     opacity: 0;
     animation-name: headerDisappear;
     animation-duration: 200ms;
     background-color: none;
 }
-
 .extend {
     opacity: 1;
     animation: headerAppear 200ms;
 }
 
 
-
-/**** MAIN MENU ****/
-#menu {
-    z-index: 2;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    /*background-color: rgba(16 , 34, 53, .9); /* dark purple, Verlauf, später? */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    color: white;
+/* Everyhing to do with blurrung, (dis)appearing on all pages */
+@keyframes disappearAnimation {
+    from { opacity: 1; } to { opacity: 0; }
 }
-#menu-heading {
-    background-color: red;
-    width: 50%;
+@keyframes appearAnimation {
+    from { opacity: 0; } to { opacity: 1; }
 }
-#menu-options  {
-    background-color: green;
-    width: 50%;
+.hide {
+    display: none;
+    opacity: 0;
 }
-
-
+.disappearing {
+    opacity: 0;
+    animation-name: disappearAnimation;
+    animation-duration: 300ms;
+}
+.appearing {
+    opacity: 1;
+    animation-name: appearAnimation;
+    animation-duration: 300ms;
+}
+@keyframes blurAnimation {
+    from { 
+        filter: blur(0px); 
+    } to { 
+        filter: blur(20px); 
+    }
+}
+@keyframes unblurAnimation {
+    from { 
+        filter: blur(20px); 
+    } to { 
+        filter: blur(0px); 
+    }
+}
+.blur {
+    filter: blur(20px);
+    animation-name: blurAnimation;
+    animation-duration: 300ms;
+}
+.unblur {
+    filter: blur(0px);
+    animation-name: unblurAnimation;
+    animation-duration: 300ms;
+}
