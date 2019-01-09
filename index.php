@@ -23,15 +23,19 @@
     <!-- Everything that is not show as default like the menu or pic displays -->
     <div id="menu" class="hide">
         <div id="menu-heading">
-            <img src="./img/brainrainlogo.png">
-            <h1>BRAINRAIN</h1>
+            <div>
+                <img src="./img/brainrainlogo_white.png">
+                <h1>BRAINRAIN</h1>
+            </div>
         </div>
         <div id="menu-options">
-            <p><span>&bull;</span>GRAPHIC DESIGN</p>
-            <p><span>&bull;</span>ILLUSTRATION</p>
-            <p><span>&bull;</span>DRAWINGS</p>
-            <p><span>&bull;</span>PHOTOGRAPHY</p>
-            <p><span>&bull;</span>WRITING</p>
+            <div>
+                <p>GRAPHIC DESIGN</p>
+                <p>ILLUSTRATION</p>
+                <p>DRAWINGS</p>
+                <p>PHOTOGRAPHY</p>
+                <p>WRITING</p>
+            </div>
         </div>
     </div>
 

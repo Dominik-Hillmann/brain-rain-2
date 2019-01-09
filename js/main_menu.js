@@ -46,4 +46,4 @@ let overlayMenu = document.querySelector('#menu');
 let except = document.querySelector('#menu-options');
 
 overlayMenu.addEventListener('click', hideMenu, false);
-except.addEventListener('click', event => event.stopPropagation(), false);
+except.addEventListener('click', (event) => event.stopPropagation(), false);
