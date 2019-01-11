@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="./css/images.css">
         <link rel="stylesheet" href="./css/menu.css">
         <!-- <link rel="stylesheet" href="css/mobile.css"> -->
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat:700i" rel="stylesheet"> 
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
@@ -25,16 +27,30 @@
         <div id="menu-heading">
             <div>
                 <img src="./img/brainrainlogo_white.png">
-                <h1>BRAINRAIN</h1>
+                <h1>BRAINRAIN<?php/* echo num2Roman((int) date("Y")); */?></h1>
             </div>
         </div>
         <div id="menu-options">
             <div>
-                <p>GRAPHIC DESIGN</p>
-                <p>ILLUSTRATION</p>
-                <p>DRAWINGS</p>
-                <p>PHOTOGRAPHY</p>
-                <p>WRITING</p>
+                <p onmouseover="console.log('Testitest');">
+                    <span>G</span><!--
+                    --><span>r</span><!--
+                    --><span>a</span><!--
+                    --><span>p</span><!--
+                    --><span>h</span><!--
+                    --><span>i</span><!--
+                    --><span>c</span><!--  
+                    --><span>&nbsp;D</span><!--
+                    --><span>e</span><!--
+                    --><span>s</span><!--
+                    --><span>i</span><!--
+                    --><span>g</span><!--
+                    --><span>n</span>
+                </p>
+                <p>Illustration</p>
+                <p>Drawings</p>
+                <p>Photography</p>
+                <p>Writing</p>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-function showMenu() {
+let showMenu = function () {
     // Lets the main menu appear smoothly.
     let additionalBlurred = [
         document.querySelector('#main'),
@@ -13,7 +13,7 @@ function showMenu() {
     });
 }
 
-function hideMenu() {
+let hideMenu = function () {
     // Lets the main menu disappear smoothly.
     let additionalUnblurred = [
         document.querySelector('#main'),
@@ -24,7 +24,7 @@ function hideMenu() {
     disappearSmoothly(overlayMenu);
 }
 
-function appearSmoothly(e) {
+let appearSmoothly = function (e) {
     // If element e is currently hidden, it will smoothly fade in.
     e.classList.add('appearing');
     e.classList.remove('hide');
@@ -33,7 +33,7 @@ function appearSmoothly(e) {
     }, 300);
 }
 
-function disappearSmoothly(e) {
+let disappearSmoothly = function (e) {
     // If element e isn't currently hidden, it will disappear smoothly.
     e.classList.add('disappearing');
     setTimeout(function () {
@@ -47,3 +47,20 @@ let except = document.querySelector('#menu-options');
 
 overlayMenu.addEventListener('click', hideMenu, false);
 except.addEventListener('click', (event) => event.stopPropagation(), false);
+
+// color change animation for the options
+let changeLetterColors = function (option) {
+    let spans = Array.from(option.querySelector('span'));
+    for (let span of spans) {
+        span.classList.add('letter-changed');
+    }
+}
+
+
+let design = document.querySelector('#menu-options div p:first-child');
+// design.addEventListener('mouseover', function() {
+//     console.log(this);
+// }, false);
+console.log(design);
+//# this scope
+//"mouseover"

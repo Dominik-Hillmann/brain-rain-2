@@ -8,10 +8,99 @@
     color: white;
 }
 #menu-heading {
-    background-color: red;
+    /*background-color: red;*/
     width: 50%;
 }
 #menu-options  {
     background-color: green;
     width: 50%;
+}
+
+
+
+#menu-heading, #menu-options {
+    margin-left: auto;
+    margin-right: auto;
+
+
+    /*transform: translate3d()*/
+}
+
+
+@keyframes heading-expanding {
+    0% {
+        letter-spacing: 2px;
+        margin-left: 5px;
+        font-size: 50px;
+        color: #da4167;
+    } 50% {
+        letter-spacing: 5px;
+        margin-left: 10px;
+        font-size: 55px;
+        color: purple;
+    } 100% {
+        letter-spacing: 2px;
+        margin-left: 5px;
+        font-size: 50px;
+        color: #da4167;
+    }
+}
+@keyframes img-expanding {
+     /* +5 px, wie font */
+    0% { height: 40px; } 50% { height: 45px; } 100% { height: 40px; }
+}
+#menu-heading {
+    margin-top: 100px;
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+#menu-heading div {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+#menu-heading div * {
+    display: inline;
+}
+#menu-heading div h1 {
+    animation: heading-expanding 15s forwards infinite;
+    letter-spacing: 2px;
+    margin-left: 5px;
+}
+#menu-heading div img {
+    height: 40px;
+    animation: img-expanding 15s forwards infinite;
+}
+
+@keyframes optionsOnHover {
+    from { font-size: 20px; } to { font-size: 23px; }
+}
+@keyframes optionsOnLeave {
+    
+}
+#menu-options {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#menu-options div {
+
+}
+#menu-options div p {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 10px;
+    font-size: 20px;
+}
+#menu-options div p:hover {
+    font-size: 23px;
+    animation: optionsOnHover 300ms ease-out;
+}
+
+
+/**** Animation classes ****/
+.letter-changed {
+    color: darkorchid;
 }
