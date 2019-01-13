@@ -32,7 +32,7 @@
         </div>
         <div id="menu-options">
             <div>
-                <p onmouseover="console.log('Testitest');">
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(1)'));">
                     <span>G</span><!--
                     --><span>r</span><!--
                     --><span>a</span><!--
@@ -47,10 +47,52 @@
                     --><span>g</span><!--
                     --><span>n</span>
                 </p>
-                <p>Illustration</p>
-                <p>Drawings</p>
-                <p>Photography</p>
-                <p>Writing</p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(2)'));">
+                    <span>I</span><!--
+                    --><span>l</span><!--
+                    --><span>l</span><!--
+                    --><span>u</span><!--
+                    --><span>s</span><!--
+                    --><span>t</span><!--  
+                    --><span>r</span><!--
+                    --><span>a</span><!--
+                    --><span>t</span><!--
+                    --><span>i</span><!--
+                    --><span>o</span><!--
+                    --><span>n</span>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(3)'));">
+                    <span>D</span><!--
+                    --><span>r</span><!--
+                    --><span>a</span><!--
+                    --><span>w</span><!--
+                    --><span>i</span><!--
+                    --><span>n</span><!--  
+                    --><span>g</span><!--
+                    --><span>s</span>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(4)'));">
+                    <span>P</span><!--
+                    --><span>h</span><!--
+                    --><span>o</span><!--
+                    --><span>t</span><!--
+                    --><span>o</span><!--
+                    --><span>g</span><!--
+                    --><span>r</span><!--  
+                    --><span>a</span><!--
+                    --><span>p</span><!--
+                    --><span>h</span><!--
+                    --><span>y</span>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(5)'));">
+                    <span>W</span><!--
+                    --><span>r</span><!--
+                    --><span>i</span><!--
+                    --><span>t</span><!--
+                    --><span>i</span><!--
+                    --><span>n</span><!--  
+                    --><span>g</span>
+                </p>
             </div>
         </div>
     </div>

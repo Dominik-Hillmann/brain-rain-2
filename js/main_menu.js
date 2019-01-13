@@ -48,19 +48,28 @@ let except = document.querySelector('#menu-options');
 overlayMenu.addEventListener('click', hideMenu, false);
 except.addEventListener('click', (event) => event.stopPropagation(), false);
 
-// color change animation for the options
+
 let changeLetterColors = function (option) {
-    let spans = Array.from(option.querySelector('span'));
-    for (let span of spans) {
-        span.classList.add('letter-changed');
+    // color change animation for the options
+    let spans = option.querySelectorAll('span');
+    let delay = 50; // how long between starts of the letter animations
+    let animationLen = 400; // to be found in menu.css
+
+    for (let i = 0; i < spans.length; i++) {
+        let span = spans[i];
+        let startTime = i * delay;
+
+        // add class to span when 
+        setTimeout(function () {
+            if (!span.classList.contains('letter-changed')) {
+                span.classList.add('letter-changed');
+            }
+        }, startTime);
+
+        // remove the class at the end of the animation
+        setTimeout(function () {
+            span.classList.remove('letter-changed');
+        }, startTime + animationLen); // animation ends exactly in startTime + animationLen ms
     }
 }
 
-
-let design = document.querySelector('#menu-options div p:first-child');
-// design.addEventListener('mouseover', function() {
-//     console.log(this);
-// }, false);
-console.log(design);
-//# this scope
-//"mouseover"

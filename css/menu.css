@@ -12,7 +12,6 @@
     width: 50%;
 }
 #menu-options  {
-    background-color: green;
     width: 50%;
 }
 
@@ -90,17 +89,41 @@
 #menu-options div p {
     display: flex;
     justify-content: center;
+    cursor: pointer;
 
     margin-top: 10px;
     font-size: 20px;
 }
 #menu-options div p:hover {
     font-size: 23px;
-    animation: optionsOnHover 300ms ease-out;
+    /* animation: optionsOnHover 300ms ease-out; */
 }
+#menu-options div p span {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 10px;
+    font-size: 20px;
+    z-index: -3;
+}
+
+
 
 
 /**** Animation classes ****/
-.letter-changed {
-    color: darkorchid;
+@keyframes letter-changing {
+    0% { 
+        color: white;
+        letter-spacing: 0px;
+        /* font-size: 20px; */
+    } 50% { 
+        color: darkorchid;
+        letter-spacing: 1px;
+        /* font-size: 35px; */
+    } 100% { 
+        color: white; 
+        letter-spacing: 0px;
+        /* font-size: 20px; */
+    }
 }
+.letter-changed { animation: letter-changing 400ms; }
