@@ -11,6 +11,9 @@ let showMenu = function () {
         block: 'start',
         behavior: 'smooth'
     });
+
+    // options.classList.add('down');
+    menuHeading.classList.add('down');
 }
 
 let hideMenu = function () {
@@ -43,7 +46,8 @@ let disappearSmoothly = function (e) {
 }
 
 let overlayMenu = document.querySelector('#menu');
-let except = document.querySelector('#menu-options');
+let options = except = document.querySelector('#menu-options');
+let menuHeading = document.querySelector('#menu-heading');
 
 overlayMenu.addEventListener('click', hideMenu, false);
 except.addEventListener('click', (event) => event.stopPropagation(), false);

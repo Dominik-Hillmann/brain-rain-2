@@ -111,6 +111,8 @@
 
 
 /**** Animation classes ****/
+
+/* letters changing on mouse over */
 @keyframes letter-changing {
     0% { 
         color: white;
@@ -127,3 +129,15 @@
     }
 }
 .letter-changed { animation: letter-changing 400ms; }
+
+/* menu coming down when button clicked */
+@keyframes menu-comes-down {
+    from { margin-top: -300px; } to { margin-top: 100px; }
+}
+.down {
+    animation: menu-comes-down 200ms;
+}
+
+
+
+

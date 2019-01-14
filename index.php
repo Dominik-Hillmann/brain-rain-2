@@ -100,8 +100,21 @@
     <body>
         <?php require "./libraries/util.inc.php"; ?>
         <header>
+            <div>
+                <div id="headerlogo">
+                    <img src="./img/brainrainlogo.png"><h1>BRAINRAIN</h1>
+                </div>
+                <div id="header-options">
+                    <p>About</p>
+                    <p>Contact</p>
+                    <p>Log In</p>
+                </div>
+                <img id="burger-menu" src="" onclick="showMenu();">
+            </div>
 
-            <div id="firstmenu" class="menufloater">
+
+
+            <!-- <div id="firstmenu" class="menufloater">
                 <div id="path">
                     <img src="./img/burgermenu.png" onclick="showMenu();">
                     <h1>Home</h1>
@@ -109,10 +122,10 @@
 
                 <div id="number" class="menufloater">
                     <h1>You're my number:</h1>
-                    <div><!--
-                        --><p>1</p><!--
-                        --><p>2</p><!--
-                        --><p>3</p>
+                    <div> 
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
                     </div>
                 </div>
 
@@ -121,9 +134,8 @@
 
             <div id="heading">
                 <h1>BRAINRAIN</h1>
-                <h2><?php echo num2Roman((int) date("Y")); ?></h2>
-            </div>
-
+                <h2><?php // echo num2Roman((int) date("Y")); ?></h2>
+            </div>-->
         </header>
 
         <div id="about">
