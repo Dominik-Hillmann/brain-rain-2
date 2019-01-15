@@ -30,13 +30,13 @@ header div:first-of-type {
     background-color: burlywood;
     margin: 0;
     padding: 5px 5px 5px 0;
-    display: flex;
+    display: inline-flex;
     width: 25%;
 }
-#headerlogo * {
+#headerlogo > * {
     display: inline-flex;
 }
-#headerlogo img {
+#headerlogo > img {
     height: 30px;
     margin-right: 5px;
 }
@@ -45,9 +45,32 @@ header div:first-of-type {
     font-size: 25px;
 }
 
-#header-options {
+header div:nth-child(2) {
     display: inline-flex;
+    background-color: goldenrod;
+    float: right;
+    vertical-align: middle;
+    margin-top: 7px;
 }
+#header-options {
+    background-color: cornflowerblue;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 20px 0 0;
+    width: calc(100% - 25px);
+}
+#header-options p {
+    display: inline;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+header div:nth-child(2) img {
+    height: 25px;
+    border-left: 2px solid black;
+    cursor: pointer;
+}
+
+
 
 
 

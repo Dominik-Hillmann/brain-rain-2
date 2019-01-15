@@ -98,18 +98,20 @@
     </div>
 
     <body>
-        <?php require "./libraries/util.inc.php"; ?>
+        <?php require "./libraries/util.inc.php" ?>
         <header>
             <div>
                 <div id="headerlogo">
                     <img src="./img/brainrainlogo.png"><h1>BRAINRAIN</h1>
                 </div>
-                <div id="header-options">
-                    <p>About</p>
-                    <p>Contact</p>
-                    <p>Log In</p>
+                <div>
+                    <div id="header-options">
+                        <p>about</p>
+                        <p>contact me</p>
+                        <p>log in</p>
+                    </div>
+                    <img src="./img/burger_menu_closed.png" onclick="showMenu();">
                 </div>
-                <img id="burger-menu" src="" onclick="showMenu();">
             </div>
 
 
