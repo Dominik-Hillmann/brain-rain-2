@@ -16,7 +16,8 @@
         <link rel="stylesheet" href="./css/menu.css">
         <!-- <link rel="stylesheet" href="css/mobile.css"> -->
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat:700i" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat:700i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet"> 
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
@@ -106,9 +107,29 @@
                 </div>
                 <div>
                     <div id="header-options">
-                        <p>about</p>
-                        <p>contact me</p>
-                        <p>log in</p>
+                        <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(1)'));">
+                            <span>a</span><!--
+                            --><span>b</span><!--
+                            --><span>o</span><!--
+                            --><span>u</span><!--
+                            --><span>t</span>
+                        </p>
+                        <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(2)'));">
+                            <span>c</span><!--
+                            --><span>o</span><!--
+                            --><span>n</span><!--
+                            --><span>t</span><!--
+                            --><span>a</span><!--
+                            --><span>c</span><!--
+                            --><span>t</span>
+                        </p>
+                        <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(3)'));">
+                            <span>l</span><!--
+                            --><span>o</span><!--
+                            --><span>g</span><!--
+                            --><span> i</span><!--
+                            --><span>n</span>
+                        </p>
                     </div>
                     <img src="./img/burger_menu_closed.png" onclick="showMenu();">
                 </div>

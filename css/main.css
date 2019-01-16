@@ -42,6 +42,8 @@ header div:first-of-type {
 }
 #headerlogo h1 {
     font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-style: italic;
     font-size: 25px;
 }
 
@@ -51,11 +53,13 @@ header div:nth-child(2) {
     float: right;
     vertical-align: middle;
     margin-top: 7px;
+    font-size: 20px;
 }
 #header-options {
     background-color: cornflowerblue;
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
     margin: 0 20px 0 0;
     width: calc(100% - 25px);
 }
