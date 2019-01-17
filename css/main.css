@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
+/* This stylesheet contains all rules that apply to all sites */
 
 a {
     color: black;
@@ -19,6 +17,7 @@ header {
     width: 100%;
     position: fixed;
     background-color: pink;
+    z-index: 9;
 }
 header div:first-of-type {
     background-color: red;
@@ -244,7 +243,7 @@ footer div p {
 #main {
     background-color: lightseagreen;
     width: calc(100% - 100px);
-    margin: 20px auto;
+    margin: 0 auto;
     font-family: 'Trebuchet MS', sans-serif;
 }
 #main div {
@@ -309,46 +308,27 @@ footer div p {
 }
 
 .main-content {
-    padding-top: 185px; /*148 header height + 20*/
+    padding-top: 60px; /*148 header height + 20*/
 }
 .has-bottom-border {
     border-bottom: rgb(64, 130, 53) solid 5px;
 }
 
 
-@keyframes headerDisappear {
-    from {
-        opacity: 1;
-    } to {
-        opacity: 0;
-    }
-}
-
-@keyframes headerAppear {
-    from {
-        opacity: 0;
-    } to {
-        opacity: 1;
-    }
-}
+@keyframes disappearAnimation { from { opacity: 1; } to { opacity: 0; } }
+@keyframes appearAnimation { from { opacity: 0; } to { opacity: 1; } }
 .retract {
     opacity: 0;
-    animation-name: headerDisappear;
+    animation-name: disappearAnimation;
     animation-duration: 200ms;
     background-color: none;
 }
 .extend {
     opacity: 1;
-    animation: headerAppear 200ms;
+    animation: appearAnimation 200ms;
 }
 
 /* Everyhing to do with blurrung, (dis)appearing on all pages */
-@keyframes disappearAnimation {
-    from { opacity: 1; } to { opacity: 0; }
-}
-@keyframes appearAnimation {
-    from { opacity: 0; } to { opacity: 1; }
-}
 .hide {
     display: none;
     opacity: 0;

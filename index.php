@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/images.css">
         <link rel="stylesheet" href="./css/menu.css">
+        <link rel="stylesheet" href="./css/eyecatcher.css">
         <!-- <link rel="stylesheet" href="css/mobile.css"> -->
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat:700i" rel="stylesheet">
@@ -107,6 +108,9 @@
                 </div>
                 <div>
                     <div id="header-options">
+
+                        <!-- mit z-index noch nach hinten -->
+
                         <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(1)'));">
                             <span>a</span><!--
                             --><span>b</span><!--
@@ -134,37 +138,22 @@
                     <img src="./img/burger_menu_closed.png" onclick="showMenu();">
                 </div>
             </div>
-
-
-
-            <!-- <div id="firstmenu" class="menufloater">
-                <div id="path">
-                    <img src="./img/burgermenu.png" onclick="showMenu();">
-                    <h1>Home</h1>
-                </div>
-
-                <div id="number" class="menufloater">
-                    <h1>You're my number:</h1>
-                    <div> 
-                        <p>1</p>
-                        <p>2</p>
-                        <p>3</p>
-                    </div>
-                </div>
-
-                <img src="./img/brainrainlogo.png" id="centerlogo">
-            </div>
-
-            <div id="heading">
-                <h1>BRAINRAIN</h1>
-                <h2><?php // echo num2Roman((int) date("Y")); ?></h2>
-            </div>-->
         </header>
 
-        <div id="about">
-            <p><span>ABOUT</span></p><!--
-            --><img src="./img/emptygap.png"><!--
-            --><p><span>HIRE ME - CONTACT</span></p>
+        <!-- <div id="about">
+            <p><span>ABOUT</span></p>
+            <img src="./img/emptygap.png">
+            <p><span>HIRE ME - CONTACT</span></p>
+        </div> -->
+
+        <div id="eyecatcher">
+            <img src="./img/brainrainlogo_white.png">
+            <h1 id="brain">BRAIN</h1>
+            <h1 id="rain">RAIN</h1>
+            <h2 id="num"><?php echo num2Roman((int) date('Y')); ?>
+            <img class="eyecatcher-circle" src="./img/white_circle.png">
+            <img class="eyecatcher-circle" src="./img/white_circle.png">
+            <img class="eyecatcher-circle" src="./img/white_circle.png">
         </div>
 
         <div id="main" class="main-content">

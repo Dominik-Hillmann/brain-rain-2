@@ -1,5 +1,7 @@
+/* Stylesheet that contains all rules relating to the main menu */
+
 #menu {
-    z-index: 2;
+    z-index: 10;
     position: absolute;
     height: 100%;
     width: 100%;
