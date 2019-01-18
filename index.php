@@ -147,13 +147,14 @@
         </div> -->
 
         <div id="eyecatcher">
-            <img src="./img/brainrainlogo_white.png">
+            <!-- <img src="./img/brainrainlogo_white.png"> -->
             <h1 id="brain">BRAIN</h1>
             <h1 id="rain">RAIN</h1>
-            <h2 id="num"><?php echo num2Roman((int) date('Y')); ?>
+            <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
+            <!-- <img class="eyecatcher-circle" src="./img/white_circle.png">
             <img class="eyecatcher-circle" src="./img/white_circle.png">
-            <img class="eyecatcher-circle" src="./img/white_circle.png">
-            <img class="eyecatcher-circle" src="./img/white_circle.png">
+            <img class="eyecatcher-circle" src="./img/white_circle.png"> -->
+            <img id="eyecatcher-background" src="./img/background_eyecatcher.png">
         </div>
 
         <div id="main" class="main-content">
