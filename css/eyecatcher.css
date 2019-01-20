@@ -1,22 +1,17 @@
 /*  */
 body { z-index: -100; }
 #eyecatcher {
-    background-color: rgb(7, 10, 25);/*linear-gradient(to right, red, yellow); rgb(9, 5, 20), rgb(7, 10, 25));*/
+    /* background-color: rgb(7, 10, 25);linear-gradient(to right, red, yellow); rgb(9, 5, 20), rgb(7, 10, 25)); */
+    background-image: linear-gradient(to bottom, rgb(7, 10, 25), rgb(8, 7, 25) 80%, rgb(20, 18, 63));
     color: white;
-    width: calc(100% - 100px);
-    height: 500px;
-
-    margin: auto;
+    width: 100%;
+    height: 800px;
     padding-top: 60px;
-
-    z-index: -99;
 }
 #eyecatcher > * {
     position: absolute;
 }
-/* #eyecatcher img {
-    height: 10px;
-} */
+
 #eyecatcher h1 {
     font-size: 120px;
     font-family: 'Montserrat';
@@ -26,19 +21,42 @@ body { z-index: -100; }
     letter-spacing: 5px;
 }
 #eyecatcher-background {
-    height: 80%;
+    height: 800px;
     width: 100%;
     filter: drop-shadow(3px 3px 3px cornflowerblue);
+    /* opacity: 0; */
+}
+
+@keyframes neon-lights {
+    /* 0% {
+        text-shadow: 3px 3px 3px #ff4951;
+    } 50% {
+        text-shadow: 10px 10px 10px red;
+    } 100% {
+        text-shadow: 3px 3px 3px #ff4951;
+    } */
+    from {
+        text-shadow: 3px 3px 3px #ff4951;
+    } to {
+        text-shadow: 10px 10px 10px red;
+    }
 }
 #brain {
-    margin-left: 33%;
-    margin-top: 80px;
     z-index: 1;
+    right: 100px;
+    top: 250px;
+    /* position: absolute;
+    right: 50px;
+    top: 150px; */
+}
+#brain:hover {
+    text-shadow: 10px 10px 10px red;
+    animation: neon-lights 300ms ease-in-out;
 }
 #rain {
-    margin-left: calc(33% + 10%);
-    margin-top: 150px;
     z-index: 0;
+    right: 50px;
+    top: 320px;
 }
 #num {
     color: #ff4951;
@@ -47,14 +65,72 @@ body { z-index: -100; }
     font-style: italic;
     font-size: 50px;
     text-shadow: 3px 3px 3px white;
-    margin-top: 270px;
-    margin-left: 20%;
+
+    right: 300px;
+    top: 430px;
 }
-#eyecatcher img:nth-child(1) {
-    /* height: 100px; */
+
+@keyframes logo-colors {
+    /* 0% {
+        background-image: radial-gradient(red, yellow);
+    } 50% {
+        background-image: radial-gradient(red, blue);
+    } 100% {
+        background-image: radial-gradient(red, yellow);
+    } */
+    from { background-image: radial-gradient(red, yellow);} to {background-image: radial-gradient(blue, yellow)}
+}
+#eyecatcher-logo {
+    height: 200px;
+
+    right: 390px;
+    top: 260px;
+    /* background-image: radial-gradient(red, yellow); */
+    /* animation: logo-colors 500ms infinite   ; */
+    background-image: url(../img/burton.gif);
+    background-size: cover;
+}
+/* #eyecatcher img:last-child {
+    filter: drop-shadow(3px 3px 3px cornflowerblue);
+} */
+
+/* Bubbles */
+@keyframes bubble-up {
+    /* 750px: eyecatcher height - start height */
+    from { 
+        bottom: 50px;
+        opacity: 1;
+        /* right: 100px; */
+    } to { 
+        bottom: 750px;
+        opacity: 0; 
+        /* right: 200px; */
+    }
+    /* 0% {
+        bottom: 50px;
+        opacity: 1;
+    } 85% {
+        bottom: calc(0.85 * 750px);
+        opacity: 1;
+    } 100% {
+        bottom: 750px;
+        opacity: 0;
+    } */
+}
+
+.bubble {
+    position: absolute;
+    /* right: 100px; */
+    /* bottom: 50px; */
+    /* animation: bubble-up 5s ease-in-out; */
+    z-index: 1;
     filter: drop-shadow(3px 3px 3px cornflowerblue);
 }
-/* #eyecatcher img {
-    float: left;
-    position: absolute;
-} */
+.bubble-1 {
+    /* height: 5px; */
+}
+.bubble-2 {
+    /* height: 3px; */
+}
+
+

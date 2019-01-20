@@ -112,11 +112,11 @@
                         <!-- mit z-index noch nach hinten -->
 
                         <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(1)'));">
-                            <span>a</span><!--
-                            --><span>b</span><!--
-                            --><span>o</span><!--
-                            --><span>u</span><!--
-                            --><span>t</span>
+                            <span>A</span><!--
+                            --><span>B</span><!--
+                            --><span>O</span><!--
+                            --><span>U</span><!--
+                            --><span>T</span>
                         </p>
                         <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(2)'));">
                             <span>c</span><!--
@@ -147,7 +147,7 @@
         </div> -->
 
         <div id="eyecatcher">
-            <!-- <img src="./img/brainrainlogo_white.png"> -->
+            <img src="./img/brainrainlogo_dark_background.png" id="eyecatcher-logo">
             <h1 id="brain">BRAIN</h1>
             <h1 id="rain">RAIN</h1>
             <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
@@ -197,4 +197,5 @@
     <script src="./js/positioning.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/main_menu.js"></script>
+    <script src="./js/bubbles.js"></script>
 </html>

@@ -241,8 +241,10 @@ footer div p {
 
 /*** MIDDLE PART ***/
 #main {
-    background-color: lightseagreen;
-    width: calc(100% - 100px);
+    background-color: rgb(20, 18, 63);
+    /* width: calc(100% - 100px); */
+    width: 100%; 
+    /* später dann die 5 Spalten ein calc(100% - 100px) setzen */
     margin: 0 auto;
     font-family: 'Trebuchet MS', sans-serif;
 }
