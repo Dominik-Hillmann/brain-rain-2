@@ -19,6 +19,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat:700i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet"> 
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
@@ -151,9 +153,10 @@
             <h1 id="brain">BRAIN</h1>
             <h1 id="rain">RAIN</h1>
             <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
-            <!-- <img class="eyecatcher-circle" src="./img/white_circle.png">
-            <img class="eyecatcher-circle" src="./img/white_circle.png">
-            <img class="eyecatcher-circle" src="./img/white_circle.png"> -->
+            <div id="welcome-text">
+                <h1>Willkommen</h1>
+                <p>Hier stellt sich Charlie vor, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>            
             <img id="eyecatcher-background" src="./img/background_eyecatcher.png">
         </div>
 

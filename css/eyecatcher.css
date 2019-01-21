@@ -11,7 +11,24 @@ body { z-index: -100; }
 #eyecatcher > * {
     position: absolute;
 }
-
+@keyframes recurrent-lighting-pink {
+    0% {
+        text-shadow: 3px 3px 3px #ff4951;
+    } 50% {
+        text-shadow: 5px 5px 5px #ff4951;
+    } 100% {
+        text-shadow: 3px 3px 3px #ff4951;
+    }
+}
+@keyframes recurrent-lighting-white {
+    0% {
+        text-shadow: 3px 3px 3px white;
+    } 50% {
+        text-shadow: 5px 5px 5px white;
+    } 100% {
+        text-shadow: 3px 3px 3px white;
+    }
+}
 #eyecatcher h1 {
     font-size: 120px;
     font-family: 'Montserrat';
@@ -19,42 +36,27 @@ body { z-index: -100; }
     font-style: italic;
     text-shadow: 3px 3px 3px #ff4951/*#ee4266*/ /*rgb(100, 100, 100)*/;
     letter-spacing: 5px;
+
+    animation: recurrent-lighting-pink 5s forwards infinite;
 }
+
 #eyecatcher-background {
     height: 800px;
     width: 100%;
     filter: drop-shadow(3px 3px 3px cornflowerblue);
     /* opacity: 0; */
 }
-
-@keyframes neon-lights {
-    /* 0% {
-        text-shadow: 3px 3px 3px #ff4951;
-    } 50% {
-        text-shadow: 10px 10px 10px red;
-    } 100% {
-        text-shadow: 3px 3px 3px #ff4951;
-    } */
-    from {
-        text-shadow: 3px 3px 3px #ff4951;
-    } to {
-        text-shadow: 10px 10px 10px red;
-    }
-}
 #brain {
-    z-index: 1;
+    z-index: 2;
     right: 100px;
     top: 250px;
     /* position: absolute;
     right: 50px;
     top: 150px; */
 }
-#brain:hover {
-    text-shadow: 10px 10px 10px red;
-    animation: neon-lights 300ms ease-in-out;
-}
+
 #rain {
-    z-index: 0;
+    z-index: 1;
     right: 50px;
     top: 320px;
 }
@@ -68,54 +70,72 @@ body { z-index: -100; }
 
     right: 300px;
     top: 430px;
+
+    animation: recurrent-lighting-white 1s forward infinite;
 }
 
-@keyframes logo-colors {
-    /* 0% {
-        background-image: radial-gradient(red, yellow);
-    } 50% {
-        background-image: radial-gradient(red, blue);
-    } 100% {
-        background-image: radial-gradient(red, yellow);
-    } */
-    from { background-image: radial-gradient(red, yellow);} to {background-image: radial-gradient(blue, yellow)}
-}
 #eyecatcher-logo {
     height: 200px;
-
     right: 390px;
     top: 260px;
-    /* background-image: radial-gradient(red, yellow); */
-    /* animation: logo-colors 500ms infinite   ; */
     background-image: url(../img/burton.gif);
     background-size: cover;
 }
-/* #eyecatcher img:last-child {
-    filter: drop-shadow(3px 3px 3px cornflowerblue);
-} */
 
 /* Bubbles */
 @keyframes bubble-up {
     /* 750px: eyecatcher height - start height */
-    from { 
+    /* from { 
         bottom: 50px;
         opacity: 1;
         /* right: 100px; */
-    } to { 
-        bottom: 750px;
-        opacity: 0; 
+    /* } to {  */
+        /* bottom: 750px;
+        opacity: 0;  */
         /* right: 200px; */
-    }
-    /* 0% {
+    /* } */ 
+    0% {
         bottom: 50px;
-        opacity: 1;
+        opacity: 0;
     } 85% {
         bottom: calc(0.85 * 750px);
         opacity: 1;
     } 100% {
         bottom: 750px;
         opacity: 0;
-    } */
+    }
+}
+
+#welcome-text {
+    color: black;
+    z-index: 3; /****/
+    width: 33%;
+    margin: 20px 0 0 40px;;
+
+    font-weight: 300;
+    font-style: normal;
+}
+#welcome-text h1 {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 40px;
+    letter-spacing: -4px;
+    text-shadow: none;
+    animation: none;
+    margin-bottom: 5px;
+}
+#welcome-text p {
+    font-family: 'Zilla Slab', monospace;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(165, 165, 165);
+    text-align: justify;
+
+    padding: 10px 0;
+    border-top: 2px solid rgb(165, 165, 165);
+    border-bottom: 2px solid rgb(165, 165, 165);
 }
 
 .bubble {
@@ -123,14 +143,8 @@ body { z-index: -100; }
     /* right: 100px; */
     /* bottom: 50px; */
     /* animation: bubble-up 5s ease-in-out; */
-    z-index: 1;
+    z-index: 0;
     filter: drop-shadow(3px 3px 3px cornflowerblue);
-}
-.bubble-1 {
-    /* height: 5px; */
-}
-.bubble-2 {
-    /* height: 3px; */
 }
 
 

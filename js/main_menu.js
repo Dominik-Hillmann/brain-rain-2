@@ -2,8 +2,9 @@ let showMenu = function () {
     // Lets the main menu appear smoothly.
     let additionalBlurred = [
         document.querySelector('#main'),
-        document.querySelector('#about')
-    ];
+        document.querySelector('#about'),
+        document.querySelector('#eyecatcher')
+    ].filter((e) => e != null);
 
     blurBackground(additionalBlurred);
     appearSmoothly(overlayMenu);
@@ -20,8 +21,9 @@ let hideMenu = function () {
     // Lets the main menu disappear smoothly.
     let additionalUnblurred = [
         document.querySelector('#main'),
-        document.querySelector('#about')
-    ];
+        document.querySelector('#about'),
+        document.querySelector('#eyecatcher')
+    ].filter((e) => e != null);
 
     unblurBackground(additionalUnblurred);
     disappearSmoothly(overlayMenu);
