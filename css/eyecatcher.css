@@ -11,7 +11,7 @@ body { z-index: -100; }
 #eyecatcher > * {
     position: absolute;
 }
-@keyframes recurrent-lighting-pink {
+/* @keyframes recurrent-lighting-pink {
     0% {
         text-shadow: 3px 3px 3px #ff4951;
     } 50% {
@@ -28,7 +28,7 @@ body { z-index: -100; }
     } 100% {
         text-shadow: 3px 3px 3px white;
     }
-}
+} */
 #eyecatcher h1 {
     font-size: 120px;
     font-family: 'Montserrat';
@@ -37,22 +37,19 @@ body { z-index: -100; }
     text-shadow: 3px 3px 3px #ff4951/*#ee4266*/ /*rgb(100, 100, 100)*/;
     letter-spacing: 5px;
 
-    animation: recurrent-lighting-pink 5s forwards infinite;
+    /* animation: recurrent-lighting-pink 5s forwards infinite; */
 }
 
 #eyecatcher-background {
     height: 800px;
     width: 100%;
     filter: drop-shadow(3px 3px 3px cornflowerblue);
-    /* opacity: 0; */
+    z-index: 1
 }
 #brain {
     z-index: 2;
     right: 100px;
     top: 250px;
-    /* position: absolute;
-    right: 50px;
-    top: 150px; */
 }
 
 #rain {
@@ -67,11 +64,8 @@ body { z-index: -100; }
     font-style: italic;
     font-size: 50px;
     text-shadow: 3px 3px 3px white;
-
     right: 300px;
     top: 430px;
-
-    animation: recurrent-lighting-white 1s forward infinite;
 }
 
 #eyecatcher-logo {
@@ -82,18 +76,57 @@ body { z-index: -100; }
     background-size: cover;
 }
 
+#welcome-text {
+    z-index: 3;
+    width: 33%;
+    margin: 120px 0 0 70px;
+}
+#welcome-text h1 {
+    color: #ff4951;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-size: 40px;
+    letter-spacing: -3px;
+    text-shadow: none;
+    animation: none;
+}
+#welcome-text p {
+    font-family: 'Zilla Slab', monospace;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(165, 165, 165);
+
+    padding: 10px 0 15px 0;
+}
+#welcome-text button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 3px 3px 3px rgb(165, 165, 165);
+}
+@keyframes button-hover { 
+    from { 
+        box-shadow: 3px 3px 3px rgb(165, 165, 165); 
+    } to { 
+        box-shadow: 6px 6px 6px rgb(165, 165, 165); 
+    } 
+}
+#welcome-text button:hover { 
+    box-shadow: 6px 6px 6px rgb(165, 165, 165); 
+    animation: button-hover 100ms ease-in-out;
+}
+#welcome-text button:nth-of-type(1) {    
+    background-image: linear-gradient(135deg, red, #ff4951);
+    margin-right: 5px;
+}
+#welcome-text button:nth-of-type(2) { background-image: linear-gradient(135deg, cornflowerblue, rgb(20, 18, 63)); }
+
 /* Bubbles */
 @keyframes bubble-up {
-    /* 750px: eyecatcher height - start height */
-    /* from { 
-        bottom: 50px;
-        opacity: 1;
-        /* right: 100px; */
-    /* } to {  */
-        /* bottom: 750px;
-        opacity: 0;  */
-        /* right: 200px; */
-    /* } */ 
     0% {
         bottom: 50px;
         opacity: 0;
@@ -105,46 +138,8 @@ body { z-index: -100; }
         opacity: 0;
     }
 }
-
-#welcome-text {
-    color: black;
-    z-index: 3; /****/
-    width: 33%;
-    margin: 20px 0 0 40px;;
-
-    font-weight: 300;
-    font-style: normal;
-}
-#welcome-text h1 {
-    color: black;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 40px;
-    letter-spacing: -4px;
-    text-shadow: none;
-    animation: none;
-    margin-bottom: 5px;
-}
-#welcome-text p {
-    font-family: 'Zilla Slab', monospace;
-    font-size: 20px;
-    font-weight: 400;
-    color: rgb(165, 165, 165);
-    text-align: justify;
-
-    padding: 10px 0;
-    border-top: 2px solid rgb(165, 165, 165);
-    border-bottom: 2px solid rgb(165, 165, 165);
-}
-
 .bubble {
     position: absolute;
-    /* right: 100px; */
-    /* bottom: 50px; */
-    /* animation: bubble-up 5s ease-in-out; */
     z-index: 0;
     filter: drop-shadow(3px 3px 3px cornflowerblue);
 }
-
-

@@ -12,18 +12,27 @@ a:hover {
 }
 /*** FIRST LINE HEADER ***/
 header {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     color: black;
     width: 100%;
     position: fixed;
-    background-color: pink;
+    background-color: royalblue;
     z-index: 9;
+
+
+    height: 60px;
 }
 header div:first-of-type {
     background-color: red;
     /* keeps the margin left and right */
     width: calc(100% - 100px);
     margin: auto;
+
+    /* vertical-align: middle; */
+    
 }
 #headerlogo {
     background-color: burlywood;
@@ -55,15 +64,19 @@ header div:nth-child(2) {
     font-size: 20px;
 }
 #header-options {
-    background-color: cornflowerblue;
+    background-color: white;
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
-    font-weight: bolder;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: -1px;
+
     margin: 0 20px 0 0;
     width: calc(100% - 25px);
 }
 #header-options p {
     display: inline;
+    padding-top: 3px;
     vertical-align: middle;
     margin-left: 4px;
 }

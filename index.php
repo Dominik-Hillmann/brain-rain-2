@@ -20,7 +20,8 @@
         <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat:700i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Eczar:600|Fugaz+One" rel="stylesheet"> 
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
@@ -115,13 +116,13 @@
 
                         <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(1)'));">
                             <span>A</span><!--
-                            --><span>B</span><!--
-                            --><span>O</span><!--
-                            --><span>U</span><!--
-                            --><span>T</span>
+                            --><span>b</span><!--
+                            --><span>o</span><!--
+                            --><span>u</span><!--
+                            --><span>t</span>
                         </p>
                         <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(2)'));">
-                            <span>c</span><!--
+                            <span>C</span><!--
                             --><span>o</span><!--
                             --><span>n</span><!--
                             --><span>t</span><!--
@@ -130,10 +131,10 @@
                             --><span>t</span>
                         </p>
                         <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(3)'));">
-                            <span>l</span><!--
+                            <span>L</span><!--
                             --><span>o</span><!--
                             --><span>g</span><!--
-                            --><span> i</span><!--
+                            --><span> I</span><!--
                             --><span>n</span>
                         </p>
                     </div>
@@ -154,8 +155,14 @@
             <h1 id="rain">RAIN</h1>
             <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
             <div id="welcome-text">
-                <h1>Willkommen</h1>
-                <p>Hier stellt sich Charlie vor, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h1>Welcome to my website</h1>
+                <p>
+                    Hier stellt sich Charlie vor, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    If you like, you can contact me or take a look at my portfolio down below.
+                </p>
+                <button onclick="scrollToSelection();">PORTFOLIO</button>
+                <button>CONTACT</button>
             </div>            
             <img id="eyecatcher-background" src="./img/background_eyecatcher.png">
         </div>

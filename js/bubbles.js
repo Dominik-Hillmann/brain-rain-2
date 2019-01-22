@@ -47,5 +47,13 @@ function bubbleAnimation() {
 }
 
 bubbleAnimation();
+
+// IDEE: in Funktion bool einbauen, damit die Schleife nur funktioniert, wenn dieser true;
+// über Menüaufruf an- und ausschaltbar => smoothe Animation
+// und alle Blasen werden entfernt
 setInterval(bubbleAnimation, 3500); // new bubbles every second
 
+let scrollToSelection = () => document.querySelector('#main').scrollIntoView({
+    block: 'start',
+    behavior: 'smooth'
+});
