@@ -19,14 +19,43 @@ header {
     color: black;
     width: 100%;
     position: fixed;
-    background-color: royalblue;
+    background-color: white;
     z-index: 9;
 
 
+
+    /* height: 45px; */
+}
+.at-top {
     height: 60px;
+    animation: back-at-top 100ms ease-in-out;
+    box-shadow: 0px 0px 0px black;
+}
+.not-at-top {
+    height: 45px;
+    animation: away-from-top 100ms ease-in-out;    
+    box-shadow: 6px 6px 6px rgba(165, 165, 165, 0.5)
+}
+@keyframes back-at-top { 
+    from { 
+        height: 45px; 
+        box-shadow: 6px 6px 6px rgba(165, 165, 165, 0.5)
+    } to { 
+        height: 60px;
+        box-shadow: 0px 0px 0px black;
+    } 
+}
+@keyframes away-from-top { 
+    from {
+        height: 60px;
+        box-shadow: 6px 6px 6px rgba(165, 165, 165, 0.5)
+    } to { 
+        height: 45px;
+        box-shadow: 0px 0px 0px black;
+    } 
 }
 header div:first-of-type {
-    background-color: red;
+    /* background-color: red; */
     /* keeps the margin left and right */
     width: calc(100% - 100px);
     margin: auto;
@@ -35,7 +64,7 @@ header div:first-of-type {
     
 }
 #headerlogo {
-    background-color: burlywood;
+    /* background-color: burlywood; */
     margin: 0;
     padding: 5px 5px 5px 0;
     display: inline-flex;
@@ -47,24 +76,28 @@ header div:first-of-type {
 #headerlogo > img {
     height: 30px;
     margin-right: 5px;
+
+    /* filter: drop-shadow(3px 3px 3px #ff4951); */
 }
 #headerlogo h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-style: italic;
     font-size: 25px;
+    border-bottom: 2px solid #ff4951;
+    border-top: 2px solid #ff4951;
 }
 
 header div:nth-child(2) {
     display: inline-flex;
-    background-color: goldenrod;
+    /* background-color: goldenrod; */
     float: right;
     vertical-align: middle;
     margin-top: 7px;
     font-size: 20px;
 }
 #header-options {
-    background-color: white;
+    /* background-color: white; */
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
@@ -73,135 +106,65 @@ header div:nth-child(2) {
 
     margin: 0 20px 0 0;
     width: calc(100% - 25px);
+
+    border-right: 2px solid black;
+    padding-right: 40px;
 }
 #header-options p {
     display: inline;
     padding-top: 3px;
     vertical-align: middle;
-    margin-left: 4px;
+    margin-left: 40px;
+    cursor: pointer;
+    color: rgb(165, 165, 165);
 }
+.current-option { 
+    border-bottom: 2px solid #ff4951; 
+    color: black !important;
+}
+#header-options p span { z-index: 0; }
 header div:nth-child(2) img {
-    height: 25px;
-    border-left: 2px solid black;
+    height: 15px;
     cursor: pointer;
-}
 
-
-
-
-
-
-
-
-
-
-
-/* #inner-header-wrapper {
-    background-color: white;
-}
-#firstmenu {
-    padding: 20px 0;
-    font-size: 12px;
-    width: calc(100% - 100px);
-    margin: 0 auto;
-    background-color: white;
-}
-#path {
-    float: left;
-}
-#path * {
-    display: inline-block;
-}
-#path h1, #number h1 {
-    vertical-align: middle;
-}
-#path img {
-    height: 20px;
-    margin-right: 20px;
-    margin-bottom: -8px;
-    cursor: pointer;
-}
-#number {
-    float: right; */
-    /*margin-left: 20px; /* to push brain back from other side */
-/* }
-#number div {
+    background-image: linear-gradient(135deg, cornflowerblue, rgb(33, 29, 119));
+    padding: 5px;
+    border-radius: 100%;
     margin-left: 20px;
-    margin-top: -18px;
-    display: inline-block;
-    vertical-align: top;
+
+    box-shadow: 3px 3px 3px rgb(165, 165, 165);
 }
-#number div p {
-    display: block;
-    font-size: 20px;
-    font-family: 'Trebuchet MS', sans-serif;
+@keyframes menu-hover { from { box-shadow: 3px 3px 3px rgb(165, 165, 165); } to { box-shadow: 5px 5px 5px rgb(165, 165, 165); } }
+header div:nth-child(2) img:hover { 
+    box-shadow: 5px 5px 5px rgb(165, 165, 165);
+    animation: menu-hover 100ms linear;
 }
-#number div p:last-child {
-    background: linear-gradient(to bottom, black 10%, transparent 70%);
-	  -webkit-background-clip: text;
-	  -webkit-text-fill-color: transparent;
-}
-#number div p:first-child {
-    background: linear-gradient(to top, black 10%, transparent 70%);
-	  -webkit-background-clip: text;
-	  -webkit-text-fill-color: transparent;
-}
-#number * {
-    display: inline;
-}
-header img {
-    margin-left: auto;
-    margin-right: auto;
-    height: 40px;
-    display: block;
-} */
-
-/*** SECOND LINE HEADER ***/
-/* #heading {
-    background-color: white;
-    font-family: 'Trebuchet MS', sans-serif;
-    text-align: center;
-    padding: 10px 0;
-    width: calc(100% - 40px); to let border end where above margin begins */
-    /* margin: 0 auto;
-    border-top: 5px solid rgb(64, 130, 53);
-}
-#heading * {
-    width: 80%;
-    display: block;
-    margin: 0 auto;
-}
-#heading h2 {
-    color: rgb(64, 130, 53);
-}
-
- */
-
-
-
-
-
-
-
-
-
 
 
 /*** FOOTER ***/
-footer {
-    font-family: 'Trebuchet MS', sans-serif;
+footer, footer a {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: -1px;
     text-align: center;
+    background-color: rgb(7, 10, 25);
+    color: white;
+    padding-top: 20px;
 }
 footer img {
     height: 50px;
-    background-color: black;
+    background-color: white;
     border-radius: 25px;
     margin: 5px;
+    box-shadow: 0px 0px 10px cornflowerblue;
 }
 footer div p {
     display: inline-block;
     padding: 10px 3%;
-    border-top: 1px solid black;    
+    margin-top: 5px;
+    border-top: 1px solid white;    
 }
 #facebook:hover {
     background-color: #3b5998;
@@ -229,6 +192,7 @@ footer div p {
 }
 #love {
     color: red;
+    box-shadow: 1px 4px 10px cornflowerblue;
 }
 #madewith {
     float: right;
@@ -252,28 +216,60 @@ footer div p {
     width: 168px;
 }
 
+
+
 /*** MIDDLE PART ***/
 #main {
-    background-color: rgb(20, 18, 63);
+    background-image: linear-gradient(to bottom, rgb(20, 18, 63), rgb(20, 18, 63) 70%, rgb(7, 10, 25));
     /* width: calc(100% - 100px); */
     width: 100%; 
     /* später dann die 5 Spalten ein calc(100% - 100px) setzen */
     margin: 0 auto;
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
-#main div {
+#main > div {
+    /* background-color: yellowgreen; */
+    margin: auto;
+    width: calc(100% - 100px);
+}
+
+#main > div > div {
     display: inline-block;
     color: white;
     background-color: black;
     text-align: center;
     width: 17%;
 
-    background-image: url('../img/cube.gif');
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    letter-spacing: -2px;
+    text-shadow: 2px 2px 2px black;
+    /* color: #ff4951; */
     background-size: cover;
     height: 500px;
 
     vertical-align: middle;
+    cursor: pointer;
+    /* box-shadow: 2px 2px 5px #ff4951; */
+
+    border-radius: 10px;
+
+    margin-top: 20px;
 }
+@keyframes blur-section { 
+    from { 
+        filter: blur(0);
+        margin-top: 20px;
+    } to { 
+        filter: blur(5px); 
+        margin-top: 0px;
+    } 
+}
+#main > div > div:hover {
+    filter: blur(5px);
+    animation: blur-section 100ms ease-in-out forwards;
+}
+
 #main div h1 {
     position: relative;
     top: 50%;
@@ -281,17 +277,27 @@ footer div p {
 }
 /* if the 5 divisions have 17% width, the 
    4 margins have to have (100% - 5 * 17%) / 4 */
+#design {
+    background-image: url(../img/alena-aenami-lines1k.jpg), url(../img/alena-aenami-7p-m-1k.jpg);
+    background-size: 30%, 80%;
+}
 #drawings {
     margin: 0 calc((100% - 5 * 17%) / 4);
+    background-image: url(../img/alena-aenami-7p-m-1k.jpg);
 }
 #illustration {
     margin-left: calc((100% - 5 * 17%) / 4);
+    background-image: url(../img/alena-aenami-aenami-lunar.jpg);
 }
 #photography {
     margin-right: calc((100% - 5 * 17%) / 4);
+    background-image: url(../img/alena-aenami-quiet-1px.jpg);
+}
+#writing {
+    background-image: url(../img/alena-aenami-cold-1k.jpg);
 }
 
-#about {
+/* #about {
     background-color: chartreuse;
     margin: auto;
     width: calc(100% - 100px);
@@ -320,7 +326,7 @@ footer div p {
 #about p span {
     margin-top: -5px;
     height: 10px;
-}
+} */
 
 .main-content {
     padding-top: 60px; /*148 header height + 20*/

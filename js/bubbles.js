@@ -9,7 +9,7 @@
 // später minimale Beeinflussung der Postition großer Elemente durch Scrollposition
 
 function getRand(min, max, int) {
-    let rand = Math.random() * (max - min)
+    let rand = Math.random() * (max - min);
     return (int ? Math.floor(rand) : rand) + min;
 }
 

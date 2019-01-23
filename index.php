@@ -104,7 +104,7 @@
 
     <body>
         <?php require "./libraries/util.inc.php" ?>
-        <header>
+        <header class="at-top">
             <div>
                 <div id="headerlogo">
                     <img src="./img/brainrainlogo.png"><h1>BRAINRAIN</h1>
@@ -114,7 +114,7 @@
 
                         <!-- mit z-index noch nach hinten -->
 
-                        <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(1)'));">
+                        <p class="current-option" onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(1)'));">
                             <span>A</span><!--
                             --><span>b</span><!--
                             --><span>o</span><!--
@@ -164,40 +164,44 @@
                 <button onclick="scrollToSelection();">PORTFOLIO</button>
                 <button>CONTACT</button>
             </div>            
-            <img id="eyecatcher-background" src="./img/background_eyecatcher.png">
+            <img id="eyecatcher-background" src="./img/background_eyecatcher.png" ondragstart="return false;">
         </div>
 
         <div id="main" class="main-content">
-            <div id="design">
-                <h1>GRAPHIC<br>DESIGN</h1>
-            </div><!--
-            --><div id="illustration" class="hasMargin">
-                <h1>ILLUS-<br>TRATION</h1>
-            </div><!--
-            --><div id="drawings" class="hasMargin">
-                <h1>DRAWINGS</h1>
-            </div><!--
-            --><div id="photography" class="hasMargin">
-                <h1>PHOTO-<br>GRAPHY</h1>
-            </div><!--
-            --><div id="writing">
-                <h1>WRITING</h1>
+            <div>
+                <div id="design">
+                    <h1>Graphic<br>Design</h1>
+                    <!-- <img src="./img/welle_1.png">
+                    <div class="section-text"><p>Test</p></div> -->
+                </div><!--
+                --><div id="illustration" class="hasMargin">
+                    <h1>Illustration</h1>
+                </div><!--
+                --><div id="drawings" class="hasMargin">
+                    <h1>Drawings</h1>
+                </div><!--
+                --><div id="photography" class="hasMargin">
+                    <h1>Photo-<br>graphy</h1>
+                </div><!--
+                --><div id="writing">
+                    <h1>Writing</h1>
+                </div>
             </div>
         </div>
 
 
         <footer>
             <div>
-                <a href="#"><img src="./img/logos/instagram.png" id="instagram"></a>
-                <a href="#"><img src="./img/logos/twitter.png" id="twitter"></a>
-                <a href="#"><img src="./img/logos/facebook.png" id="facebook"></a>
-                <a href="#"><img src="./img/logos/youtube.png" id="youtube"></a>
+                <a href="#"><img src="./img/logos/instagram_dunkel.png" id="instagram"></a>
+                <a href="#"><img src="./img/logos/twitter_dunkel.png" id="twitter"></a>
+                <a href="#"><img src="./img/logos/facebook_dunkel.png" id="facebook"></a>
+                <a href="#"><img src="./img/logos/youtube_dunkel.png" id="youtube"></a>
             </div>
 
             <div>
                 <p id="madewith-pushback">&nbsp;</p>
                 <p>Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved. <a>Imprint</a></p>
-                <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo.png"></a></p>
+                <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo_white.png"></a></p>
             </div>
         </footer>
 
