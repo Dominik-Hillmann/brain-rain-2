@@ -46,7 +46,7 @@ body { z-index: -100; }
     filter: drop-shadow(3px 3px 3px cornflowerblue);
     z-index: 1;
 
-    user-drag: none; 
+    /* user-drag: none;  */
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
@@ -86,7 +86,7 @@ body { z-index: -100; }
 #welcome-text {
     z-index: 3;
     width: 33%;
-    margin: 120px 0 0 70px;
+    margin: 70px 0 0 70px;
 }
 #welcome-text h1 {
     color: #ff4951;
@@ -149,4 +149,82 @@ body { z-index: -100; }
     position: absolute;
     z-index: 0;
     filter: drop-shadow(3px 3px 3px cornflowerblue);
+}
+
+
+/*** MIDDLE PART ***/
+#main {
+    background-image: linear-gradient(to bottom, rgb(20, 18, 63), rgb(20, 18, 63) 70%, rgb(7, 10, 25));
+    /* width: calc(100% - 100px); */
+    width: 100%; 
+    /* später dann die 5 Spalten ein calc(100% - 100px) setzen */
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+#main > div {
+    /* background-color: yellowgreen; */
+    margin: auto;
+    width: calc(100% - 100px);
+}
+
+#main > div > div {
+    display: inline-block;
+    color: white;
+    background-color: black;
+    text-align: center;
+    width: 17%;
+
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    letter-spacing: -2px;
+    text-shadow: 2px 2px 2px black;
+    /* color: #ff4951; */
+    background-size: cover;
+    height: 500px;
+
+    vertical-align: middle;
+    cursor: pointer;
+    /* box-shadow: 2px 2px 5px #ff4951; */
+
+    border-radius: 10px;
+
+    margin-top: 20px;
+}
+
+@keyframes blur-section { from { filter: blur(0px); } to { filter: blur(5px); } }
+@keyframes section-jump { from { margin-top: 20px; } to { margin-top: 0px; } }
+
+.section-blurred { 
+    filter: blur(5px); 
+    animation: blur-section 100ms ease-in-out forwards;
+}
+#main > div > div:hover {
+    margin-top: 0px;
+    animation: section-jump 100ms ease-in-out forwards;
+}
+
+#main div h1 {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* if the 5 divisions have 17% width, the 
+   4 margins have to have (100% - 5 * 17%) / 4 */
+#design {
+    background-image: url(../img/alena-aenami-lines1k.jpg);
+}
+#drawings {
+    margin: 0 calc((100% - 5 * 17%) / 4);
+    background-image: url(../img/alena-aenami-7p-m-1k.jpg);
+}
+#illustration {
+    margin-left: calc((100% - 5 * 17%) / 4);
+    background-image: url(../img/alena-aenami-aenami-lunar.jpg);
+}
+#photography {
+    margin-right: calc((100% - 5 * 17%) / 4);
+    background-image: url(../img/alena-aenami-quiet-1px.jpg);
+}
+#writing {
+    background-image: url(../img/alena-aenami-cold-1k.jpg);
 }

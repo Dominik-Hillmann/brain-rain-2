@@ -128,7 +128,14 @@
                             --><span>t</span><!--
                             --><span>a</span><!--
                             --><span>c</span><!--
-                            --><span>t</span>
+                            --><span>t</span><!--
+                            --><span> &</span><!--
+                            --><span> H</span><!--
+                            --><span>i</span><!--
+                            --><span>r</span><!--
+                            --><span>e</span><!--
+                            --><span> M</span><!--
+                            --><span>e</span>
                         </p>
                         <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(3)'));">
                             <span>L</span><!--
@@ -142,12 +149,6 @@
                 </div>
             </div>
         </header>
-
-        <!-- <div id="about">
-            <p><span>ABOUT</span></p>
-            <img src="./img/emptygap.png">
-            <p><span>HIRE ME - CONTACT</span></p>
-        </div> -->
 
         <div id="eyecatcher">
             <img src="./img/brainrainlogo_dark_background.png" id="eyecatcher-logo">
@@ -200,7 +201,10 @@
 
             <div>
                 <p id="madewith-pushback">&nbsp;</p>
-                <p>Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved. <a>Imprint</a></p>
+                <p>
+                    Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved.<!--
+                    --><span onclick=""> Imprint.</span>
+                </p>
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo_white.png"></a></p>
             </div>
         </footer>
