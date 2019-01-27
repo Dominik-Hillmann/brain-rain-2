@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/text.css">
         <link rel="stylesheet" href="./css/menu.css">
+    <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">

@@ -3,7 +3,8 @@ let showMenu = function () {
     let additionalBlurred = [
         document.querySelector('#main'),
         document.querySelector('#about'),
-        document.querySelector('#eyecatcher')
+        document.querySelector('#eyecatcher'),
+        document.querySelector('#thin-wave')
     ].filter((e) => e != null);
 
     blurBackground(additionalBlurred);
@@ -13,7 +14,6 @@ let showMenu = function () {
         behavior: 'smooth'
     });
 
-    // options.classList.add('down');
     menuHeading.classList.add('down');
 }
 
@@ -22,7 +22,8 @@ let hideMenu = function () {
     let additionalUnblurred = [
         document.querySelector('#main'),
         document.querySelector('#about'),
-        document.querySelector('#eyecatcher')
+        document.querySelector('#eyecatcher'),
+        document.querySelector('#thin-wave')
     ].filter((e) => e != null);
 
     unblurBackground(additionalUnblurred);
@@ -78,4 +79,3 @@ let changeLetterColors = function (option) {
         }, startTime + animationLen); // animation ends exactly in startTime + animationLen ms
     }
 }
-

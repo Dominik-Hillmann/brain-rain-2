@@ -5,7 +5,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    /*background-color: rgba(16 , 34, 53, .9); /* dark purple, Verlauf, später? */
+    background-image: linear-gradient(135deg, rgba(20, 18, 63, 0.9), rgba(7, 10, 25, 0.9)); /* dark purple, Verlauf, später?*/
     color: white;
 }
 #menu-heading {
@@ -30,29 +30,30 @@
 @keyframes heading-expanding {
     0% {
         letter-spacing: 2px;
-        margin-left: 5px;
+        margin-left: 10px;
         font-size: 50px;
-        color: #da4167;
+        /* color: #da4167; */
     } 50% {
         letter-spacing: 5px;
-        margin-left: 10px;
+        margin-left: 15px;
         font-size: 55px;
-        color: purple;
+        /* color: purple; */
     } 100% {
         letter-spacing: 2px;
-        margin-left: 5px;
+        margin-left: 10px;
         font-size: 50px;
-        color: #da4167;
+        /* color: #da4167; */
     }
 }
 @keyframes img-expanding {
-     /* +5 px, wie font */
-    0% { height: 40px; } 50% { height: 45px; } 100% { height: 40px; }
+    /* +5 px, wie font */
+    0% { height: 55px; } 50% { height: 60px; } 100% { height: 55px; }
 }
 #menu-heading {
     margin-top: 100px;
     font-size: 50px;
     font-family: 'Montserrat', sans-serif;
+    font-style: italic;
 }
 #menu-heading div {
     display: flex;
@@ -67,10 +68,14 @@
 #menu-heading div h1 {
     animation: heading-expanding 15s forwards infinite;
     letter-spacing: 2px;
-    margin-left: 5px;
+    margin-left: 10px;
+
+    
+    border-top: 3px solid #ff4951;
+    border-bottom: 3px solid #ff4951;
 }
 #menu-heading div img {
-    height: 40px;
+    height: 60px;
     animation: img-expanding 15s forwards infinite;
 }
 
@@ -80,10 +85,7 @@
 
 #menu-options {
     font-family: 'Montserrat', sans-serif;
-}
-
-#menu-options div {
-
+    font-style: italic;
 }
 #menu-options div p {
     display: flex;
@@ -106,9 +108,6 @@
     z-index: -3;
 }
 
-
-
-
 /**** Animation classes ****/
 
 /* letters changing on mouse over */
@@ -116,26 +115,19 @@
     0% { 
         color: white;
         letter-spacing: 0px;
-        /* font-size: 20px; */
     } 50% { 
-        color: darkorchid;
+        color: #ff4951;
         letter-spacing: 1px;
-        /* font-size: 35px; */
     } 100% { 
         color: white; 
         letter-spacing: 0px;
-        /* font-size: 20px; */
     }
 }
 .letter-changed { animation: letter-changing 400ms; }
 
 /* menu coming down when button clicked */
-@keyframes menu-comes-down {
-    from { margin-top: -300px; } to { margin-top: 100px; }
-}
-.down {
-    animation: menu-comes-down 200ms;
-}
+@keyframes menu-comes-down { from { margin-top: -300px; } to { margin-top: 100px; } }
+.down { animation: menu-comes-down 200ms; }
 
 
 

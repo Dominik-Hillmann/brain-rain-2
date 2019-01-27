@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="de">
     <head>
     <!-- Basic Page Needs -->
@@ -17,11 +18,7 @@
         <link rel="stylesheet" href="./css/eyecatcher.css">
         <!-- <link rel="stylesheet" href="css/mobile.css"> -->
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat:700i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet"> 
-        <link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Eczar:600|Fugaz+One" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
@@ -114,14 +111,14 @@
 
                         <!-- mit z-index noch nach hinten -->
 
-                        <p class="current-option" onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(1)'));">
+                        <p class="current-option">
                             <span>A</span><!--
                             --><span>b</span><!--
                             --><span>o</span><!--
                             --><span>u</span><!--
                             --><span>t</span>
                         </p>
-                        <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(2)'));">
+                        <p>
                             <span>C</span><!--
                             --><span>o</span><!--
                             --><span>n</span><!--
@@ -137,7 +134,7 @@
                             --><span> M</span><!--
                             --><span>e</span>
                         </p>
-                        <p onmouseover="changeLetterColors(document.querySelector('#header-options p:nth-child(3)'));">
+                        <p>
                             <span>L</span><!--
                             --><span>o</span><!--
                             --><span>g</span><!--
@@ -167,7 +164,7 @@
             </div>            
             <img id="eyecatcher-background" src="./img/background_eyecatcher.png" ondragstart="return false;">
         </div>
-
+ 
         <div id="main" class="main-content">
             <div>
                 <div id="design">

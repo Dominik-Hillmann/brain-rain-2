@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <!-- Basic Page Needs -->
+        <?php require "./libraries/util.inc.php" ?>
+    <!-- Basic Page Needs -->
         <meta charset="utf-8">
-        <title>BRAINRAIN - Photography</title>
+        <title>BRAINRAIN</title>
         <meta name="description" content="">
         <meta name="author" content="Dominik Hillmann">
 
-        <!-- Mobile Specific Metas -->
+    <!-- Mobile Specific Metas -->
+        <meta>
 
-        <!-- CSS links -->
+    <!-- CSS links -->
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/images.css">
         <link rel="stylesheet" href="./css/menu.css">
+        <link rel="stylesheet" href="./css/eyecatcher.css">
+        <link rel="stylesheet" href="./css/contact.css">
+        <!-- <link rel="stylesheet" href="css/mobile.css"> -->
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">
-    
-        <!-- Favicon -->
+
+    <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
     </head>
 
+    <!-- Everything that is not show as default like the menu or pic displays -->
     <div id="menu" class="hide">
         <div id="menu-heading">
             <div>
@@ -90,29 +96,15 @@
                     --><span>n</span><!--  
                     --><span>g</span>
                 </p>
+                <!-- <p>
+                    <?php # echo strToSpans('Das ist ein Test'); ?>
+                </p> -->
             </div>
         </div>
     </div>
-
-    <div id="currently-shown" class="hide">
-        <!-- here to cover all of the body -->
-        <img src="./img/cross_colored.png" id="cross" onclick="unblurBackground();">
-        <div id="main-pic-container">
-            <img src="./img/cube.gif" id="the-main-pic">
-        </div>
-        <div id="curr-pic-info-wrapper">
-            <img src="./img/arrow_links_colored.png" class="arrow" onclick="prevPic();"><!--
-            --><img src="./img/arrow_rechts_colored.png" class="arrow" id="rarrow" onclick="nextPic();"><!--
-            --><div id="curr-pic-info">
-                <h1>Titel, ein langer Titel</h1>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            </div>
-        </div>
-    </div>
-
 
     <body>
-        <?php require './libraries/util.inc.php'; ?>
+        
         <header class="at-top">
             <div>
                 <div id="headerlogo">
@@ -120,8 +112,8 @@
                 </div>
                 <div>
                     <div id="header-options">
-                        <p class="current-option">About</p>
-                        <p>Contact & Hire Me</p>
+                        <p>About</p>
+                        <p class="current-option">Contact & Hire Me</p>
                         <p>Log In</p>
                     </div>
                     <img src="./img/burger_menu_closed.png" onclick="showMenu();">
@@ -129,32 +121,49 @@
             </div>
         </header>
 
-        <div id="thin-wave" ondragstart="return false;">
-            <img src="./img/thin_wave.png">
-        </div>
-        <!-- Idee: hier vielleicht mit JS Elemente bei Änderung der Breite aushängen und dann wieder einhängen -->
-        <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
-        <div id="main-wrapper">
-            <div id="pics-main" class="main-content">
-                <?php
-                    $folderName = 'info/pic-info';
-                    $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
-                    $fileNames = array_splice($fileNames, 2); // get rid of . and ..
+        <div id="eyecatcher">
+            <img src="./img/brainrainlogo_dark_background.png" id="eyecatcher-logo">
+            <h1 id="brain">BRAIN</h1>
+            <h1 id="rain">RAIN</h1>
+            <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
+            <div id="welcome-text">
+                <h1>Contact & Hire Me</h1>
+                <form action="contacted.php" method="post">
+                    <div id="side-by-side">
+                        <div>
+                            <h3 class="h3-without-input">First name <span>*</span></h3>
+                            <input type="text" name="firstname">
+                        </div>
+                        <div>
+                            <h3 class="h3-without-input">Last name <span>*</span></h3>
+                            <input type="text" name="lastname">
+                        </div>
+                    </div>
 
-                    $allPicInfo = [];
-                    foreach ($fileNames as $fileName) {
-                        $info = getInfo($fileName, $folderName);
+                    <div>
+                        <h3 class="h3-without-input">E-mail address <span>*</span></h3>
+                        <input type="text" name="mail">
+                    </div>
 
-                        if (! $info->secret) {
-                            array_push($allPicInfo, $info);
-                        }
-                    }
+                    <div>
+                        <h3 class="h3-without-input">Telephone</h3>
+                        <input type="text" name="telephone">
+                    </div>
 
-                    // echo pictures and information
-                    $picPrinter = new PicInfoPrinter($allPicInfo);
-                    $picPrinter->printContainedInfo();
-                ?>
-            </div>
+                    <div>
+                        <h3 class="h3-without-input">Subject <span>*</span></h3>
+                        <input type="text" name="subject">
+                    </div>
+
+                    <div>
+                        <h3 class="h3-without-input-textarea">Message <span>*</span></h3>
+                        <textarea name="message"></textarea>
+                    </div>
+                    <button>SEND</button>
+                    <p><span>*</span> Please fill these inputs.</p>
+                </form>
+            </div>            
+            <img id="eyecatcher-background" src="./img/background_eyecatcher.png" ondragstart="return false;">
         </div>
 
         <footer>
@@ -167,27 +176,20 @@
 
             <div>
                 <p id="madewith-pushback">&nbsp;</p>
-                <p>Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved. <a>Imprint</a></p>
-                <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo.png"></a></p>
+                <p>
+                    Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved.<!--
+                    --><span onclick=""> Imprint.</span>
+                </p>
+                <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo_white.png"></a></p>
             </div>
         </footer>
-        <div id="pic-texts" style="display:none;">
-            <?php
-                // echo descriptions and names in hidden div so that the JS functions can use it to change descriptions when displayed
-                foreach ($picPrinter->getChunkedInfo() as $subPicInfo) {
-                    foreach ($subPicInfo as $picInfo) {
-                        echo '<div class="hidden-pic-info">';
-                        echo '<h1>'. $picInfo->name .'</h1>';
-                        echo '<p>'. $picInfo->description .'</p></div>';
-                    }                    
-                }
-            ?>
-        </div>
+
     </body>
 
     <script src="./js/image_preview.js"></script>
     <script src="./js/positioning.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/main_menu.js"></script>
-    <script src="./js/image_hover.js"></script>
+    <script src="./js/bubbles.js"></script>
+    <script src="./js/input_animation.js"></script>
 </html>

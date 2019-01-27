@@ -1,6 +1,7 @@
 <?php
     function num2Roman($number) {
         // source: https://stackoverflow.com/questions/14994941/numbers-to-roman-numbers-with-php
+        // returns $number in roman numerals
         $map = [
             'M'  => 1000, 
             'CM' => 900, 
@@ -28,6 +29,25 @@
             }
         }
         return $returnValue;
+    }
+
+    function strToSpans($str) {
+        // str to <span>s</span><span>t</span><span>r</span>
+        $spans = [];
+        $lastLetterEmpty = FALSE;
+        foreach (str_split($str) as $letter) {
+            if ($letter != ' ') {
+                array_push(
+                    $spans, 
+                    ($lastLetterEmpty ? '<span> ' : '<span>') . $letter . '</span>'
+                );
+            }
+
+            $lastLetterEmpty = $letter == ' ';
+            echo $lastLetterEmpty;
+        }
+        
+        return implode($spans);
     }
 
     

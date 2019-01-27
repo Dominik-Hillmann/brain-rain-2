@@ -155,14 +155,11 @@ body { z-index: -100; }
 /*** MIDDLE PART ***/
 #main {
     background-image: linear-gradient(to bottom, rgb(20, 18, 63), rgb(20, 18, 63) 70%, rgb(7, 10, 25));
-    /* width: calc(100% - 100px); */
     width: 100%; 
-    /* später dann die 5 Spalten ein calc(100% - 100px) setzen */
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
 }
 #main > div {
-    /* background-color: yellowgreen; */
     margin: auto;
     width: calc(100% - 100px);
 }
@@ -178,16 +175,12 @@ body { z-index: -100; }
     font-style: italic;
     letter-spacing: -2px;
     text-shadow: 2px 2px 2px black;
-    /* color: #ff4951; */
     background-size: cover;
     height: 500px;
 
     vertical-align: middle;
     cursor: pointer;
-    /* box-shadow: 2px 2px 5px #ff4951; */
-
     border-radius: 10px;
-
     margin-top: 20px;
 }
 

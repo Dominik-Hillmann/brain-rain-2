@@ -1,55 +1,39 @@
-// Ziel: erstelle kleine Kugeln an zufälligen Stellen, die nach oben blubbern und von der Mausposition in
-// ihrer vertikalen Position beeinflusst werden.
-
-// 1. Füge Bubbles ein
-// 2. Lasse diese steigen, unten opacity = 0, oben 1.0, zerstöre sie oben
-    // zufällige Geschwindigkeit
-// 3. Beeinflussung durch Mausposition
-
-// später minimale Beeinflussung der Postition großer Elemente durch Scrollposition
-
 function getRand(min, max, int) {
+    // random numbers between min and max, returns an integer if int == true
     let rand = Math.random() * (max - min);
     return (int ? Math.floor(rand) : rand) + min;
 }
-
-const numBubbleTypes = 2; // how many CSS classes for different bubbles there are
-let winWidth = window.innerWidth || document.body.clientWidth;
-window.onresize = () => winWidth = window.innerWidth || document.body.clientWidth;
+// window width to dertermine where bubbles are supposed to spawn
+let winWidth;
+let calcWinWidth = () => winWidth = window.innerWidth || document.body.clientWidth;
+calcWinWidth();
+window.onresize = calcWinWidth;
+// parent of the bubbles
 let eyeCatcherNode = document.querySelector('#eyecatcher');
-// random Größe (CSS)
-// random Farbe (src)
-// random Geschwindigkeit (Animation, extra Animationsklasse?)
 
 function bubbleAnimation() {
     let numBubbles = getRand(1, 7, true);
 
     for (let i = 0; i < numBubbles; i++) {
-        let animationTime = getRand(10, 25, true);
-
+        let animationDuration = getRand(10, 25, true);
+        // create DOM element
         let bubble = document.createElement('img');
         bubble.src = './img/white_circle.png';
-
+        // random styles for the bubble
         bubble.classList.add('bubble');
-        // bubble.classList.add('bubble-' + getRand(1, numBubbleTypes + 1, true));
-
         bubble.style.right = getRand(0, 0.5 * winWidth, false) + 'px';
-        // bubble.style.bottom = getRand(0, 200, false) + 'px';
         bubble.style.height = getRand(1, 8, true) + 'px';
-        bubble.style.animation = 'bubble-up ' + animationTime + 's'; // ease-in-out';
-
+        bubble.style.animation = 'bubble-up ' + animationDuration + 's'; // ease-in-out';
+        // append and remove if its time is up
         eyeCatcherNode.appendChild(bubble);
-        setTimeout(() => bubble.remove(), animationTime * 1000); // * 1000 because ms
+        setTimeout(() => bubble.remove(), animationDuration * 1000); // * 1000 because ms
     }
 }
 
 bubbleAnimation();
+setInterval(bubbleAnimation, 3500); // new bubbles every 3.5 seconds
 
-// IDEE: in Funktion bool einbauen, damit die Schleife nur funktioniert, wenn dieser true;
-// über Menüaufruf an- und ausschaltbar => smoothe Animation
-// und alle Blasen werden entfernt
-setInterval(bubbleAnimation, 3500); // new bubbles every second
-
+// scroll down to sections if clicked on 'PORTFOLIO' button
 let scrollToSelection = () => document.querySelector('#main').scrollIntoView({
     block: 'start',
     behavior: 'smooth'
@@ -59,20 +43,18 @@ let scrollToSelection = () => document.querySelector('#main').scrollIntoView({
 let sections = Array.from(document.querySelectorAll('#main > div > div'));
 let blurClass = 'section-blurred';
 
-for (let section of sections) {
-    let except = section;
-
-    section.onmouseleave = () => {
-        for (let oneSection of sections) {
-            oneSection.classList.remove(blurClass);
+for (let except of sections) {
+    except.onmouseleave = () => {
+        for (let section of sections) {
+            section.classList.remove(blurClass);
         }
-    };
+    }
 
-    section.onmouseover = () => {
-        for (let oneSection of sections) {
-            if (oneSection != except) {
-                oneSection.classList.add(blurClass);
+    except.onmouseover = () => {
+        for (let section of sections) {
+            if (section != except) {
+                section.classList.add(blurClass);
             }
         }
-    };
+    }
 }

@@ -1,0 +1,119 @@
+
+#welcome-text { margin-top: 50px !important; }
+#eyecatcher {
+    background-image: linear-gradient(
+        to bottom, 
+        rgb(7, 10, 25), 
+        rgb(8, 7, 25) 60%, 
+        rgb(20, 18, 63) 80%,
+        rgb(7, 10, 25)
+    ) !important;
+}
+form { color: black; }
+
+form div {
+    margin: 20px 0 0 0;
+}
+form div input {
+    width: 100%;
+}
+form input, form textarea {
+    border: none;
+    background-color: transparent;
+    font-family: 'Zilla Slab', serif;
+    border-bottom: 2px solid rgb(165, 165, 165);
+    color: #ff4951;
+    font-size: 18px;
+}
+form input {
+    height: 17px;
+}
+form textarea {
+    resize: none;
+    width: 100%;
+    height: 300px;
+    border: none;
+    margin-top: -7px;
+
+    background-attachment: local;
+    background-image: repeating-linear-gradient(
+        transparent, 
+        transparent 30px, 
+        rgb(150, 150, 150) 30px, 
+        rgb(150, 150, 150) 31px, 
+        transparent 31px
+    );
+    line-height: 31px;
+}
+form h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+}
+@keyframes h3-with-input {
+    from {
+        font-size: 13px;
+        margin-bottom: -19px;
+    } to {
+        font-size: 10px;
+        margin-bottom: 0px;
+    }
+}
+@keyframes h3-without-input {
+    from {
+        font-size: 10px;
+        margin-bottom: 0px;
+    } to {
+        font-size: 13px;
+        margin-bottom: -19px;        
+    }
+}
+@keyframes h3-with-input-textarea {
+    from {
+        font-size: 13px;
+        margin-bottom: -19px;
+    } to {
+        font-size: 10px;
+        margin-bottom: 0px;
+    }
+}
+@keyframes h3-without-input-textarea {
+    from {
+        font-size: 10px;
+        margin-bottom: 0px;
+    } to {
+        font-size: 13px;
+        margin-bottom: -19px;        
+    }
+}
+.h3-with-input {
+    font-size: 10px;
+    margin-bottom: 0px;
+    animation: h3-with-input 200ms forwards ease-in-out;
+}
+.h3-with-input-textarea {
+    font-size: 10px;
+    margin-bottom: 0px;
+    animation: h3-with-input-textarea 200ms forwards ease-in-out;
+}
+.h3-without-input {
+    font-size: 13px;
+    margin-bottom: -19px;
+    animation: h3-without-input 200ms forwards ease-in-out;
+}
+.h3-without-input-textarea {
+    font-size: 13px;
+    margin-bottom: -15px;
+    animation: h3-without-input-textarea 200ms forwards ease-in-out;
+}
+form p { font-size: 15px !important; }
+form h3 span, form p span { color: #ff4951; }
+
+#side-by-side div {
+    display: inline-block;
+    width: 48%;
+}
+#side-by-side div:last-child {
+    float: right;
+}
+
+

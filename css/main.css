@@ -1,8 +1,6 @@
 /* This stylesheet contains all rules that apply to all sites */
 
-* {
-    margin: 0;
-}
+* { margin: 0; }
 /*** FIRST LINE HEADER ***/
 header {
     display: flex;
@@ -16,7 +14,7 @@ header {
     z-index: 9;
 }
 .at-top {
-    height: 60px;
+    height: 61px;
     animation: back-at-top 100ms ease-in-out;
     box-shadow: 0px 0px 0px black;
 }
@@ -30,7 +28,7 @@ header {
         height: 45px; 
         box-shadow: 6px 6px 6px rgba(165, 165, 165, 0.5)
     } to { 
-        height: 60px;
+        height: 61px;
         box-shadow: 0px 0px 0px black;
     } 
 }
@@ -98,35 +96,33 @@ header div:nth-child(2) {
     margin-left: 40px;
     cursor: pointer;
     color: rgb(165, 165, 165);
+
+    z-index: 11;
+}
+@keyframes font-to-black { from { color: rgb(165, 165, 165); } to { color: black; } }
+#header-options p:hover {
+    color: black;
+    animation: font-to-black 100ms linear forwards;
 }
 .current-option { 
     border-bottom: 2px solid #ff4951; 
     color: black !important;
 }
-#header-options p span { z-index: 0; }
+
 header div:nth-child(2) img {
     height: 15px;
     cursor: pointer;
-
     background-image: linear-gradient(135deg, cornflowerblue, rgb(33, 29, 119));
     padding: 5px;
     border-radius: 100%;
     margin-left: 20px;
-
     box-shadow: 3px 3px 3px rgb(165, 165, 165);
 }
-@keyframes menu-hover { 
-    from { 
-        box-shadow: 3px 3px 3px rgb(165, 165, 165); 
-    } to { 
-        box-shadow: 5px 5px 5px rgb(165, 165, 165); 
-    } 
-}
+@keyframes menu-hover { from { box-shadow: 3px 3px 3px rgb(165, 165, 165); } to { box-shadow: 5px 5px 5px rgb(165, 165, 165); } }
 header div:nth-child(2) img:hover { 
     box-shadow: 5px 5px 5px rgb(165, 165, 165);
     animation: menu-hover 100ms linear;
 }
-
 
 /*** FOOTER ***/
 footer {
@@ -211,10 +207,6 @@ footer div p span { cursor: pointer; }
 .main-content {
     padding-top: 60px; /*148 header height + 20*/
 }
-.has-bottom-border {
-    border-bottom: rgb(64, 130, 53) solid 5px;
-}
-
 
 @keyframes disappearAnimation { from { opacity: 1; } to { opacity: 0; } }
 @keyframes appearAnimation { from { opacity: 0; } to { opacity: 1; } }
@@ -267,4 +259,20 @@ footer div p span { cursor: pointer; }
     filter: blur(0px);
     animation-name: unblurAnimation;
     animation-duration: 300ms;
+}
+
+
+#thin-wave {
+    background-image: linear-gradient(
+        to bottom, 
+        rgb(7, 10, 25),
+        rgb(20, 18, 63)
+    );
+    width: 100%;
+}
+#thin-wave img {
+    filter: drop-shadow(3px 3px 3px cornflowerblue);
+    width: 100%;
+    margin-top: 60px;
+    height: 100px;
 }

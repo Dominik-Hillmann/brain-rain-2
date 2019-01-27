@@ -3,107 +3,199 @@
     <head>
     <!-- Basic Page Needs -->
         <meta charset="utf-8">
-        <title>BRAINRAIN - Login</title>
+        <title>BRAINRAIN</title>
         <meta name="description" content="">
         <meta name="author" content="Dominik Hillmann">
 
     <!-- Mobile Specific Metas -->
+        <meta>
 
     <!-- CSS links -->
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/images.css">
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="./css/menu.css">
+        <link rel="stylesheet" href="./css/eyecatcher.css">
+        <link rel="stylesheet" href="./css/contact.css">
+        <!-- <link rel="stylesheet" href="css/mobile.css"> -->
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
     </head>
 
-    <!--<div id="hidden-img-list" class="hidden">
-
-        <img
-    </div>-->
-
-    <?php require "./libraries/util.inc.php"; ?>
-
-    <div id="currently-shown" class="hide">
-        <!-- here to cover all of the body -->
-        <img src="./img/cross_colored.png" id="cross" onclick="unblurBackground();">
-        <div id="main-pic-container">
-            <img src="./img/cube.gif" id="the-main-pic">
+    <!-- Everything that is not show as default like the menu or pic displays -->
+    <div id="menu" class="hide">
+        <div id="menu-heading">
+            <div>
+                <img src="./img/brainrainlogo_white.png">
+                <h1>BRAINRAIN<?php/* echo num2Roman((int) date("Y")); */?></h1>
+            </div>
         </div>
-        <div id="curr-pic-info-wrapper">
-            <img src="./img/arrow_links_colored.png" class="arrow" onclick="prevPic();"><!--
-            --><img src="./img/arrow_rechts_colored.png" class="arrow" id="rarrow" onclick="nextPic();"><!--
-            --><div id="curr-pic-info">
-                <h1>Titel, ein langer Titel</h1>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <div id="menu-options">
+            <div>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(1)'));">
+                    <span>G</span><!--
+                    --><span>r</span><!--
+                    --><span>a</span><!--
+                    --><span>p</span><!--
+                    --><span>h</span><!--
+                    --><span>i</span><!--
+                    --><span>c</span><!--  
+                    --><span>&nbsp;D</span><!--
+                    --><span>e</span><!--
+                    --><span>s</span><!--
+                    --><span>i</span><!--
+                    --><span>g</span><!--
+                    --><span>n</span>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(2)'));">
+                    <span>I</span><!--
+                    --><span>l</span><!--
+                    --><span>l</span><!--
+                    --><span>u</span><!--
+                    --><span>s</span><!--
+                    --><span>t</span><!--  
+                    --><span>r</span><!--
+                    --><span>a</span><!--
+                    --><span>t</span><!--
+                    --><span>i</span><!--
+                    --><span>o</span><!--
+                    --><span>n</span>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(3)'));">
+                    <span>D</span><!--
+                    --><span>r</span><!--
+                    --><span>a</span><!--
+                    --><span>w</span><!--
+                    --><span>i</span><!--
+                    --><span>n</span><!--  
+                    --><span>g</span><!--
+                    --><span>s</span>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(4)'));">
+                    <span>P</span><!--
+                    --><span>h</span><!--
+                    --><span>o</span><!--
+                    --><span>t</span><!--
+                    --><span>o</span><!--
+                    --><span>g</span><!--
+                    --><span>r</span><!--  
+                    --><span>a</span><!--
+                    --><span>p</span><!--
+                    --><span>h</span><!--
+                    --><span>y</span>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(5)'));">
+                    <span>W</span><!--
+                    --><span>r</span><!--
+                    --><span>i</span><!--
+                    --><span>t</span><!--
+                    --><span>i</span><!--
+                    --><span>n</span><!--  
+                    --><span>g</span>
+                </p>
             </div>
         </div>
     </div>
 
-
     <body>
-        <header>
+        <?php require "./libraries/util.inc.php" ?>
+        <header class="at-top">
+            <div>
+                <div id="headerlogo">
+                    <img src="./img/brainrainlogo.png"><h1>BRAINRAIN</h1>
+                </div>
+                <div>
+                    <div id="header-options">
 
-            <div id="inner-header-wrapper">
-                <div id="firstmenu" class="menufloater">
-                    <div id="path">
-                        <img src="./img/burgermenu.png">
-                        <h1><a href="http://brain-rain.net">Menu</a> / Photography</h1>
+                        <!-- mit z-index noch nach hinten -->
+
+                        <p>
+                            <span>A</span><!--
+                            --><span>b</span><!--
+                            --><span>o</span><!--
+                            --><span>u</span><!--
+                            --><span>t</span>
+                        </p>
+                        <p>
+                            <span>C</span><!--
+                            --><span>o</span><!--
+                            --><span>n</span><!--
+                            --><span>t</span><!--
+                            --><span>a</span><!--
+                            --><span>c</span><!--
+                            --><span>t</span><!--
+                            --><span> &</span><!--
+                            --><span> H</span><!--
+                            --><span>i</span><!--
+                            --><span>r</span><!--
+                            --><span>e</span><!--
+                            --><span> M</span><!--
+                            --><span>e</span>
+                        </p>
+                        <p  class="current-option">
+                            <span>L</span><!--
+                            --><span>o</span><!--
+                            --><span>g</span><!--
+                            --><span> I</span><!--
+                            --><span>n</span>
+                        </p>
                     </div>
-
-                    <div id="number" class="menufloater">
-                        <h1>You're my number:</h1>
-                        <div><!--
-                            --><p>1</p><!--
-                            --><p>2</p><!--
-                            --><p>3</p>
-                        </div>
-                    </div>
-
-                    <img src="./img/brainrainlogo.png">
+                    <img src="./img/burger_menu_closed.png" onclick="showMenu();">
                 </div>
             </div>
-
-                <div id="heading">
-                    <h1>BRAINRAIN</h1>
-                    <h2><?php echo num2Roman((int) date("Y")); ?></h2>
-                </div>
-            <!--</div>-->
-
         </header>
 
-        <div id="login" class="main-content">
-            <form action="individualized.php" method="post">
-                Name: <input type="text" name="name"><br>
-                Password: <input type="password" name="pw"><br>
-                <input type="submit">
-            </form>        
+        <div id="eyecatcher">
+            <img src="./img/brainrainlogo_dark_background.png" id="eyecatcher-logo">
+            <h1 id="brain">BRAIN</h1>
+            <h1 id="rain">RAIN</h1>
+            <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
+            <div id="welcome-text" style="margin-top: 150px !important;">
+                <h1>Log In</h1>
+                <p>
+                    If you have received a user name and password to view a personalized portfolio, you can enter these here.
+                </p>
+                <form action="individualized.php" method="post">
+                    <div>
+                        <h3 class="h3-without-input">User name</h3>
+                        <input type="text" name="un">
+                    </div>
+                    <div>
+                        <h3 class="h3-without-input">Password</h3>
+                        <input type="password" name="pw">
+                    </div>
+                    <button style="margin-top: 20px;">SEND</button>
+                </form>
+            </div>            
+            <img id="eyecatcher-background" src="./img/background_eyecatcher.png" ondragstart="return false;">
         </div>
 
-        <?php
-        /*
-            Grundidee:
-            verschlüsselte Passwörter außerhalb des Ordners speichern, auf den Nutzer zugreifen können
-            dieser Ordner enthält je
-            das verschlüsselte Passwort
-            eine Liste von
-                Bildern
-                Texten
-                Vorstellungen, die nur auf der Seite angezeigt werden sollen
-            Name
-            Password
-            Liste an Units, die dem Nutzer zugänglich sein sollen
-            dafür vielleicht speziellen Unterordner anlegen
+        <footer>
+            <div>
+                <a href="#"><img src="./img/logos/instagram_dunkel.png" id="instagram"></a>
+                <a href="#"><img src="./img/logos/twitter_dunkel.png" id="twitter"></a>
+                <a href="#"><img src="./img/logos/facebook_dunkel.png" id="facebook"></a>
+                <a href="#"><img src="./img/logos/youtube_dunkel.png" id="youtube"></a>
+            </div>
 
-            später UI für Charlie --> DBX  
-        */
-        ?>
+            <div>
+                <p id="madewith-pushback">&nbsp;</p>
+                <p>
+                    Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved.<!--
+                    --><span onclick=""> Imprint.</span>
+                </p>
+                <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo_white.png"></a></p>
+            </div>
+        </footer>
 
     </body>
 
-    <script src="./js/positioning.js"></script>
     <script src="./js/image_preview.js"></script>
+    <script src="./js/positioning.js"></script>
     <script src="./js/header.js"></script>
-
+    <script src="./js/main_menu.js"></script>
+    <script src="./js/bubbles.js"></script>
+    <script src="./js/input_animation.js"></script>
 </html>
