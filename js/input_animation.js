@@ -23,8 +23,6 @@ for (let input of inputs) {
     }    
 }
 
-
-console.log(textarea);
 textarea.oninput = () => {
     let h3 = textarea.parentElement.querySelector('h3');
     

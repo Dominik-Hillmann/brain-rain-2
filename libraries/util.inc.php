@@ -50,6 +50,16 @@
         return implode($spans);
     }
 
+    // abstract class Info {
+    //     $name;
+    //     function __construct($strJSON) {
+    //         $this->name
+    //     }
+
+    //     private function getJSON($filename, $folderName) {
+
+    //     }
+    // }
     
     function getInfo($fileName, $folderName) {
         // returns object with information about a picture from ../pic-info
@@ -112,12 +122,13 @@
         }
 
         function printNext($picInfo, $maxNumInRow) {
-            //
+            // print all pictures whose information is contained in object and adds JS to view the image
             echo '<div class="pic-' . $maxNumInRow .' pic" '; // sorrounding div
             echo 'style="background-image:url(\'./img/' . $picInfo->filename . '\')" ';
             // JS to be executed when clicked
             echo 'onclick="currPic=document.querySelectorAll(\'.pic\')[' . $this->printedIndex . '];';
-            echo 'blurBackground();unhidePic(\'./img/' . $picInfo->filename . '\');';
+            echo 'blurBackground(document.querySelector(\'#thin-wave\'));';
+            echo 'unhidePic(\'./img/' . $picInfo->filename . '\');';
             echo 'scrollToMainPic();">';
             // title and date, gets ordered later on
             echo '<h1>' . $picInfo->name . '</h1>';

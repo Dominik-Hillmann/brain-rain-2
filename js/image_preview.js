@@ -137,8 +137,8 @@ function setPicInfo(title, description) {
 }
 
 function scrollToMainPic() {
-    // scrolls to main pic if pic gets clicked
-    let mainPic = document.querySelector('#pics-main');
+    // scrolls to main pic when pic gets clicked
+    let mainPic = document.querySelector('#currently-shown');
     mainPic.scrollIntoView({
         block: 'start',
         behavior: 'smooth'
@@ -168,13 +168,14 @@ if (allPicsArr.length != allPicsInfo.length) {
 let tempPicInfo = document.querySelector('#curr-pic-info');
 let currPicDescription = tempPicInfo.querySelector('p');
 let currPicName = tempPicInfo.querySelector('h1');
+let waveDivision = document.querySelector('#thin-wave');
 
 // Closing of image preview if clicked anywhere but on description and arrows
 // wird geschlossen, wenn außerhalb von Pfeilen, Beschreibung oder Bild geklickt
 let overlayPreview = document.querySelector('#currently-shown');
 overlayPreview.addEventListener('click', () => {
     hidePic();
-    unblurBackground();
+    unblurBackground(waveDivision);
 }, false);
 
 // Ausnahmen

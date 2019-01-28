@@ -96,7 +96,6 @@
 
     <div id="currently-shown" class="hide">
         <!-- here to cover all of the body -->
-        <img src="./img/cross_colored.png" id="cross" onclick="unblurBackground();">
         <div id="main-pic-container">
             <img src="./img/cube.gif" id="the-main-pic">
         </div>
@@ -106,6 +105,7 @@
             --><div id="curr-pic-info">
                 <h1>Titel, ein langer Titel</h1>
                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <p>Click anywhere to leave the image preview.</p>
             </div>
         </div>
     </div>
@@ -120,7 +120,7 @@
                 </div>
                 <div>
                     <div id="header-options">
-                        <p class="current-option">About</p>
+                        <p>About</p>
                         <p>Contact & Hire Me</p>
                         <p>Log In</p>
                     </div>
@@ -143,6 +143,7 @@
 
                     $allPicInfo = [];
                     foreach ($fileNames as $fileName) {
+                        // $info = new Info($fileName, $folderName);
                         $info = getInfo($fileName, $folderName);
 
                         if (! $info->secret) {
@@ -168,7 +169,7 @@
             <div>
                 <p id="madewith-pushback">&nbsp;</p>
                 <p>Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved. <a>Imprint</a></p>
-                <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo.png"></a></p>
+                <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo_white.png"></a></p>
             </div>
         </footer>
         <div id="pic-texts" style="display:none;">

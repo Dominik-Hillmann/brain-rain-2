@@ -201,9 +201,18 @@ footer div p span { cursor: pointer; }
     padding: 10px 0;
     width: 168px;
 }
-
-
-
+body { background-color: rgb(7, 10, 25) !important; }
+#main-wrapper {
+    background-image: linear-gradient(
+        to bottom, 
+        rgb(20, 18, 63), 
+        rgb(20, 18, 63) 70%, 
+        rgb(7, 10, 25)
+    );
+    width: 100%;
+    padding-bottom: 20px;
+    z-index: -3px;
+}
 .main-content {
     padding-top: 60px; /*148 header height + 20*/
 }

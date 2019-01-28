@@ -1,76 +1,49 @@
-#main-wrapper {
-    background-image: linear-gradient(
-        to bottom, 
-        rgb(20, 18, 63), 
-        rgb(20, 18, 63) 70%, 
-        rgb(7, 10, 25)
-    );
-    width: 100%;
-    padding-bottom: 20px;
-}
 #pics-main {
     margin: 0 auto 20px auto;
     width: calc(100% - 100px);
-    font-family: 'Trebuchet MS', sans-serif;
-
-    /* background-color: red; */
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    letter-spacing: -2px;
+    color: white;
 }
-@keyframes image-hover {
-    from {
-        opacity: 1.0;
-        filter: blur(0px);
-    } to {
-        opacity: 0.5;
-        filter: blur(5px);
-        box-shadow: 3px 3px 3px cornflowerblue;
-    }
-}
+@keyframes image-hover { from { opacity: 1.0; filter: blur(0px); } to { opacity: 0.5; filter: blur(5px); } }
+@keyframes image-hover-leave { from { opacity: 0.5; filter: blur(5px); } to { opacity: 1.0; filter: blur(0px); } }
 .image-hover {
     opacity: 0.5;
     filter: blur(5px);
-    /* margin-top: -5px; */
-    animation: image-hover 500ms linear forwards;
+    animation: image-hover 100ms linear forwards;
+}
+.image-hover-leave {
+    opacity: 1.0;
+    filter: blur(0px);
+    animation: image-hover-leave 100ms linear forwards;
 }
 .row {
     display: block;
     width: 100%;
     margin-bottom: 20px;
-  
-    /*background-color: brown;*/
 }
 
 .pic-3, .pic-2, .pic-1 {
     display: inline-block;
     width: 32%;
-
     position: relative;
-    /* background-image: url('../img/cube.gif'); */
     background-size: cover;
     text-shadow: 0px 0px 5px black;
     box-shadow: 5px 5px 20px 0px rgb(20, 18, 63);
     border-radius: 4px;
     cursor: pointer;
 }
-.pic-3:first-child, .pic-2:first-child {
-    margin-right: calc((100% - 3 * 32%) / 2);
-}
-
-.pic-3:last-child {
-    margin-left: calc((100% - 3 * 32%) / 2);
-}
-
+.pic-3:first-child, .pic-2:first-child { margin-right: calc((100% - 3 * 32%) / 2); }
+.pic-3:last-child { margin-left: calc((100% - 3 * 32%) / 2); }
 .pic-1 *, .pic-2 *, .pic-3 * {
     display: block;
     text-align: center;
 }
-.pic-1 h1, .pic-2 h1, .pic-3 h1 {
-    margin: 65px 0 15px 0;
-    color: white;
-
-}
+.pic-1 h1, .pic-2 h1, .pic-3 h1 { margin: 65px 0 15px 0; }
 .pic-1 p, .pic-2 p, .pic-3 p {
     margin: 0 0 65px 0;
-    color: white;
+    letter-spacing: -1px;
 }
 .text-background {
     position: absolute;
@@ -88,40 +61,34 @@
     height: calc(98%);
     width: calc(98%);
     margin: 10px 1% 0 1%;
-    z-index: 2;
+    z-index: 11;
     position: absolute;
-    /*background-color: rgba(20, 20, 20, 0.8);*/
     border-radius: 10px;
 }
-#cross {
+/* #cross {
     float: right;
     height: 40px;
     margin: 10px 10px 0 0;
     cursor: pointer;
     filter: drop-shadow(8px 8px 5px black);
-}
+} */
 #main-pic-container {
     height: calc(100% - (30px + 10px + 10px + 100px)); /* margin and height of the cross + 10px*/
     width: 100%;
-    /*margin-top: 10px; /* cross height + margins */
     display: flex;
     align-content: center;
 }
-
 #the-main-pic {
     height: 90%;
     margin: auto;
     border-radius: 3px;
     filter: drop-shadow(5px 5px 6px black);
 }
-
-
 #curr-pic-info-wrapper {
     text-align: center;
     margin-bottom: 50px;
 }
 .arrow {
-    /*height: 140px;*/
     float: right;
     cursor: pointer;
     filter: drop-shadow(5px 5px 3px black);
@@ -134,7 +101,7 @@
     background-color: white;
     width: 61.8%;
     margin: 0 auto;
-    font-family: 'Trebuchet MS';
+    font-family: 'Zilla Slab', serif;
     border-radius: 80px;
     text-align: center;
     filter: drop-shadow(5px 5px 6px black);
@@ -145,10 +112,17 @@
     display: inline-block;
     margin: 0 0 10px 0;
 }
+#curr-pic-info p:last-child {
+    color: rgb(165, 165, 165);
+    margin: 5px 0 20px 0;
+    text-align: middle;
+}
 #curr-pic-info h1 {
-    font-family: 'Trebuchet MS', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    color: #ff4952;
+    letter-spacing: -2px;
     padding: 10px 0;
     display: block;
-    color: rgb(64, 130, 53);
 }
 /* TITEL und DATUM NUR IN KLEIN; NUR TEXT BEI GROSSER ANZEIGE*/
