@@ -129,7 +129,7 @@
             </div>
         </header>
 
-        <div id="thin-wave" ondragstart="return false;">
+        <div id="thin-wave" class="wave" ondragstart="return false;">
             <img src="./img/thin_wave.png">
         </div>
         <!-- Idee: hier vielleicht mit JS Elemente bei Änderung der Breite aushängen und dann wieder einhängen -->
@@ -146,7 +146,7 @@
                         // $info = new Info($fileName, $folderName);
                         $info = getInfo($fileName, $folderName);
 
-                        if (! $info->secret) {
+                        if (!$info->secret) {
                             array_push($allPicInfo, $info);
                         }
                     }

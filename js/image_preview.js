@@ -165,25 +165,35 @@ if (allPicsArr.length != allPicsInfo.length) {
 }
 
 // initialize variables that will contain information, etc.
-let tempPicInfo = document.querySelector('#curr-pic-info');
-let currPicDescription = tempPicInfo.querySelector('p');
-let currPicName = tempPicInfo.querySelector('h1');
+// only if this is an image page
+let path = window.location.pathname;
+let docName = path.split('/').pop();
+let pagesWithImagePreview = ['photography.php'];
+
+if (pagesWithImagePreview.includes(docName)) {
+    let tempPicInfo = document.querySelector('#curr-pic-info');
+    let currPicDescription = tempPicInfo.querySelector('p');
+    let currPicName = tempPicInfo.querySelector('h1');
+}
 let waveDivision = document.querySelector('#thin-wave');
 
 // Closing of image preview if clicked anywhere but on description and arrows
 // wird geschlossen, wenn außerhalb von Pfeilen, Beschreibung oder Bild geklickt
-let overlayPreview = document.querySelector('#currently-shown');
-overlayPreview.addEventListener('click', () => {
-    hidePic();
-    unblurBackground(waveDivision);
-}, false);
 
-// Ausnahmen
-let propStop = (event) => event.stopPropagation();
-let arrows = document.querySelectorAll('.arrow');
-let leftArrow = arrows[0];
-let rightArrow = arrows[1];
+if (pagesWithImagePreview.includes(docName)) {
+    let overlayPreview = document.querySelector('#currently-shown');
+    overlayPreview.addEventListener('click', () => {
+        hidePic();
+        unblurBackground(waveDivision);
+    }, false);
 
-leftArrow.addEventListener('click', propStop, false);
-rightArrow.addEventListener('click', propStop, false);
-tempPicInfo.addEventListener('click', propStop, false);
+    // Ausnahmen
+    let propStop = (event) => event.stopPropagation();
+    let arrows = document.querySelectorAll('.arrow');
+    let leftArrow = arrows[0];
+    let rightArrow = arrows[1];
+
+    leftArrow.addEventListener('click', propStop, false);
+    rightArrow.addEventListener('click', propStop, false);
+    tempPicInfo.addEventListener('click', propStop, false);
+}

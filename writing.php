@@ -129,7 +129,7 @@
             </div>
         </header>
         
-        <div id="thin-wave" ondragstart="return false;">
+        <div id="thin-wave" class="wave" ondragstart="return false;">
             <img src="./img/thin_wave.png">
         </div>
 
@@ -177,4 +177,5 @@
     <script src="./js/image_preview.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/main_menu.js"></script>
+    <script src="./js/image_hover.js"></script>
 </html>

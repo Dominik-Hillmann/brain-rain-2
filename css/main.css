@@ -175,10 +175,7 @@ footer div p span { cursor: pointer; }
     -ms-transition: background-color 200ms linear;
     transition: background-color 200ms linear;
 }
-#love {
-    color: red;
-    /* box-shadow: 1px 4px 10px cornflowerblue; */
-}
+#love { color: red; }
 #madewith {
     float: right;
     margin: 0 0.5% 0 0;
@@ -271,7 +268,9 @@ body { background-color: rgb(7, 10, 25) !important; }
 }
 
 
-#thin-wave {
+#thin-wave img { height: 100px; }
+#bold-wave img { height: 400px; }
+.wave {
     background-image: linear-gradient(
         to bottom, 
         rgb(7, 10, 25),
@@ -279,9 +278,8 @@ body { background-color: rgb(7, 10, 25) !important; }
     );
     width: 100%;
 }
-#thin-wave img {
+.wave img {
     filter: drop-shadow(3px 3px 3px cornflowerblue);
     width: 100%;
     margin-top: 60px;
-    height: 100px;
 }

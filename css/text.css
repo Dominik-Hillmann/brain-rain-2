@@ -1,47 +1,89 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway:700');
-@import url('https://fonts.googleapis.com/css?family=Catamaran:300');
-
-
 .main-content {
     margin: 0 auto 20px auto;
     width: calc(100% - 100px);
+    /* background-color: red; */
 }
-
+/* 
 #text-schmuck {
     font-family: 'Catamaran', sans-serif;
     font-size: 15px;
     text-align: center;
     
     border-bottom: 1px solid black;
-}
+} */
 
 #inner-text-wrapper {
     max-width: 700px;
     margin: auto;
+    background-color: white;
+    padding: 30px;
+    margin-top: -400px;
+    z-index: 8;
+    box-shadow: 1px 1px 5px rgb(165, 165, 165);
+    border-radius: 10px;
+    position: relative;
 }
 #inner-text-wrapper div {
     /*margin-bottom: ;*/
     
 }
 #inner-text-wrapper div h1 {
-    font-size: 40px;
+    font-size: 50px;
+    color:#ff4951;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -3px;
+    font-style: italic;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 15px;
 }
 #inner-text-wrapper div h2 {
-    font-size: 24px;
-    
+    font-size: 18px;
+    font-family: 'Zilla Slab', serif;
+    color: rgb(165, 165, 165);
+    display: block;
+    width: auto;
+    margin-bottom: 20px;
 }
 
-#inner-text-wrapper div h1,
+/* #inner-text-wrapper div h1,
 #inner-text-wrapper div h2 {
     display: inline-block;
-    margin-bottom: 20px;
-    font-family: 'Catamaran', sans-serif;
-}
+    margin-bottom: 15px;
+} */
 
 
 #inner-text-wrapper p {
     font-size: 18px;
     line-height: 26px; /* 18 hoch + 6 oben und unten je */
     text-align: justify;
-    font-family: 'Open Sans';
+    font-family: 'Zilla Slab', serif;
+}
+
+
+/* Dark Mode Buttons */
+#inner-text-wrapper button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 3px 3px 3px rgb(165, 165, 165);
+    float: right;
+    margin-top: -9px;
+}
+@keyframes button-hover { from { box-shadow: 3px 3px 3px rgb(165, 165, 165); } to { box-shadow: 6px 6px 6px rgb(165, 165, 165); } }
+#inner-text-wrapper button:hover { 
+    box-shadow: 6px 6px 6px rgb(165, 165, 165); 
+    animation: button-hover 100ms ease-in-out;
+}
+.button-when-dark { 
+    background-image: linear-gradient(135deg, red, #ff4951); 
+    /* box-shadow: 3px 3px 3px black; */
+}
+.button-when-light { 
+    background-image: linear-gradient(135deg, cornflowerblue, rgb(20, 18, 63));
+    /* box-shadow: 3px 3px 3px rgb(165, 165, 165); */
 }
