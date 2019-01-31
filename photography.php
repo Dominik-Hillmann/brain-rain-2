@@ -120,9 +120,10 @@
                 </div>
                 <div>
                     <div id="header-options">
-                        <p>About</p>
-                        <p>Contact & Hire Me</p>
-                        <p>Log In</p>
+                        <p><a href="./index.php"><?php echo strToSpans('About'); ?></a></p>
+                        <p><a href="./contact.php"><?php echo strToSpans('Contact & Hire Me'); ?></a></p>
+                        <p><a href="./login.php"><?php echo strToSpans('Log In'); ?></a></p>
+                        <p><a href="https://www.spreadshirt.de/user/UNIIKAT"><?php echo strToSpans('Shop'); ?></a></p>
                     </div>
                     <img src="./img/burger_menu_closed.png" onclick="showMenu();">
                 </div>

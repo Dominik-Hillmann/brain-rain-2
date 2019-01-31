@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="./css/images.css">
         <link rel="stylesheet" href="./css/menu.css">
         <link rel="stylesheet" href="./css/writing.css">
-        <!-- <link rel="stylesheet" href="css/mobile.css"> -->
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">
 
@@ -32,66 +31,21 @@
         </div>
         <div id="menu-options">
             <div>
+                <?php require './libraries/util.inc.php'; ?>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(1)'));">
-                    <span>G</span><!--
-                    --><span>r</span><!--
-                    --><span>a</span><!--
-                    --><span>p</span><!--
-                    --><span>h</span><!--
-                    --><span>i</span><!--
-                    --><span>c</span><!--  
-                    --><span>&nbsp;D</span><!--
-                    --><span>e</span><!--
-                    --><span>s</span><!--
-                    --><span>i</span><!--
-                    --><span>g</span><!--
-                    --><span>n</span>
+                    <?php echo strToSpans('Graphic Design'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(2)'));">
-                    <span>I</span><!--
-                    --><span>l</span><!--
-                    --><span>l</span><!--
-                    --><span>u</span><!--
-                    --><span>s</span><!--
-                    --><span>t</span><!--  
-                    --><span>r</span><!--
-                    --><span>a</span><!--
-                    --><span>t</span><!--
-                    --><span>i</span><!--
-                    --><span>o</span><!--
-                    --><span>n</span>
+                    <?php echo strToSpans('Illustration'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(3)'));">
-                    <span>D</span><!--
-                    --><span>r</span><!--
-                    --><span>a</span><!--
-                    --><span>w</span><!--
-                    --><span>i</span><!--
-                    --><span>n</span><!--  
-                    --><span>g</span><!--
-                    --><span>s</span>
+                    <?php echo strToSpans('Drawings'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(4)'));">
-                    <span>P</span><!--
-                    --><span>h</span><!--
-                    --><span>o</span><!--
-                    --><span>t</span><!--
-                    --><span>o</span><!--
-                    --><span>g</span><!--
-                    --><span>r</span><!--  
-                    --><span>a</span><!--
-                    --><span>p</span><!--
-                    --><span>h</span><!--
-                    --><span>y</span>
+                    <?php echo strToSpans('Photography'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(5)'));">
-                    <span>W</span><!--
-                    --><span>r</span><!--
-                    --><span>i</span><!--
-                    --><span>t</span><!--
-                    --><span>i</span><!--
-                    --><span>n</span><!--  
-                    --><span>g</span>
+                    <?php echo strToSpans('Writing'); ?>
                 </p>
             </div>
         </div>
@@ -99,7 +53,6 @@
 
     <div id="currently-shown" class="hide">
         <!-- here to cover all of the body -->
-        <img src="./img/cross_colored.png" id="cross" onclick="unblurBackground();">
         <div id="main-pic-container">
             <img src="./img/cube.gif" id="the-main-pic">
         </div>
@@ -115,7 +68,6 @@
 
 
     <body>
-    <?php require "./libraries/util.inc.php" ?>
         <header class="at-top">
             <div>
                 <div id="headerlogo">
@@ -123,111 +75,87 @@
                 </div>
                 <div>
                     <div id="header-options">
-
-                        <!-- mit z-index noch nach hinten -->
-
-                        <p class="current-option">
-                            <span>A</span><!--
-                            --><span>b</span><!--
-                            --><span>o</span><!--
-                            --><span>u</span><!--
-                            --><span>t</span>
-                        </p>
-                        <p>
-                            <span>C</span><!--
-                            --><span>o</span><!--
-                            --><span>n</span><!--
-                            --><span>t</span><!--
-                            --><span>a</span><!--
-                            --><span>c</span><!--
-                            --><span>t</span><!--
-                            --><span> &</span><!--
-                            --><span> H</span><!--
-                            --><span>i</span><!--
-                            --><span>r</span><!--
-                            --><span>e</span><!--
-                            --><span> M</span><!--
-                            --><span>e</span>
-                        </p>
-                        <p>
-                            <span>L</span><!--
-                            --><span>o</span><!--
-                            --><span>g</span><!--
-                            --><span> I</span><!--
-                            --><span>n</span>
-                        </p>
+                        <p><a href="./index.php"><?php echo strToSpans('About'); ?></a></p>
+                        <p><a href="./contact.php"><?php echo strToSpans('Contact & Hire Me'); ?></a></p>
+                        <p><a href="./login.php"><?php echo strToSpans('Log In'); ?></a></p>
+                        <p><a href="https://www.spreadshirt.de/user/UNIIKAT"><?php echo strToSpans('Shop'); ?></a></p>
                     </div>
                     <img src="./img/burger_menu_closed.png" onclick="showMenu();">
                 </div>
             </div>
         </header>
 
-        <div id="pics-main" class="main-content" style="padding-top:200px;">
-            <?php
-                // Teil 1: anhand Passwort richtige JSON wählen
+        <div id="thin-wave" class="wave" ondragstart="return false;">
+            <img src="./img/thin_wave.png">
+        </div>
 
-                // alle user fetchen
-                $folderName = '/TEMP__USER_STORAGE';
-                $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . $folderName);
-                $fileNames = array_splice($fileNames, 2); // get rid of . and ..
+        <div id="main-wrapper">
+            <div id="pics-main" class="main-content" style="padding-top:200px;">
+                <?php
+                    // Teil 1: anhand Passwort richtige JSON wählen
 
-                $userInfo = NULL;
-                foreach ($fileNames as $fileName) {
-                    $currentUser = getInfo($fileName, $folderName);
+                    // alle user fetchen
+                    $folderName = '/TEMP__USER_STORAGE';
+                    $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . $folderName);
+                    $fileNames = array_splice($fileNames, 2); // get rid of . and ..
 
-                    if (password_verify($_POST['pw'], $currentUser->pw)) {
-                        $userInfo = $currentUser;
+                    $userInfo = NULL;
+                    foreach ($fileNames as $fileName) {
+                        $currentUser = getInfo($fileName, $folderName);
+
+                        if (password_verify($_POST['pw'], $currentUser->pw)) {
+                            $userInfo = $currentUser;
+                        }
                     }
-                }
-                
-                // Anzeige, wenn Passwort zu keinem passt (User nicht gefunden, oder so)
-                if ($userInfo == NULL) {
-                    var_dump($_POST);
-                    echo '<br>' . 'Kein User mit diesem Kennwort gefunden';
-                } else {
-                    // Nun einmal die Stories darstellen, einmal die Bilder darstellen
-                    // var_dump($userInfo);
-
-                    // Bilder fetchen
-                    $wantedNames = $userInfo->pics;
-
-                    $picFolderName = '/info/pic-info';
-                    $picNames = scandir($_SERVER['DOCUMENT_ROOT'] . $picFolderName);
-                    $picNames = array_splice($picNames, 2); // get rid of . and ..
                     
-                    $wantedPicInfo = [];
-                    foreach ($picNames as $picName) {
-                        $info = getInfo($picName, $picFolderName);
-                    
-                        if (in_array($info->name, $wantedNames)) {
-                            array_push($wantedPicInfo, $info);
-                        }                    
-                    }
+                    // Anzeige, wenn Passwort zu keinem passt (User nicht gefunden, oder so)
+                    if ($userInfo == NULL) {
+                        var_dump($_POST);
+                        echo '<br>' . 'Kein User mit diesem Kennwort gefunden';
+                    } else {
+                        // Nun einmal die Stories darstellen, einmal die Bilder darstellen
+                        // Bilder fetchen
+                        $wantedNames = $userInfo->pics;
 
-                    $picPrinter = new PicInfoPrinter($wantedPicInfo);
-                    $picPrinter->printContainedInfo();
-                                       
-                    
-                    // writings
-                    $wantedWritingNames = $userInfo->writings;
-
-                    $writFolderName = '/info/writing-info';
-                    $writNames = scandir($_SERVER['DOCUMENT_ROOT'] . $writFolderName);
-                    $writNames = array_splice($writNames, 2); // get rid of . and ..
+                        $picFolderName = '/info/pic-info';
+                        $picNames = scandir($_SERVER['DOCUMENT_ROOT'] . $picFolderName);
+                        $picNames = array_splice($picNames, 2); // get rid of . and ..
                         
-                    $wantedWritInfos = [];
-                    foreach ($writNames as $writName) {
-                        $info = getInfo($writName, $writFolderName);
-    
-                        if (in_array($info->name, $wantedWritingNames)) {
-                            array_push($wantedWritInfos, $info);
-                        }                    
-                    }
-    
-                    $writPrinter = new WritingsInfoPrinter($wantedWritInfos);
-                    $writPrinter->printContainedInfo();
-                } // else
-            ?>
+                        $wantedPicInfo = [];
+                        foreach ($picNames as $picName) {
+                            $info = getInfo($picName, $picFolderName);
+                        
+                            if (in_array($info->name, $wantedNames)) {
+                                array_push($wantedPicInfo, $info);
+                            }                    
+                        }
+
+                        $picPrinter = new PicInfoPrinter($wantedPicInfo);
+                        $picPrinter->printContainedInfo();                        
+
+                        echo '<div class="thin-lines"><img src="./img/thin_lines.png"><div><h1>PHOTOGRAPHY</h1></div></div>';
+                        
+                        // writings
+                        $wantedWritingNames = $userInfo->writings;
+
+                        $writFolderName = '/info/writing-info';
+                        $writNames = scandir($_SERVER['DOCUMENT_ROOT'] . $writFolderName);
+                        $writNames = array_splice($writNames, 2); // get rid of . and ..
+                            
+                        $wantedWritInfos = [];
+                        foreach ($writNames as $writName) {
+                            $info = getInfo($writName, $writFolderName);
+        
+                            if (in_array($info->name, $wantedWritingNames)) {
+                                array_push($wantedWritInfos, $info);
+                            }                    
+                        }
+        
+                        $writPrinter = new WritingsInfoPrinter($wantedWritInfos);
+                        $writPrinter->printContainedInfo();
+                    } // else
+                ?>
+            </div>
         </div>
 
         <footer>
@@ -250,7 +178,8 @@
 
         <div id="pic-texts" style="display:none;" class="hide">
             <?php
-                foreach ($wantedPicInfo as $subPicInfo) {
+                // echo descriptions and names in hidden div so that the JS functions can use it to change descriptions when displayed
+                foreach ($picPrinter->getChunkedInfo() as $subPicInfo) {
                     foreach ($subPicInfo as $picInfo) {
                         echo '<div class="hidden-pic-info">';
                         echo '<h1>'. $picInfo->name .'</h1>';
@@ -264,5 +193,6 @@
     <script src="./js/positioning.js"></script>
     <script src="./js/image_preview.js"></script>
     <script src="./js/header.js"></script>
-
+    <script src="./js/image_hover.js"></script>
+    <script src="./js/main_menu.js"></script>
 </html>

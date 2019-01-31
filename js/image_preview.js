@@ -54,7 +54,7 @@ function nextPic() {
         mainPic.classList.remove("appearing");
 
         updateArrowHeights();
-    }, 295); // a bit shorter to not have the clipping effectct
+    }, 295); // a bit shorter to not have the clipping effect
 }
 
 function prevPic() {
@@ -170,17 +170,17 @@ let path = window.location.pathname;
 let docName = path.split('/').pop();
 let pagesWithImagePreview = ['photography.php'];
 
-if (pagesWithImagePreview.includes(docName)) {
+// if (pagesWithImagePreview.includes(docName)) {
     let tempPicInfo = document.querySelector('#curr-pic-info');
     let currPicDescription = tempPicInfo.querySelector('p');
     let currPicName = tempPicInfo.querySelector('h1');
-}
+// }
 let waveDivision = document.querySelector('#thin-wave');
 
 // Closing of image preview if clicked anywhere but on description and arrows
 // wird geschlossen, wenn außerhalb von Pfeilen, Beschreibung oder Bild geklickt
 
-if (pagesWithImagePreview.includes(docName)) {
+// if (pagesWithImagePreview.includes(docName)) {
     let overlayPreview = document.querySelector('#currently-shown');
     overlayPreview.addEventListener('click', () => {
         hidePic();
@@ -196,4 +196,4 @@ if (pagesWithImagePreview.includes(docName)) {
     leftArrow.addEventListener('click', propStop, false);
     rightArrow.addEventListener('click', propStop, false);
     tempPicInfo.addEventListener('click', propStop, false);
-}
+// }

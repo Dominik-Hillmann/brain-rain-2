@@ -108,39 +108,10 @@
                 </div>
                 <div>
                     <div id="header-options">
-
-                        <!-- mit z-index noch nach hinten -->
-
-                        <p>
-                            <span>A</span><!--
-                            --><span>b</span><!--
-                            --><span>o</span><!--
-                            --><span>u</span><!--
-                            --><span>t</span>
-                        </p>
-                        <p>
-                            <span>C</span><!--
-                            --><span>o</span><!--
-                            --><span>n</span><!--
-                            --><span>t</span><!--
-                            --><span>a</span><!--
-                            --><span>c</span><!--
-                            --><span>t</span><!--
-                            --><span> &</span><!--
-                            --><span> H</span><!--
-                            --><span>i</span><!--
-                            --><span>r</span><!--
-                            --><span>e</span><!--
-                            --><span> M</span><!--
-                            --><span>e</span>
-                        </p>
-                        <p  class="current-option">
-                            <span>L</span><!--
-                            --><span>o</span><!--
-                            --><span>g</span><!--
-                            --><span> I</span><!--
-                            --><span>n</span>
-                        </p>
+                        <p><a href="./index.php"><?php echo strToSpans('About'); ?></a></p>
+                        <p><a href="./contact.php"><?php echo strToSpans('Contact & Hire Me'); ?></a></p>
+                        <p class="current-option"><a href="./login.php"><?php echo strToSpans('Log In'); ?></a></p>
+                        <p><a href="https://www.spreadshirt.de/user/UNIIKAT"><?php echo strToSpans('Shop'); ?></a></p>
                     </div>
                     <img src="./img/burger_menu_closed.png" onclick="showMenu();">
                 </div>

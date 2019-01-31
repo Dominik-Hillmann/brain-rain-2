@@ -36,15 +36,12 @@
         $spans = [];
         $lastLetterEmpty = FALSE;
         foreach (str_split($str) as $letter) {
-            if ($letter != ' ') {
-                array_push(
-                    $spans, 
-                    ($lastLetterEmpty ? '<span> ' : '<span>') . $letter . '</span>'
-                );
-            }
+            array_push(
+                $spans, 
+                ($lastLetterEmpty ? '<span> ' : '<span>') . $letter . '</span>'
+            );            
 
             $lastLetterEmpty = $letter == ' ';
-            echo $lastLetterEmpty;
         }
         
         return implode($spans);
