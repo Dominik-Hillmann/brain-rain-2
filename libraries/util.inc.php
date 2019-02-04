@@ -47,24 +47,89 @@
         return implode($spans);
     }
 
-    // abstract class Info {
-    //     $name;
-    //     function __construct($strJSON) {
-    //         $this->name
-    //     }
+    abstract class Info {
+        protected function getJSON($fileName, $folderName) {
+            return json_decode(file_get_contents(
+                $_SERVER['DOCUMENT_ROOT'] . '/' . $folderName . '/' . $fileName,
+                'r'
+            ));
+        }
 
-    //     private function getJSON($filename, $folderName) {
-
-    //     }
-    // }
-    
-    function getInfo($fileName, $folderName) {
-        // returns object with information about a picture from ../pic-info
-        return json_decode(file_get_contents(
-            $_SERVER['DOCUMENT_ROOT'] . '/' . $folderName . '/' . $fileName, 
-            'r'
-        ));
+        abstract function print();
     }
+
+    abstract class ContentInfo extends Info {
+        // properties that the pics and texts have in common
+        protected $name;
+        protected $day;
+        protected $month;
+        protected $year;
+        protected $secret;
+
+        function __construct($json) {
+            $this->secret = $json->secret;
+            $this->name = $json->name;
+        }
+
+        public function isSecret() {
+            return $this->secret;
+        }
+    }
+
+    class PicInfo extends ContentInfo {
+        // 
+        // Sobald die printNext herein verlagert ist, können diese private werden
+        // public $name;
+        public $filename;
+        public $day;
+        public $month;
+        public $year;
+        public $description;
+        // public $secret;
+        public $instagram;
+        public $twitter;
+        public $tags;
+
+        function __construct($fileName, $folderName) {
+            $json = $this->getJSON($fileName, $folderName);
+            parent::__construct($json);
+            // $this->name = $json->name;
+            $this->filename = $json->filename;
+            $this->day = $json->day;
+            $this->month = $json->month;
+            $this->year = $json->year;
+            $this->description = $json->description;
+            // $this->secret = $json->secret;
+            $this->instagram = $json->instagram;
+            $this->twitter = $json->twitter;
+            $this->tags = $json->tags;
+        }
+
+        public function print() {
+            // hier die Funktion aus printNext()
+            echo 'test';
+        }
+    }
+
+    class WritingInfo extends ContentInfo {
+        public function print() {
+            echo 'test';
+        }
+    }
+
+    class UserInfo extends Info {
+        public function print() {
+            echo 'test';
+        }
+    }
+    
+    // function getInfo($fileName, $folderName) {
+    //    // returns object with information about a picture from ../pic-info
+    //    return json_decode(file_get_contents(
+    //        $_SERVER['DOCUMENT_ROOT'] . '/' . $folderName . '/' . $fileName, 
+    //       'r'
+    //    ));
+    // }
 
     abstract class InfoPrinter {
         //
@@ -118,6 +183,8 @@
             $this->infoArr = $this->orderInfo($infoArr);
         }
 
+
+        // DIESE FUNKTION IN DIE INFOKLASSEN VERLAGERN
         function printNext($picInfo, $maxNumInRow) {
             // print all pictures whose information is contained in object and adds JS to view the image
             echo '<div class="pic-' . $maxNumInRow .' pic" '; // sorrounding div
@@ -162,6 +229,8 @@
             $this->infoArr = $this->orderInfo($infoArr);
         }
 
+
+        // DIESE FUNKTION IN DIE INFOKLASSEN VERLAGERN
         function printNext($info, $maxNumInRow) {
             //
 

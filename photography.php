@@ -144,10 +144,10 @@
 
                     $allPicInfo = [];
                     foreach ($fileNames as $fileName) {
-                        // $info = new Info($fileName, $folderName);
-                        $info = getInfo($fileName, $folderName);
+                        $info = new PicInfo($fileName, $folderName);
+                        // $info = getInfo($fileName, $folderName);
 
-                        if (!$info->secret) {
+                        if (!$info->isSecret()) {
                             array_push($allPicInfo, $info);
                         }
                     }

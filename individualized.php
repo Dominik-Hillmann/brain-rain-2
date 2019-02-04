@@ -123,8 +123,8 @@
                         
                         $wantedPicInfo = [];
                         foreach ($picNames as $picName) {
-                            $info = getInfo($picName, $picFolderName);
-                        
+                            // $info = getInfo($picName, $picFolderName);
+                            $info = new PicInfo($picName, $picFolderName);
                             if (in_array($info->name, $wantedNames)) {
                                 array_push($wantedPicInfo, $info);
                             }                    
