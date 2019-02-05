@@ -173,18 +173,7 @@
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo_white.png"></a></p>
             </div>
         </footer>
-        <div id="pic-texts" style="display:none;">
-            <?php
-                // echo descriptions and names in hidden div so that the JS functions can use it to change descriptions when displayed
-                foreach ($picPrinter->getChunkedInfo() as $subPicInfo) {
-                    foreach ($subPicInfo as $picInfo) {
-                        echo '<div class="hidden-pic-info">';
-                        echo '<h1>'. $picInfo->name .'</h1>';
-                        echo '<p>'. $picInfo->description .'</p></div>';
-                    }                    
-                }
-            ?>
-        </div>
+        <?php $picPrinter->printHiddenDescriptions(); ?>
     </body>
 
     <script src="./js/image_preview.js"></script>
@@ -192,4 +181,5 @@
     <script src="./js/header.js"></script>
     <script src="./js/main_menu.js"></script>
     <script src="./js/image_hover.js"></script>
+    
 </html>

@@ -145,9 +145,10 @@
                         
                     $allWritingsInfo = [];
                     foreach ($fileNames as $fileName) {
-                        $info = getInfo($fileName, $folderName);
+                        $info = new WritingInfo($fileName, $folderName);
+                        // $info = getInfo($fileName, $folderName);
 
-                        if (!$info->secret) {
+                        if (!$info->isSecret()) {
                             array_push($allWritingsInfo, $info);
                         }                    
                     }
