@@ -34,7 +34,7 @@
         }
         return $returnValue;
     }
-
+    
     function strToSpans($str) {
         // str to <span>s</span><span>t</span><span>r</span>
         $spans = [];
@@ -51,9 +51,9 @@
         return implode($spans);
     }
 
-    #################
-    #### Classes ####
-    #################
+    #########################
+    #### Classes - Infos ####
+    #########################
 
     abstract class Info {
         // 
@@ -67,7 +67,7 @@
         }
 
         protected function prependZero($num) {
-            // if number is smaller than 10, a zero will be prepended
+            // if number is smaller than 10, a zero will be prepended and returned as a string
             return $num < 10 ? '0' . $num : (string) $num;
         }
     }
@@ -94,6 +94,10 @@
         public function isSecret() {
             // bool whether this content is allowed on the public parts if the websites
             return $this->secret;
+        }
+
+        public function getName() {
+            return $this->name;
         }
 
         public function getUNIXTime() {
@@ -166,6 +170,7 @@
         }
 
         public function print($printedIndex, $maxNumInRow) {
+            //
             $date = $this->getDate();
 
             echo '<div class="text-' . $maxNumInRow . '" ';
@@ -186,17 +191,73 @@
 
 
     class UserInfo extends Info {
-        // public function print($maxNumInRow) {
-        //     echo 'test';
-        // }
+
+        private $user;
+        private $pw;
+        private $pics;
+        private $writings;
+
+        public function __construct($fileName, $folderName) {
+            $json = $this->getJSON($fileName, $folderName);
+            
+            $this->user = $json->user;
+            $this->pw = $json->pw;
+            $this->pics = $json->pics;
+            $this->writings = $json->writings;
+        }
+
+        public function check($testPassword, $testUsername) {
+            // checks whether input usernames and password correctly refer to a combination in data base
+            return password_verify($testPassword, $this->pw) &&
+                ($testUsername == $this->user); 
+                // password_verify($testUsername, $this->user);
+        }
+
+        public function getPicInfos() {
+            // 
+            $picFolderName = '/info/pic-info';
+            $picNames = scandir($_SERVER['DOCUMENT_ROOT'] . $picFolderName);
+            $picNames = array_splice($picNames, 2); // get rid of . and ..
+                        
+            $wantedPicInfos = [];
+            foreach ($picNames as $picName) {
+                $info = new PicInfo($picName, $picFolderName);
+
+                if (in_array($info->getName(), $this->pics)) {
+                    array_push($wantedPicInfos, $info);
+                }
+            }
+            return $wantedPicInfos;
+        }
+
+        public function getWritingInfos() {
+            // 
+            $writFolderName = '/info/writing-info';
+            $writNames = scandir($_SERVER['DOCUMENT_ROOT'] . $writFolderName);
+            $writNames = array_splice($writNames, 2); // get rid of . and ..
+
+            $wantedWritInfos = [];
+            foreach ($writNames as $writName) {
+                $info = new WritingInfo($writName, $writFolderName);
+        
+                if (in_array($info->getName(), $this->writings)) {
+                    array_push($wantedWritInfos, $info);
+                }
+            }
+            return $wantedWritInfos;
+        }
     }
+
+    ################################
+    #### Classes - InfoPrinters ####
+    ################################
 
     abstract class InfoPrinter {
         //
         protected $printedIndex;
         protected $infoArr;
 
-        function getChunkedInfo() {
+        protected function getChunkedInfo() {
             return array_chunk($this->infoArr, 3);
         }
 
@@ -230,16 +291,17 @@
         abstract function printContainedInfo();
     }
 
+
     class PicInfoPrinter extends InfoPrinter {
         //
         
-        function __construct($infoArr) {
+        public function __construct($infoArr) {
             $this->printedIndex = 0;
             $this->infoArr = $this->orderInfo($infoArr);
         }
 
 
-        function printNext($picInfo, $maxNumInRow) {
+        public function printNext($picInfo, $maxNumInRow) {
             // 
             $picInfo->print($this->printedIndex, $maxNumInRow);            
             $this->printedIndex++;
@@ -268,38 +330,19 @@
         }
 
     } // AnyPicInfoPrinter
+
     
     class WritingsInfoPrinter extends InfoPrinter {
         //
 
-        function __construct($infoArr) {
+        public function __construct($infoArr) {
             $this->printedIndex = 0;
             $this->infoArr = $this->orderInfo($infoArr);
         }
 
-
-        // DIESE FUNKTION IN DIE INFOKLASSEN VERLAGERN
-        function printNext($info, $maxNumInRow) {
+        public function printNext($info, $maxNumInRow) {
             //
-
-            // $date = $this->prependZero($info->day) . '.' . 
-            //     $this->prependZero($info->month) . '.' . 
-            //     $info->year;
-
-            // echo '<div class="text-' . $maxNumInRow . '" ';
-
-            // echo 'onclick="window.open(\'./read-text.php?';
-            // echo 'date=' . urlencode($date) . '&';
-            // echo 'text=' . urlencode($info->text) . '&';
-            // echo 'title=' . urlencode($info->name);
-            // echo '\', \'_blank\', \'\');return false;">';
-
-            // echo '<div class="text-background">';
-            // echo '<div class="background-background">&nbsp;</div>';
-            // echo $info->text . '</div>';
-            // echo '<h1>' . $info->name . '</h1>';
-            // echo '<p>' . $date . '</p></div>';
-            
+            $info->print($this->printedIndex, $maxNumInRow);          
             $this->printedIndex++;
         }
 

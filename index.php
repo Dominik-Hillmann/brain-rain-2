@@ -2,6 +2,7 @@
 
 <html lang="de">
     <head>
+        <?php require "./libraries/util.inc.php" ?>
     <!-- Basic Page Needs -->
         <meta charset="utf-8">
         <title>BRAINRAIN</title>
@@ -29,78 +30,31 @@
         <div id="menu-heading">
             <div>
                 <img src="./img/brainrainlogo_white.png">
-                <h1>BRAINRAIN<?php/* echo num2Roman((int) date("Y")); */?></h1>
+                <h1>BRAINRAIN</h1>
             </div>
         </div>
         <div id="menu-options">
             <div>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(1)'));">
-                    <span>G</span><!--
-                    --><span>r</span><!--
-                    --><span>a</span><!--
-                    --><span>p</span><!--
-                    --><span>h</span><!--
-                    --><span>i</span><!--
-                    --><span>c</span><!--  
-                    --><span>&nbsp;D</span><!--
-                    --><span>e</span><!--
-                    --><span>s</span><!--
-                    --><span>i</span><!--
-                    --><span>g</span><!--
-                    --><span>n</span>
+                    <?php echo strToSpans('Graphic Design'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(2)'));">
-                    <span>I</span><!--
-                    --><span>l</span><!--
-                    --><span>l</span><!--
-                    --><span>u</span><!--
-                    --><span>s</span><!--
-                    --><span>t</span><!--  
-                    --><span>r</span><!--
-                    --><span>a</span><!--
-                    --><span>t</span><!--
-                    --><span>i</span><!--
-                    --><span>o</span><!--
-                    --><span>n</span>
+                    <?php echo strToSpans('Illustration'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(3)'));">
-                    <span>D</span><!--
-                    --><span>r</span><!--
-                    --><span>a</span><!--
-                    --><span>w</span><!--
-                    --><span>i</span><!--
-                    --><span>n</span><!--  
-                    --><span>g</span><!--
-                    --><span>s</span>
+                    <?php echo strToSpans('Drawings'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(4)'));">
-                    <span>P</span><!--
-                    --><span>h</span><!--
-                    --><span>o</span><!--
-                    --><span>t</span><!--
-                    --><span>o</span><!--
-                    --><span>g</span><!--
-                    --><span>r</span><!--  
-                    --><span>a</span><!--
-                    --><span>p</span><!--
-                    --><span>h</span><!--
-                    --><span>y</span>
+                    <?php echo strToSpans('Photography'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(5)'));">
-                    <span>W</span><!--
-                    --><span>r</span><!--
-                    --><span>i</span><!--
-                    --><span>t</span><!--
-                    --><span>i</span><!--
-                    --><span>n</span><!--  
-                    --><span>g</span>
+                    <?php echo strToSpans('Writing'); ?>
                 </p>
             </div>
         </div>
     </div>
 
     <body>
-        <?php require "./libraries/util.inc.php" ?>
         <header class="at-top">
             <div>
                 <div id="headerlogo">

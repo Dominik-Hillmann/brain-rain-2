@@ -26,79 +26,31 @@
     </head>
 
     <!-- Everything that is not show as default like the menu or pic displays -->
+    
     <div id="menu" class="hide">
         <div id="menu-heading">
             <div>
                 <img src="./img/brainrainlogo_white.png">
-                <h1>BRAINRAIN<?php/* echo num2Roman((int) date("Y")); */?></h1>
+                <h1>BRAINRAIN</h1>
             </div>
         </div>
         <div id="menu-options">
             <div>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(1)'));">
-                    <span>G</span><!--
-                    --><span>r</span><!--
-                    --><span>a</span><!--
-                    --><span>p</span><!--
-                    --><span>h</span><!--
-                    --><span>i</span><!--
-                    --><span>c</span><!--  
-                    --><span>&nbsp;D</span><!--
-                    --><span>e</span><!--
-                    --><span>s</span><!--
-                    --><span>i</span><!--
-                    --><span>g</span><!--
-                    --><span>n</span>
+                    <?php echo strToSpans('Graphic Design'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(2)'));">
-                    <span>I</span><!--
-                    --><span>l</span><!--
-                    --><span>l</span><!--
-                    --><span>u</span><!--
-                    --><span>s</span><!--
-                    --><span>t</span><!--  
-                    --><span>r</span><!--
-                    --><span>a</span><!--
-                    --><span>t</span><!--
-                    --><span>i</span><!--
-                    --><span>o</span><!--
-                    --><span>n</span>
+                    <?php echo strToSpans('Illustration'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(3)'));">
-                    <span>D</span><!--
-                    --><span>r</span><!--
-                    --><span>a</span><!--
-                    --><span>w</span><!--
-                    --><span>i</span><!--
-                    --><span>n</span><!--  
-                    --><span>g</span><!--
-                    --><span>s</span>
+                    <?php echo strToSpans('Drawings'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(4)'));">
-                    <span>P</span><!--
-                    --><span>h</span><!--
-                    --><span>o</span><!--
-                    --><span>t</span><!--
-                    --><span>o</span><!--
-                    --><span>g</span><!--
-                    --><span>r</span><!--  
-                    --><span>a</span><!--
-                    --><span>p</span><!--
-                    --><span>h</span><!--
-                    --><span>y</span>
+                    <?php echo strToSpans('Photography'); ?>
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(5)'));">
-                    <span>W</span><!--
-                    --><span>r</span><!--
-                    --><span>i</span><!--
-                    --><span>t</span><!--
-                    --><span>i</span><!--
-                    --><span>n</span><!--  
-                    --><span>g</span>
+                    <?php echo strToSpans('Writing'); ?>
                 </p>
-                <!-- <p>
-                    <?php # echo strToSpans('Das ist ein Test'); ?>
-                </p> -->
             </div>
         </div>
     </div>
@@ -127,41 +79,36 @@
             <h1 id="rain">RAIN</h1>
             <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
             <div id="welcome-text">
-                <h1>Contact & Hire Me</h1>
-                <form action="contacted.php" method="post">
-                    <div id="side-by-side">
-                        <div>
-                            <h3 class="h3-without-input">First name <span>*</span></h3>
-                            <input type="text" name="firstname">
-                        </div>
-                        <div>
-                            <h3 class="h3-without-input">Last name <span>*</span></h3>
-                            <input type="text" name="lastname">
-                        </div>
-                    </div>
+                <h1>Contact</h1>
+                <p><?php
+                    $formFilled = isset($_POST["firstname"]) && 
+                        isset($_POST["lastname"]) &&
+                        isset($_POST["mail"]) &&
+                        isset($_POST["subject"]) &&
+                        isset($_POST["message"]);
 
-                    <div>
-                        <h3 class="h3-without-input">E-mail address <span>*</span></h3>
-                        <input type="text" name="mail">
-                    </div>
+                    if ($formFilled) {
+                        $receiver = "dominik.hillmann.website@gmail.com";
+                        $subject = $_POST["subject"];
 
-                    <div>
-                        <h3 class="h3-without-input">Telephone</h3>
-                        <input type="text" name="telephone">
-                    </div>
+                        $message = $_POST["message"];
+                        $message .= "\nvon " . $_POST["firstname"] . " " . $_POST["lastname"] . " <" .  $_POST["mail"] . ">\r\n";
+                        $message .= "Telefonnummer: " . (isset($_POST["telephone"]) ? $_POST["telephone"] : "none given");
 
-                    <div>
-                        <h3 class="h3-without-input">Subject <span>*</span></h3>
-                        <input type="text" name="subject">
-                    </div>
+                        $headers = "Reply-To: " . $_POST["firstname"] . " " . $_POST["lastname"] . " <" .  $_POST["mail"] . ">\r\n";
+                        $headers .= "Return-Path: " . $_POST["firstname"] . " " . $_POST["lastname"] . " <" .  $_POST["mail"] . ">\r\n";
+                        $headers .= "MIME-Version: 1.0\r\n";
+                        $headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
+                        $headers .= "X-Priority: 3\r\n";
+                        $headers .= "X-Mailer: PHP" . phpversion() . "\r\n";
 
-                    <div>
-                        <h3 class="h3-without-input-textarea">Message <span>*</span></h3>
-                        <textarea name="message"></textarea>
-                    </div>
-                    <button>SEND</button>
-                    <p><span>*</span> Please fill these inputs.</p>
-                </form>
+                        $success = mail($receiver, $subject, $message, $headers);
+                        echo ($success ? "Mail successfully sent." : "Error: Mail was not sent.");
+                        mail($receiver, $subject, $message, $headers);
+                    } else {
+                        echo "Not every field was filled in. The mail was not sent.";
+                    }
+                ?></p>
             </div>            
             <img id="eyecatcher-background" src="./img/background_eyecatcher.png" ondragstart="return false;">
         </div>

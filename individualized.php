@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <?php require "./libraries/util.inc.php" ?>
     <!-- Basic Page Needs -->
         <meta charset="utf-8">
         <title>BRAINRAIN</title>
@@ -31,7 +32,6 @@
         </div>
         <div id="menu-options">
             <div>
-                <?php require './libraries/util.inc.php'; ?>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(1)'));">
                     <?php echo strToSpans('Graphic Design'); ?>
                 </p>
@@ -62,6 +62,7 @@
             --><div id="curr-pic-info">
                 <h1>Titel, ein langer Titel</h1>
                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <p>Click anywhere to leave the image preview.</p>
             </div>
         </div>
     </div>
@@ -101,59 +102,30 @@
 
                     $userInfo = NULL;
                     foreach ($fileNames as $fileName) {
-                        $currentUser = getInfo($fileName, $folderName);
+                        $currentUser = new UserInfo($fileName, $folderName);
 
-                        if (password_verify($_POST['pw'], $currentUser->pw)) {
+                        if ($currentUser->check($_POST['pw'], $_POST['un'])) {
                             $userInfo = $currentUser;
                         }
                     }
                     
                     // Anzeige, wenn Passwort zu keinem passt (User nicht gefunden, oder so)
+                    $successfulLogIn = FALSE;
                     if ($userInfo == NULL) {
-                        var_dump($_POST);
-                        echo '<br>' . 'Kein User mit diesem Kennwort gefunden';
+                        echo '<div class="failed-login">';
+                        echo 'No user with this username/password combination found.';
+                        echo '<br><a href="./login.php">Please try again.</a></div>';
                     } else {
-                        // Nun einmal die Stories darstellen, einmal die Bilder darstellen
-                        // Bilder fetchen
-                        $wantedNames = $userInfo->pics;
+                        $successfulLogIn = TRUE;
 
-                        $picFolderName = '/info/pic-info';
-                        $picNames = scandir($_SERVER['DOCUMENT_ROOT'] . $picFolderName);
-                        $picNames = array_splice($picNames, 2); // get rid of . and ..
-                        
-                        $wantedPicInfo = [];
-                        foreach ($picNames as $picName) {
-                            // $info = getInfo($picName, $picFolderName);
-                            $info = new PicInfo($picName, $picFolderName);
-                            if (in_array($info->name, $wantedNames)) {
-                                array_push($wantedPicInfo, $info);
-                            }                    
-                        }
-
-                        $picPrinter = new PicInfoPrinter($wantedPicInfo);
+                        $picPrinter = new PicInfoPrinter($userInfo->getPicInfos());
                         $picPrinter->printContainedInfo();                        
 
-                        echo '<div class="thin-lines"><img src="./img/thin_lines.png"><div><h1>PHOTOGRAPHY</h1></div></div>';
+                        echo '<div class="thin-lines"><img src="./img/thin_lines.png"><div><h1>WRITING</h1></div></div>';
                         
-                        // writings
-                        $wantedWritingNames = $userInfo->writings;
-
-                        $writFolderName = '/info/writing-info';
-                        $writNames = scandir($_SERVER['DOCUMENT_ROOT'] . $writFolderName);
-                        $writNames = array_splice($writNames, 2); // get rid of . and ..
-                            
-                        $wantedWritInfos = [];
-                        foreach ($writNames as $writName) {
-                            $info = getInfo($writName, $writFolderName);
-        
-                            if (in_array($info->name, $wantedWritingNames)) {
-                                array_push($wantedWritInfos, $info);
-                            }                    
-                        }
-        
-                        $writPrinter = new WritingsInfoPrinter($wantedWritInfos);
+                        $writPrinter = new WritingsInfoPrinter($userInfo->getWritingInfos());
                         $writPrinter->printContainedInfo();
-                    } // else
+                    } 
                 ?>
             </div>
         </div>
@@ -178,13 +150,8 @@
 
         <div id="pic-texts" style="display:none;" class="hide">
             <?php
-                // echo descriptions and names in hidden div so that the JS functions can use it to change descriptions when displayed
-                foreach ($picPrinter->getChunkedInfo() as $subPicInfo) {
-                    foreach ($subPicInfo as $picInfo) {
-                        echo '<div class="hidden-pic-info">';
-                        echo '<h1>'. $picInfo->name .'</h1>';
-                        echo '<p>'. $picInfo->description .'</p></div>';
-                    }                    
+                if ($successfulLogIn) {
+                    $picPrinter->printHiddenDescriptions();
                 }
             ?>
         </div>

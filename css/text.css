@@ -1,17 +1,7 @@
 .main-content {
     margin: 0 auto 20px auto;
     width: calc(100% - 100px);
-    /* background-color: red; */
 }
-/* 
-#text-schmuck {
-    font-family: 'Catamaran', sans-serif;
-    font-size: 15px;
-    text-align: center;
-    
-    border-bottom: 1px solid black;
-} */
-
 #inner-text-wrapper {
     max-width: 700px;
     margin: auto;
@@ -22,10 +12,6 @@
     box-shadow: 1px 1px 5px rgb(165, 165, 165);
     border-radius: 10px;
     position: relative;
-}
-#inner-text-wrapper div {
-    /*margin-bottom: ;*/
-    
 }
 #inner-text-wrapper div h1 {
     font-size: 50px;
@@ -45,21 +31,12 @@
     width: auto;
     margin-bottom: 20px;
 }
-
-/* #inner-text-wrapper div h1,
-#inner-text-wrapper div h2 {
-    display: inline-block;
-    margin-bottom: 15px;
-} */
-
-
 #inner-text-wrapper p {
     font-size: 18px;
     line-height: 26px; /* 18 hoch + 6 oben und unten je */
     text-align: justify;
     font-family: 'Zilla Slab', serif;
 }
-
 
 /* Dark Mode Buttons */
 #inner-text-wrapper button {
