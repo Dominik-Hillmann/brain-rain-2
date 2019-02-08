@@ -79,7 +79,15 @@
             <h1 id="rain">RAIN</h1>
             <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
             <div id="welcome-text">
-                <h1>Contact</h1>
+                <h1>Contact & Hire Me</h1>
+                <style>
+                    h3 {
+                        color: #ff4951 !important;
+                        font-family: 'Montserrat', serif;
+                        font-style: italic;
+                        margin: 30px 0 5px 0;
+                    }
+                </style>
                 <p><?php
                     $formFilled = isset($_POST["firstname"]) && 
                         isset($_POST["lastname"]) &&

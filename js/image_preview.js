@@ -1,10 +1,26 @@
 /**** Functions ****/
+Array.prototype.flatten = function () {
+    // because arr.flat() doesn't work IE and Edge...
+    try {
+        return this.flat();
+    } catch (error) {
+        return this.reverse().reduce(
+            (acc, current) => { 
+                console.log(current);
+                current.concat(acc)
+            },
+            []
+        );
+    }
+}
+console.log([1].concat([2]));
+
 function hidePic() {
     // closes the image preview
     let currShown = document.querySelector("#currently-shown");
     currShown.classList.add("disappearing");
 
-    setTimeout(function () {
+    setTimeout(() => {
         currShown.classList.add("hide");
         currShown.classList.remove("disappearing");
     }, 300); // animations has to be 300ms long
@@ -18,7 +34,7 @@ function unhidePic(picLink) {
 
     currShown.classList.add("appearing");
     currShown.classList.remove("hide");
-    setTimeout(function () {
+    setTimeout(() => {
         currShown.classList.remove("appearing");
         
         let currPicIndex = allPicsArr.findIndex((e) => e == currPic);
@@ -39,7 +55,7 @@ function nextPic() {
     let mainPic = document.querySelector("#the-main-pic");
     mainPic.classList.add("disappearing");
 
-    setTimeout(function () {
+    setTimeout(() => {
         currPic = allPicsArr[nextPicIndex];
         style = currPic.currentStyle || window.getComputedStyle(currPic, false);
         backImgURL = style.backgroundImage.slice(4, -1).replace(/"/g, "");
@@ -66,7 +82,7 @@ function prevPic() {
     mainPic.classList.remove("appearing");
     mainPic.classList.add("disappearing");
 
-    setTimeout(function () {
+    setTimeout(() => {
         currPic = allPicsArr[nextPicIndex];
         style = currPic.currentStyle || window.getComputedStyle(currPic, false);
         backImgURL = style.backgroundImage.slice(4, -1).replace(/"/g, "");
@@ -88,11 +104,11 @@ function blurBackground(additional = []) {
     // blurs footer and header by default
     // additional Elements can be blurred, too, by including additional elements
     let toBeBlurred = [
-        document.querySelector("header"),
-        document.querySelector("footer"),
+        [document.querySelector("header")],
+        [document.querySelector("footer")],
         Array.from(document.querySelectorAll(".row")),
-        additional
-    ].flat().filter((e) => e != null);
+        Array.from(additional)
+    ].flatten().filter((e) => e != null);
 
     for (let e of toBeBlurred) {
         e.classList.add("blur");
@@ -106,7 +122,7 @@ function unblurBackground(additional = []) {
         document.querySelector("footer"),
         Array.from(document.querySelectorAll(".row")),
         additional
-    ].flat().filter((e) => e != null);
+    ].flatten().filter((e) => e != null);
 
     for (let e of toBeUnBlurred) {
         e.classList.add("unblur");
@@ -166,21 +182,20 @@ if (allPicsArr.length != allPicsInfo.length) {
 
 // initialize variables that will contain information, etc.
 // only if this is an image page
-let path = window.location.pathname;
-let docName = path.split('/').pop();
-let pagesWithImagePreview = ['photography.php'];
+let waveDivision = document.querySelector('#thin-wave');
+let pagesWithImagePreview = ['photography.php', 'individualized.php'];
+let documentName = window.location
+    .pathname
+    .split('/')
+    .pop();
 
-// if (pagesWithImagePreview.includes(docName)) {
+if (pagesWithImagePreview.includes(documentName)) {
     let tempPicInfo = document.querySelector('#curr-pic-info');
     let currPicDescription = tempPicInfo.querySelector('p');
     let currPicName = tempPicInfo.querySelector('h1');
-// }
-let waveDivision = document.querySelector('#thin-wave');
 
-// Closing of image preview if clicked anywhere but on description and arrows
-// wird geschlossen, wenn außerhalb von Pfeilen, Beschreibung oder Bild geklickt
-
-// if (pagesWithImagePreview.includes(docName)) {
+    // Closing of image preview if clicked anywhere but on description and arrows
+    // wird geschlossen, wenn außerhalb von Pfeilen, Beschreibung oder Bild geklickt
     let overlayPreview = document.querySelector('#currently-shown');
     overlayPreview.addEventListener('click', () => {
         hidePic();
@@ -196,4 +211,4 @@ let waveDivision = document.querySelector('#thin-wave');
     leftArrow.addEventListener('click', propStop, false);
     rightArrow.addEventListener('click', propStop, false);
     tempPicInfo.addEventListener('click', propStop, false);
-// }
+}
