@@ -135,13 +135,13 @@ body { z-index: -100; }
 /* Bubbles */
 @keyframes bubble-up {
     0% {
-        bottom: 50px;
+        bottom: /*50px*/ 10%;
         opacity: 0;
     } 85% {
-        bottom: calc(0.85 * 750px);
+        bottom: /* calc(0.85 * 750px) */ 85%;
         opacity: 1;
     } 100% {
-        bottom: 750px;
+        bottom: /*750px*/ 90%;
         opacity: 0;
     }
 }

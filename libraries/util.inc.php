@@ -43,11 +43,9 @@
             array_push(
                 $spans, 
                 ($lastLetterEmpty ? ('<span>' . ' ') : '<span>') . $letter . '</span>'
-            );            
-
+            );
             $lastLetterEmpty = $letter == ' ';
-        }
-        
+        }        
         return implode($spans);
     }
 
@@ -191,7 +189,7 @@
 
 
     class UserInfo extends Info {
-
+        // 
         private $user;
         private $pw;
         private $pics;

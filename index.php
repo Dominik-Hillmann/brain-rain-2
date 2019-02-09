@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="./css/images.css">
         <link rel="stylesheet" href="./css/menu.css">
         <link rel="stylesheet" href="./css/eyecatcher.css">
+        <link rel="stylesheet" href="./css/mobile.css">
         <!-- <link rel="stylesheet" href="css/mobile.css"> -->
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">

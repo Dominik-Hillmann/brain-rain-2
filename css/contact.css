@@ -21,7 +21,7 @@ form input, form textarea {
     border: none;
     background-color: transparent;
     font-family: 'Zilla Slab', serif;
-    border-bottom: 2px solid rgb(165, 165, 165);
+    border-bottom: 1px solid rgb(165, 165, 165);
     color: #ff4951;
     font-size: 18px;
 }

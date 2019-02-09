@@ -1,19 +1,18 @@
 /**** Functions ****/
-Array.prototype.flatten = function () {
-    // because arr.flat() doesn't work IE and Edge...
+Array.prototype.deepFlatten = function () {
+    // because arr.flat() doesn't work for IE and Edge...
     try {
         return this.flat();
     } catch (error) {
-        return this.reverse().reduce(
-            (acc, current) => { 
-                console.log(current);
-                current.concat(acc)
-            },
-            []
-        );
+        return this.reduce((accumulator, current) => {
+            if (Array.isArray(current)) {
+                return accumulator.concat(current.deepFlatten());
+            } else {
+                return accumulator.concat(current);
+            }
+        }, []);
     }
 }
-console.log([1].concat([2]));
 
 function hidePic() {
     // closes the image preview
@@ -104,11 +103,11 @@ function blurBackground(additional = []) {
     // blurs footer and header by default
     // additional Elements can be blurred, too, by including additional elements
     let toBeBlurred = [
-        [document.querySelector("header")],
-        [document.querySelector("footer")],
+        document.querySelector("header"),
+        document.querySelector("footer"),
         Array.from(document.querySelectorAll(".row")),
         Array.from(additional)
-    ].flatten().filter((e) => e != null);
+    ].deepFlatten().filter((e) => e != null);
 
     for (let e of toBeBlurred) {
         e.classList.add("blur");
@@ -122,7 +121,7 @@ function unblurBackground(additional = []) {
         document.querySelector("footer"),
         Array.from(document.querySelectorAll(".row")),
         additional
-    ].flatten().filter((e) => e != null);
+    ].deepFlatten().filter((e) => e != null);
 
     for (let e of toBeUnBlurred) {
         e.classList.add("unblur");
