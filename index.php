@@ -78,36 +78,37 @@
             <h1 id="brain">BRAIN</h1>
             <h1 id="rain">RAIN</h1>
             <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
-            <div id="welcome-text">
-                <h1>Welcome to my website</h1>
-                <p>
-                    Hier stellt sich Charlie vor, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    If you like, you can contact me or take a look at my portfolio down below.
-                </p>
-                <button onclick="scrollToSelection();">PORTFOLIO</button>
-                <button><a href="./contact.php">CONTACT</a></button>
-            </div>            
+            <div id="welcome-text-wrapper">
+                <div id="welcome-text">
+                    <h1>Welcome to my website</h1>
+                    <p>
+                        Hier stellt sich Charlie vor, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        If you like, you can contact me or take a look at my portfolio down below.
+                    </p>
+                    <button onclick="scrollToSelection();">PORTFOLIO</button>
+                    <button><a href="./contact.php">CONTACT</a></button>
+                </div>        
+            </div>
+            <img id="welcome-text-wave" src="./img/thin_wave.png" ondragstart="return false;"> 
             <img id="eyecatcher-background" src="./img/background_eyecatcher.png" ondragstart="return false;">
         </div>
  
         <div id="main" class="main-content">
             <div>
-                <div id="design">
+                <div id="design" class="topic-panel">
                     <h1>Graphic<br>Design</h1>
-                    <!-- <img src="./img/welle_1.png">
-                    <div class="section-text"><p>Test</p></div> -->
                 </div><!--
-                --><div id="illustration" class="hasMargin">
+                --><div id="illustration" class="hasMargin topic-panel">
                     <h1>Illustration</h1>
                 </div><!--
-                --><div id="drawings" class="hasMargin">
+                --><div id="drawings" class="hasMargin topic-panel">
                     <h1>Drawings</h1>
                 </div><!--
-                --><div id="photography" class="hasMargin">
+                --><div id="photography" class="hasMargin topic-panel">
                     <h1>Photo-<br>graphy</h1>
                 </div><!--
-                --><div id="writing">
+                --><div id="writing" class="topic-panel">
                     <h1>Writing</h1>
                 </div>
             </div>

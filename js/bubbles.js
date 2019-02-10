@@ -1,3 +1,5 @@
+const maxMobileWidth = 800;
+
 function getRand(min, max, int) {
     // random numbers between min and max, returns an integer if int == true
     let rand = Math.random() * (max - min);
@@ -21,9 +23,13 @@ function bubbleAnimation() {
         bubble.src = './img/white_circle.png';
         // random styles for the bubble
         bubble.classList.add('bubble');
-        bubble.style.right = getRand(0, 0.5 * winWidth, false) + 'px';
+        bubble.style.right = getRand(
+            0, 
+            (winWidth < maxMobileWidth ? 1.0 : 0.5) * winWidth, // use all of the width on mobile, otherwise only half of it 
+            false
+        ) + 'px';
         bubble.style.height = getRand(1, 8, true) + 'px';
-        bubble.style.animation = 'bubble-up ' + animationDuration + 's'; // ease-in-out';
+        bubble.style.animation = 'bubble-up ' + animationDuration + 's';
         // append and remove if its time is up
         eyeCatcherNode.appendChild(bubble);
         setTimeout(() => bubble.remove(), animationDuration * 1000); // * 1000 because ms

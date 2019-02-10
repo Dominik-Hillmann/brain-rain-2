@@ -11,24 +11,6 @@ body { z-index: -100; }
 #eyecatcher > * {
     position: absolute;
 }
-/* @keyframes recurrent-lighting-pink {
-    0% {
-        text-shadow: 3px 3px 3px #ff4951;
-    } 50% {
-        text-shadow: 5px 5px 5px #ff4951;
-    } 100% {
-        text-shadow: 3px 3px 3px #ff4951;
-    }
-}
-@keyframes recurrent-lighting-white {
-    0% {
-        text-shadow: 3px 3px 3px white;
-    } 50% {
-        text-shadow: 5px 5px 5px white;
-    } 100% {
-        text-shadow: 3px 3px 3px white;
-    }
-} */
 #eyecatcher h1 {
     font-size: 120px;
     font-family: 'Montserrat';
@@ -36,8 +18,6 @@ body { z-index: -100; }
     font-style: italic;
     text-shadow: 3px 3px 3px #ff4951/*#ee4266*/ /*rgb(100, 100, 100)*/;
     letter-spacing: 5px;
-
-    /* animation: recurrent-lighting-pink 5s forwards infinite; */
 }
 
 #eyecatcher-background {
@@ -83,7 +63,8 @@ body { z-index: -100; }
     background-size: cover;
 }
 
-#welcome-text {
+/* #welcome-text, */
+#welcome-text-wrapper {
     z-index: 3;
     width: 33%;
     margin: 70px 0 0 70px;
@@ -131,6 +112,7 @@ body { z-index: -100; }
     margin-right: 5px;
 }
 #welcome-text button:nth-of-type(2) { background-image: linear-gradient(135deg, cornflowerblue, rgb(20, 18, 63)); }
+#welcome-text-wave { display: none; }
 
 /* Bubbles */
 @keyframes bubble-up {

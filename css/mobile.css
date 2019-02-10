@@ -1,24 +1,95 @@
 /* smaller screens like notebooks, kleiner 1200, größer ... */
-@media only screen and (max-width: 1200px) {
-   #eyecatcher h1 {
+@media only screen and (max-width: 1200px) and (min-width: 800px) {
+    #welcome-text-wrapper { 
+        width: 30%; 
+        margin-top: 25px;
+    }
+   #welcome-text h1 {
        font-size: 30px;
    }
-   #eyecatcher p {
+   #welcome-text p {
        font-size: 18px;
    }
    #welcome-text button {
-       padding: 5px;
-       font-size: 9px;
+       padding: 10px;
+       font-size: 12px;
+   }
+   #brain, #rain {
+       font-size: 80px !important;
+   }
+   #brain {
+       top: 275px;
+       right: 70px;
+   }
+   #rain {
+       top: 320px;
+       right: 40px;
+   }
+   #num {
+       font-size: 40px;
+       top: 400px;
+       right: 250px;
+   }
+   #eyecatcher-logo{
+       height: 150px !important;
+       right: 280px;
+       top: 280px;
    }
 
 
+   .topic-panel {
+       font-size: 10px;
+   }
 }
 
 
 
 /* screens like smartphone screens */
-@media only screen and (max-width: 468px) {
+@media only screen and (max-width: 799px) {
+    #header-options {
+        display: none;
+    }
+    #eyecatcher { position: relative; }
     #eyecatcher-background {
         display: none;
+    }
+    #welcome-text-wrapper {
+        /* display: none; */
+
+        width: 100%;
+        margin: 0;
+        background-color: white;
+        position: relative;
+    }
+    #welcome-text {
+        position: relative;
+        background-color: white;
+        width: calc(100% - 100px);
+        margin: 0 auto;
+        position: relative;
+    }
+    #welcome-text-wave {
+        display: block;
+        z-index: 2;
+        position: relative;
+        width: 100%;
+        filter: drop-shadow(3px 3px 3px cornflowerblue);
+        
+        margin-bottom: 300px;
+    }
+    #welcome-text button {
+        margin-bottom: 20px;
+    }
+
+    #brain, #rain, #num, #eyecatcher-logo {
+        position: absolute;
+        top: auto;
+    }
+    #brain {
+        bottom: 50px;
+        right: 10%;
+    }
+    #rain {
+
     }
 }
