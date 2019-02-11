@@ -9,7 +9,6 @@ function getRand(min, max, int) {
 let winWidth;
 let calcWinWidth = () => winWidth = window.innerWidth || document.body.clientWidth;
 calcWinWidth();
-window.onresize = calcWinWidth;
 // parent of the bubbles
 let eyeCatcherNode = document.querySelector('#eyecatcher');
 

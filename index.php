@@ -140,4 +140,5 @@
     <script src="./js/header.js"></script>
     <script src="./js/main_menu.js"></script>
     <script src="./js/bubbles.js"></script>
+    <script src="./js/resize.js"></script>
 </html>
