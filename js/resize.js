@@ -1,8 +1,15 @@
+/**
+ * 
+ */
+
 // Seperate document to handle everything that has to do with
 // resizing dependet on the document's name.
 let eyecatcherNode = document.querySelector('#eyecatcher');
 let welcomeNode = document.querySelector('#welcome-text-wrapper');
 let backgroundImg = document.querySelector('#eyecatcher-background');
+
+console.log(welcomeNode, eyecatcherNode, backgroundImg);
+
 let adjustEyecatcherHeight = () => {
     if (eyecatcherNode.offsetWidth < 800) {
         eyecatcherNode.style.height = (welcomeNode.offsetHeight + 500) + 'px';
@@ -11,16 +18,16 @@ let adjustEyecatcherHeight = () => {
     }
 }
 
+
+let eyecatcherSites = ['index.php', ''];
 let docName = document.location
     .pathname
     .split('/')
     .pop();
 
-console.log(docName);
-
 
 window.onresize = () => {
-    if (docName === 'index.php') {
+    if (eyecatcherSites.includes(docName)) {
         // Adjusting the height of the whole eyecatcher, so I can fit the actual eyecatcher
         // under it.
         adjustEyecatcherHeight();

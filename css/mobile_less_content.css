@@ -1,0 +1,29 @@
+/**
+ *  This file will be included in
+ *      contact.php,
+ *      contacted.php and
+ *      login.php.
+ *  For further information take a look at ./mobile.css.
+ */
+
+#welcome-text { margin-top: 0px !important; }
+
+@media only screen and (max-width: 799px) {
+    #eyecatcher { 
+        padding-top: 10px !important;
+    }
+    #welcome-text {
+        margin-top: 50px !important;
+        z-index: 5 !important;
+    }
+    #brain,
+    #rain,
+    #num,
+    #eyecatcher-logo {
+        display: none;
+    }
+}
+
+
+
+

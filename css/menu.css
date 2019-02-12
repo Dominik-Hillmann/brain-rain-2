@@ -107,6 +107,7 @@
     font-size: 20px;
     z-index: -3;
 }
+.visible-on-mobile { display: none !important; }
 
 /**** Animation classes ****/
 

@@ -1,4 +1,12 @@
 <?php
+    /**
+     * 
+     * 
+     * 
+     * 
+     * 
+     */
+
     ###########################
     #### Utility Functions ####
     ###########################
@@ -227,7 +235,7 @@
             }
             return $wantedPicInfos;
         }
-
+        
         public function getWritingInfos() {
             // 
             $writFolderName = '/info/writing-info';

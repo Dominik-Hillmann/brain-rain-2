@@ -51,6 +51,24 @@
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(5)'));">
                     <?php echo strToSpans('Writing'); ?>
                 </p>
+
+                <!-- This is a divider between the art and other categories. -->
+                <p class="visible-on-mobile">
+                    <?php echo strToSpans(' '); ?>
+                </p>
+
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(7)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('About'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(8)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Contact & Hire Me'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(9)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Log In'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(10)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Shop'); ?>
+                </p>
             </div>
         </div>
     </div>

@@ -1,3 +1,7 @@
+/**
+ * 
+ */
+
 let inputs = document.querySelectorAll('form input');
 // name of the needed CSS classes for animation
 let inputClass = 'h3-with-input';

@@ -1,3 +1,7 @@
+/**
+ * 
+ */
+
 let showMenu = function () {
     // Lets the main menu appear smoothly.
     let additionalBlurred = [
@@ -56,9 +60,9 @@ overlayMenu.addEventListener('click', hideMenu, false);
 except.addEventListener('click', (event) => event.stopPropagation(), false);
 
 
-let changeLetterColors = function (option) {
-    // color change animation for the options
-    let spans = option.querySelectorAll('span');
+let changeLetterColors = function (optionNode) {
+    // color change animation for the optionNodes
+    let spans = optionNode.querySelectorAll('span');
     let delay = 50; // how long between starts of the letter animations
     let animationLen = 400; // to be found in menu.css
 

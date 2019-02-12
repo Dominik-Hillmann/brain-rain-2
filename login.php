@@ -17,7 +17,8 @@
         <link rel="stylesheet" href="./css/menu.css">
         <link rel="stylesheet" href="./css/eyecatcher.css">
         <link rel="stylesheet" href="./css/contact.css">
-        <!-- <link rel="stylesheet" href="css/mobile.css"> -->
+        <link rel="stylesheet" href="./css/mobile.css">
+        <link rel="stylesheet" href="./css/mobile_less_content.css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">
 
@@ -50,6 +51,24 @@
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(5)'));">
                     <?php echo strToSpans('Writing'); ?>
                 </p>
+
+                <!-- This is a divider between the art and other categories. -->
+                <p class="visible-on-mobile">
+                    <?php echo strToSpans(' '); ?>
+                </p>
+
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(7)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('About'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(8)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Contact & Hire Me'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(9)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Log In'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(10)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Shop'); ?>
+                </p>
             </div>
         </div>
     </div>
@@ -77,30 +96,33 @@
             <h1 id="brain">BRAIN</h1>
             <h1 id="rain">RAIN</h1>
             <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
-            <div id="welcome-text" style="margin-top: 150px !important;">
-                <h1>Log In</h1>
-                <p>
-                    If you have received a user name and password to view a personalized portfolio, you can enter these here.
-                </p>
-                <form action="individualized.php" method="post">
-                    <div>
-                        <h3 class="h3-without-input">User name</h3>
-                        <input type="text" name="un">
-                    </div>
-                    <div>
-                        <h3 class="h3-without-input">Password</h3>
-                        <input type="password" name="pw">
-                    </div>
-                    <button style="margin-top: 20px;">SEND</button>
-                </form>
-            </div>            
+            <div id="welcome-text-wrapper">
+                <div id="welcome-text">
+                    <h1>Log In</h1>
+                    <p>
+                        If you have received a user name and password to view a personalized portfolio, you can enter these here.
+                    </p>
+                    <form action="individualized.php" method="post">
+                        <div>
+                            <h3 class="h3-without-input">User name</h3>
+                            <input type="text" name="un">
+                        </div>
+                        <div>
+                            <h3 class="h3-without-input">Password</h3>
+                            <input type="password" name="pw">
+                        </div>
+                        <button style="margin-top: 20px;">SEND</button>
+                    </form>
+                </div>
+            </div>
+            <img id="welcome-text-wave" src="./img/thin_wave.png" ondragstart="return false;">      
             <img id="eyecatcher-background" src="./img/background_eyecatcher.png" ondragstart="return false;">
         </div>
 
         <footer>
             <div>
                 <a href="#"><img src="./img/logos/instagram_dunkel.png" id="instagram"></a>
-                <a href="#"><img src="./img/logos/twitter_dunkel.png" id="twitter"></a>
+                <a href="https://twitter.com/brainrain_"><img src="./img/logos/twitter_dunkel.png" id="twitter"></a>
                 <a href="#"><img src="./img/logos/facebook_dunkel.png" id="facebook"></a>
                 <a href="#"><img src="./img/logos/youtube_dunkel.png" id="youtube"></a>
             </div>
@@ -118,9 +140,9 @@
     </body>
 
     <script src="./js/image_preview.js"></script>
-    <script src="./js/positioning.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/main_menu.js"></script>
     <script src="./js/bubbles.js"></script>
     <script src="./js/input_animation.js"></script>
+    <script src="./js/resize.js"></script>
 </html>

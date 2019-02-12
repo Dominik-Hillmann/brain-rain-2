@@ -1,3 +1,8 @@
+/**
+ * 
+ */
+
+
 /**** Functions ****/
 Array.prototype.deepFlatten = function () {
     // because arr.flat() doesn't work for IE and Edge...

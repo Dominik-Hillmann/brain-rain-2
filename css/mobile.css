@@ -1,17 +1,22 @@
-/* smaller screens like notebooks, kleiner 1200, größer ... */
-
-
-/* LESEN: https://mediag.com/blog/popular-screen-resolutions-designing-for-all/ */
-
-
+/**
+ *  This style sheet contains information about the style of the website
+ *  for smartphones and small tablets.
+ *  This file should be included on all parts of the website, except
+ *      contact.php,
+ *      contacted.php and
+ *      login.php.
+ *  Because those are sites that have an eyecatcher without further content
+ *  below, requiring a different style.
+ *  Those sites will use mobile_less_content.css.
+ */
 
 @media only screen and (max-width: 1200px) and (min-width: 800px) {
     #welcome-text-wrapper { 
         width: 30%; 
-        margin-top: 25px;
     }
    #welcome-text h1 {
        font-size: 30px;
+       margin-top: 20px;
    }
    #welcome-text p {
        font-size: 18px;
@@ -61,7 +66,12 @@
     }
     #eyecatcher { 
         position: relative;
-        background-image: linear-gradient(to bottom, rgb(7, 10, 25), rgb(8, 7, 25) 90%, rgb(20, 18, 63));
+        background-image: linear-gradient(
+            to bottom, 
+            rgb(7, 10, 25), 
+            rgb(8, 7, 25) 90%, 
+            rgb(20, 18, 63)
+        );
     }
     #eyecatcher-background {
         display: none;
@@ -88,7 +98,7 @@
         width: 100%;
         filter: drop-shadow(3px 3px 3px cornflowerblue);
         
-        margin-bottom: 300px;
+        /* margin-bottom: 300px; */
     }
     #welcome-text button {
         margin-bottom: 20px;
@@ -97,12 +107,13 @@
         position: absolute;
         top: auto;
     }
+    #brain, #rain { font-size: 100px !important; }
     #brain {
         bottom: 270px;
         right: 10%;
     }
     #rain {
-        bottom: 200px;
+        bottom: 210px;
         right: 5%;
     }
     #num {
@@ -111,7 +122,7 @@
     }
     #eyecatcher-logo {
         bottom: 200px;
-        left: 5%;
+        left: 10%;
     }
 
 
@@ -120,5 +131,15 @@
         width: 100% !important;
         margin: 0px 0px 10px 0px !important;
         height: 100px !important;
+    }
+
+    #madewith, 
+    #madewith-pushback {
+        /* background-color: red !important; */
+        display: none;
+    }
+
+    .visible-on-mobile {
+        display: flex !important;
     }
 }
