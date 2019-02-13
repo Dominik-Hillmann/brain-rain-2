@@ -15,12 +15,14 @@
     <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/writing.css">
         <link rel="stylesheet" href="./css/menu.css">
+        <link rel="stylesheet" href="./css/mobile.css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">
 
     <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
     </head>
+    
     <div id="menu" class="hide">
         <div id="menu-heading">
             <div>
@@ -44,6 +46,24 @@
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(5)'));">
                     <?php echo strToSpans('Writing'); ?>
+                </p>
+
+                <!-- This is a divider between the art and other categories. -->
+                <p class="visible-on-mobile">
+                    <?php echo strToSpans(' '); ?>
+                </p>
+
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(7)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('About'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(8)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Contact & Hire Me'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(9)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Log In'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(10)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Shop'); ?>
                 </p>
             </div>
         </div>
@@ -74,7 +94,7 @@
                 </div>
                 <div>
                     <div id="header-options">
-                        <p class="current-option"><a href="./index.php"><?php echo strToSpans('About'); ?></a></p>
+                        <p><a href="./index.php"><?php echo strToSpans('About'); ?></a></p>
                         <p><a href="./contact.php"><?php echo strToSpans('Contact & Hire Me'); ?></a></p>
                         <p><a href="./login.php"><?php echo strToSpans('Log In'); ?></a></p>
                         <p><a href="https://www.spreadshirt.de/user/UNIIKAT"><?php echo strToSpans('Shop'); ?></a></p>

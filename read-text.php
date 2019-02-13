@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/text.css">
         <link rel="stylesheet" href="./css/menu.css">
+        <link rel="stylesheet" href="./css/mobile.css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">
 
@@ -45,6 +46,24 @@
                 </p>
                 <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(5)'));">
                     <?php echo strToSpans('Writing'); ?>
+                </p>
+
+                <!-- This is a divider between the art and other categories. -->
+                <p class="visible-on-mobile">
+                    <?php echo strToSpans(' '); ?>
+                </p>
+
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(7)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('About'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(8)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Contact & Hire Me'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(9)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Log In'); ?>
+                </p>
+                <p onmouseover="changeLetterColors(document.querySelector('#menu-options div p:nth-child(10)'));" class="visible-on-mobile">
+                    <?php echo strToSpans('Shop'); ?>
                 </p>
             </div>
         </div>
@@ -110,7 +129,6 @@
             </div>
         </footer>
     </body>
-    <script src="./js/positioning.js"></script>
     <script src="./js/image_preview.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/main_menu.js"></script>

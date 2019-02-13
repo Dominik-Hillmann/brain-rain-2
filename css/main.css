@@ -328,3 +328,10 @@ a { color: inherit; text-decoration: none; }
     border-radius: 10px;
 }
 .failed-login a { color: #ff4951; }
+
+.name-date-wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}

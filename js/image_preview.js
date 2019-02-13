@@ -105,13 +105,14 @@ function prevPic() {
 }
 
 function blurBackground(additional = []) {
+    // WICHTIG: gebe zusätzliche Node innerhalb eines Arrays weiter.
     // blurs footer and header by default
     // additional Elements can be blurred, too, by including additional elements
     let toBeBlurred = [
         document.querySelector("header"),
         document.querySelector("footer"),
         Array.from(document.querySelectorAll(".row")),
-        Array.from(additional)
+        ... additional
     ].deepFlatten().filter((e) => e != null);
 
     for (let e of toBeBlurred) {
@@ -125,7 +126,7 @@ function unblurBackground(additional = []) {
         document.querySelector("header"),
         document.querySelector("footer"),
         Array.from(document.querySelectorAll(".row")),
-        additional
+        ... additional
     ].deepFlatten().filter((e) => e != null);
 
     for (let e of toBeUnBlurred) {
@@ -194,16 +195,19 @@ let documentName = window.location
     .pop();
 
 if (pagesWithImagePreview.includes(documentName)) {
-    let tempPicInfo = document.querySelector('#curr-pic-info');
-    let currPicDescription = tempPicInfo.querySelector('p');
-    let currPicName = tempPicInfo.querySelector('h1');
+    var tempPicInfo = document.querySelector('#curr-pic-info');
+    var currPicDescription = tempPicInfo.querySelector('p');
+    var currPicName = tempPicInfo.querySelector('h1');
 
     // Closing of image preview if clicked anywhere but on description and arrows
     // wird geschlossen, wenn außerhalb von Pfeilen, Beschreibung oder Bild geklickt
-    let overlayPreview = document.querySelector('#currently-shown');
+    var overlayPreview = document.querySelector('#currently-shown');
     overlayPreview.addEventListener('click', () => {
         hidePic();
-        unblurBackground(waveDivision);
+        unblurBackground([
+            waveDivision,
+            Array.from(document.querySelectorAll('.thin-lines'))
+        ]);
     }, false);
 
     // Ausnahmen

@@ -143,12 +143,14 @@
             echo 'style="background-image:url(\'./img/' . $this->filename . '\')" ';
             // JS to be executed when clicked
             echo 'onclick="currPic=document.querySelectorAll(\'.pic\')[' . $printedIndex . '];';
-            echo 'blurBackground(document.querySelector(\'#thin-wave\'));';
+            echo 'blurBackground([document.querySelector(\'#thin-wave\'),';
+            echo 'document.querySelector(\'.thin-lines\')]);';
             echo 'unhidePic(\'./img/' . $this->filename . '\');';
             echo 'scrollToMainPic();">';
             // title and date, gets ordered later on
+            echo '<div class="name-date-wrapper">';
             echo '<h1>' . $this->name . '</h1>';
-            echo '<p>' . $this->getDate() . '</p></div>';
+            echo '<p>' . $this->getDate() . '</p></div></div>';
         }
 
         public function printHiddenDescription() {
@@ -190,8 +192,9 @@
             echo '<div class="text-background">';
             echo '<div class="background-background">&nbsp;</div>';
             echo $this->text . '</div>';
+            echo '<div class="name-date-wrapper">';
             echo '<h1>' . $this->name . '</h1>';
-            echo '<p>' . $date . '</p></div>';
+            echo '<p>' . $date . '</p></div></div>';
         }
     }
 

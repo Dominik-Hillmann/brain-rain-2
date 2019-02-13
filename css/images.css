@@ -33,16 +33,26 @@
     box-shadow: 5px 5px 20px 0px rgb(20, 18, 63);
     border-radius: 4px;
     cursor: pointer;
+
+    /* *** */ height: 203px;
+
 }
-.pic-3:first-child, .pic-2:first-child { margin-right: calc((100% - 3 * 32%) / 2); }
-.pic-3:last-child { margin-left: calc((100% - 3 * 32%) / 2); }
+.pic-3:first-child, .pic-2:first-child { 
+    margin-right: calc((100% - 3 * 32%) / 2); 
+}
+.pic-3:last-child { 
+    margin-left: calc((100% - 3 * 32%) / 2); 
+}
 .pic-1 *, .pic-2 *, .pic-3 * {
     display: block;
     text-align: center;
 }
-.pic-1 h1, .pic-2 h1, .pic-3 h1 { margin: 65px 0 15px 0; }
+.pic-1 h1, .pic-2 h1, .pic-3 h1 { 
+    /* margin: 65px 0 15px 0;  */
+    display: inline-block;
+}
 .pic-1 p, .pic-2 p, .pic-3 p {
-    margin: 0 0 65px 0;
+    /* margin: 0 0 65px 0; */
     letter-spacing: -1px;
 }
 .text-background {
@@ -65,13 +75,6 @@
     position: absolute;
     border-radius: 10px;
 }
-/* #cross {
-    float: right;
-    height: 40px;
-    margin: 10px 10px 0 0;
-    cursor: pointer;
-    filter: drop-shadow(8px 8px 5px black);
-} */
 #main-pic-container {
     height: calc(100% - (30px + 10px + 10px + 100px)); /* margin and height of the cross + 10px*/
     width: 100%;
@@ -93,6 +96,7 @@
     cursor: pointer;
     filter: drop-shadow(5px 5px 3px black);
     margin: 0 2%;
+    display: block;
 }
 .arrow:first-child {
     float: left;
