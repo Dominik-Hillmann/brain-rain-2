@@ -111,6 +111,15 @@
         <div id="main-wrapper">
             <div id="pics-main" class="main-content">
                 <?php
+                    require "./secret/db.inc.php";
+                    $db = mysqli_connect("127.0.0.1:3306", DB_USER, DB_PASS, "db_synchro");
+                    
+                    $result = $db->query("SELECT * FROM tags_pics ORDER BY pic_filename ASC");
+
+                    while ($row = $result->fetch_assoc()) {
+                        echo $row['tag_name'] . "_____" . $row['pic_filename'] . "<br>";
+                    }
+
                     $folderName = 'info/pic-info';
                     $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
                     $fileNames = array_splice($fileNames, 2); // get rid of . and ..
@@ -118,7 +127,6 @@
                     $allPicInfo = [];
                     foreach ($fileNames as $fileName) {
                         $info = new PicInfo($fileName, $folderName);
-                        // $info = getInfo($fileName, $folderName);
 
                         if (!$info->isSecret()) {
                             array_push($allPicInfo, $info);

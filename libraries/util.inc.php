@@ -87,13 +87,31 @@
         protected $year;
         protected $secret;
         protected $tags;
+        protected $category;
 
+        /*
         public function __construct($json) {
             $this->secret = $json->secret;
             $this->name = $json->name;
             $this->day = $json->day;
             $this->month = $json->month;
             $this->year = $json->year;
+            $this->tags = $json->tags;
+        }
+        */
+
+        public function __construct($row, $database) {
+            $this->secret = $row["kept_secret"];
+            $this->name = $row["name"];
+            $this->category = $row["category"];
+
+            $this->day = ;
+            $this->month = $json->month;
+            $this->year = $json->year;
+
+            
+
+
             $this->tags = $json->tags;
         }
 
@@ -127,7 +145,7 @@
         private $instagram;
         private $twitter;
 
-        public function __construct($fileName, $folderName) {
+        /*public function __construct($fileName, $folderName) {
             $json = $this->getJSON($fileName, $folderName);
             parent::__construct($json);
 
@@ -135,6 +153,25 @@
             $this->description = $json->description;
             $this->instagram = $json->instagram;
             $this->twitter = $json->twitter;
+        }*/
+
+        public function __construct($row, $database) {
+            parent::__construct($row, $database);
+
+            $this->filename = $row["filename"];
+            $this->description = $row["explanation"];
+            $this->instagram = $row["insta_posted"];
+            $this->twitter = $row["twitter_posted"];
+
+            $tagsQuery = $database->query(
+                "SELECT * FROM tags_pics WHERE pic_filename = \"" . 
+                $this->filename .
+                "\""
+            );
+            $this->tags = [];
+            while ($tagRow = $tagsQuery->fetch_assoc()) {
+                array_push($this->tags, $tagRow["tag_name"]);
+            }
         }
 
         public function print($printedIndex, $maxNumInRow) {
@@ -275,7 +312,7 @@
         }
 
         protected function orderInfo($allInfo) {
-            // creates array ordered by date, independet of type of info
+            // creates array ordered by date, independet of type of info 
             $unixTimes = [];
             foreach ($allInfo as $info) {
                 array_push(
@@ -308,7 +345,6 @@
             $this->printedIndex = 0;
             $this->infoArr = $this->orderInfo($infoArr);
         }
-
 
         public function printNext($picInfo, $maxNumInRow) {
             // 
