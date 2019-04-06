@@ -113,22 +113,27 @@
         <div id="main-wrapper">
             <div id="writing-main" class="main-content">
                 <?php
+                    /*
                     $folderName = 'info/writing-info';
                     $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
                     $fileNames = array_splice($fileNames, 2); // get rid of . and ..
-                        
-                    $allWritingsInfo = [];
-                    foreach ($fileNames as $fileName) {
-                        $info = new WritingInfo($fileName, $folderName);
-                        // $info = getInfo($fileName, $folderName);
+                    */
+                    require "./secret/db.inc.php";
+                    $db = mysqli_connect("127.0.0.1:3306", DB_USER, DB_PASS, "db_synchro");
+                    
+                    $result = $db->query("SELECT * FROM writ_info;");
+
+                    $allWritInfo = [];
+                    while ($row = $result->fetch_assoc()) {
+                        $info = new WritingInfo($row, $db);
 
                         if (!$info->isSecret()) {
-                            array_push($allWritingsInfo, $info);
-                        }                    
+                            array_push($allWritInfo, $info);
+                        }
                     }
-
+                    
                     // chunk the ordered arrays into arrays of the size of a row: 3
-                    $writPrinter = new WritingsInfoPrinter($allWritingsInfo);
+                    $writPrinter = new WritingsInfoPrinter($allWritInfo);
                     $writPrinter->printContainedInfo();
                 ?>               
             </div>

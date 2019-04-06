@@ -74,7 +74,13 @@
 
         protected function prependZero($num) {
             // if number is smaller than 10, a zero will be prepended and returned as a string
-            return $num < 10 ? '0' . $num : (string) $num;
+            $numInt = (int) $num;
+
+            if ($numInt < 10) {
+                return "0" . ((string) $numInt);
+            } else {
+                return (string) ((int) $num);
+            }
         }
     }
 
@@ -105,14 +111,12 @@
             $this->name = $row["name"];
             $this->category = $row["category"];
 
-            $this->day = ;
-            $this->month = $json->month;
-            $this->year = $json->year;
-
+            $dateParts = explode("-", $row["date"]);
+            $this->year = $dateParts[0];
+            $this->month = $dateParts[1];
+            $this->day = $dateParts[2];
             
-
-
-            $this->tags = $json->tags;
+            // Tags will be defined in child classes because it is dependend on media type which MySQL table to use.
         }
 
         public function isSecret() {
@@ -145,16 +149,6 @@
         private $instagram;
         private $twitter;
 
-        /*public function __construct($fileName, $folderName) {
-            $json = $this->getJSON($fileName, $folderName);
-            parent::__construct($json);
-
-            $this->filename = $json->filename;
-            $this->description = $json->description;
-            $this->instagram = $json->instagram;
-            $this->twitter = $json->twitter;
-        }*/
-
         public function __construct($row, $database) {
             parent::__construct($row, $database);
 
@@ -163,13 +157,14 @@
             $this->instagram = $row["insta_posted"];
             $this->twitter = $row["twitter_posted"];
 
-            $tagsQuery = $database->query(
+            $tagsResult = $database->query(
                 "SELECT * FROM tags_pics WHERE pic_filename = \"" . 
                 $this->filename .
-                "\""
+                "\";"
             );
+
             $this->tags = [];
-            while ($tagRow = $tagsQuery->fetch_assoc()) {
+            while ($tagRow = $tagsResult->fetch_assoc()) {
                 array_push($this->tags, $tagRow["tag_name"]);
             }
         }
@@ -201,17 +196,22 @@
 
     class WritingInfo extends ContentInfo {
 
-        private $colorfrom;
-        private $colorto;
         private $text;
+        
+        public function __construct($row, $database) {
+            parent::__construct($row, $database);
+            $this->text = $row["text"];
 
-        public function __construct($fileName, $folderName) {
-            $json = $this->getJSON($fileName, $folderName);
-            parent::__construct($json);
+            $tagsResult = $database->query(
+                "SELECT * FROM tags_writs WHERE writ_name = \"" . 
+                $this->name .
+                "\";"
+            );
 
-            $this->colorfrom = $json->colorfrom;
-            $this->colorto = $json->colorto;
-            $this->text = $json->text;
+            $this->tags = [];
+            while ($tagRow = $tagsResult->fetch_assoc()) {
+                array_push($this->tags, $tagRow["tag_name"]);
+            }
         }
 
         public function print($printedIndex, $maxNumInRow) {
@@ -242,14 +242,34 @@
         private $pw;
         private $pics;
         private $writings;
+        
+        public function __construct($row, $database) {
+            $this->user = $row["name"];
+            $this->pw = $row["pw"];
 
-        public function __construct($fileName, $folderName) {
-            $json = $this->getJSON($fileName, $folderName);
-            
-            $this->user = $json->user;
-            $this->pw = $json->pw;
-            $this->pics = $json->pics;
-            $this->writings = $json->writings;
+            // Adding images that this user is supposed to see.
+            $picsQuery = $database->query(
+                "SELECT * FROM user_pics WHERE " .
+                "user_pics.user_name=\"" . $this->user . "\";"
+            );
+            $this->pics = [];
+            while ($picRow = $picsQuery->fetch_assoc()) {
+                array_push($this->pics, $picRow["pic_filename"]);
+            }
+
+            // Adding writings.
+            $writsQuery = $database->query(
+                "SELECT * FROM user_writs WHERE " .
+                "user_writs.user_name=\"" . $this->user . "\";"
+            );
+            $this->writings = [];
+            while ($writRow = $writsQuery->fetch_assoc()) {
+                array_push($this->writings, $writRow["writ_name"]);
+            }
+        }
+
+        public function test() {
+            echo $this->user . "<br>";
         }
 
         public function check($testPassword, $testUsername) {
@@ -259,38 +279,38 @@
                 // password_verify($testUsername, $this->user);
         }
 
-        public function getPicInfos() {
-            // 
-            $picFolderName = '/info/pic-info';
-            $picNames = scandir($_SERVER['DOCUMENT_ROOT'] . $picFolderName);
-            $picNames = array_splice($picNames, 2); // get rid of . and ..
-                        
+        public function getPicInfos($database) {
+            //
             $wantedPicInfos = [];
-            foreach ($picNames as $picName) {
-                $info = new PicInfo($picName, $picFolderName);
+            foreach ($this->pics as $picFileName) {
+                $picQuery = $database->query(
+                    "SELECT * FROM pic_info WHERE " . 
+                    "pic_info.filename=\"" . $picFileName . "\";"
+                );
 
-                if (in_array($info->getName(), $this->pics)) {
-                    array_push($wantedPicInfos, $info);
-                }
+                $row = $picQuery->fetch_assoc();
+                array_push($wantedPicInfos, new PicInfo($row, $database));
             }
+            
             return $wantedPicInfos;
         }
         
-        public function getWritingInfos() {
-            // 
-            $writFolderName = '/info/writing-info';
-            $writNames = scandir($_SERVER['DOCUMENT_ROOT'] . $writFolderName);
-            $writNames = array_splice($writNames, 2); // get rid of . and ..
-
+        public function getWritingInfos($database) {
+            //
+            
             $wantedWritInfos = [];
-            foreach ($writNames as $writName) {
-                $info = new WritingInfo($writName, $writFolderName);
-        
-                if (in_array($info->getName(), $this->writings)) {
-                    array_push($wantedWritInfos, $info);
-                }
+            foreach ($this->writings as $writName) {
+                $writQuery = $database->query(
+                    "SELECT * FROM writ_info WHERE " . 
+                    "writ_info.name=\"" . $writName . "\";"
+                );
+
+                $row = $writQuery->fetch_assoc();
+                array_push($wantedWritInfos, new WritingInfo($row, $database));
             }
+            
             return $wantedWritInfos;
+
         }
     }
 

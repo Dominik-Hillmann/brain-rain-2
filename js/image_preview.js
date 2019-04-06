@@ -5,7 +5,7 @@
 
 /**** Functions ****/
 Array.prototype.deepFlatten = function () {
-    // because arr.flat() doesn't work for IE and Edge...
+    // because arr.flat() doesn't work for IE and MS Edge...
     try {
         return this.flat();
     } catch (error) {
@@ -188,7 +188,7 @@ if (allPicsArr.length != allPicsInfo.length) {
 // initialize variables that will contain information, etc.
 // only if this is an image page
 let waveDivision = document.querySelector('#thin-wave');
-let pagesWithImagePreview = ['photography.php', 'individualized.php'];
+let pagesWithImagePreview = ['photography.php', 'individualized.php', 'images.php'];
 let documentName = window.location
     .pathname
     .split('/')

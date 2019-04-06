@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <?php require "./libraries/util.inc.php" ?>
-    <!-- Basic Page Needs -->
+    <head>
+        <?php require "./libraries/util.inc.php" ?>
+        <!-- Basic Page Needs -->
         <meta charset="utf-8">
-        <title>BRAINRAIN</title>
+        <title>BRAINRAIN - Photography</title>
         <meta name="description" content="">
         <meta name="author" content="Dominik Hillmann">
 
-    <!-- Mobile Specific Metas -->
-        <meta>
+        <!-- Mobile Specific Metas -->
 
-    <!-- CSS links -->
+        <!-- CSS links -->
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/images.css">
         <link rel="stylesheet" href="./css/menu.css">
-        <link rel="stylesheet" href="./css/writing.css">
         <link rel="stylesheet" href="./css/mobile.css">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">
-
-    <!-- Favicon -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab">
+    
+        <!-- Favicon -->
         <link rel="icon" type="image/png" href="favicon.ico">
     </head>
 
@@ -108,47 +106,32 @@
         <div id="thin-wave" class="wave" ondragstart="return false;">
             <img src="./img/thin_wave.png">
         </div>
-
+        <!-- Idee: hier vielleicht mit JS Elemente bei Änderung der Breite aushängen und dann wieder einhängen -->
+        <!-- dynamisch von PHP anhand gespeicherter Texte aufbauen -->
         <div id="main-wrapper">
-            <div id="pics-main" class="main-content" style="padding-top:200px;">
+            <div id="pics-main" class="main-content">
                 <?php
-                    // Teil 1: anhand Passwort richtige JSON wählen
-
-                    // alle user fetchen
                     require "./secret/db.inc.php";
                     $db = mysqli_connect("127.0.0.1:3306", DB_USER, DB_PASS, "db_synchro");
-
-                    $result = $db->query("SELECT * FROM users;");
-
-                    $allUsers = [];
-                    while ($row = $result->fetch_assoc()) {
-                        array_push($allUsers, new UserInfo($row, $db));
-                    }
                     
-                    $userInfo = NULL;
-                    foreach ($allUsers as $user) {
-                        if ($user->check($_POST['pw'], $_POST['un'])) {
-                            $userInfo = $user;
+                    $result = $db->query(
+                        "SELECT * FROM pic_info WHERE pic_info.category=\"" . 
+                        $_GET["category"] . 
+                        "\";"
+                    );
+
+                    $allPicInfo = [];
+                    while ($row = $result->fetch_assoc()) {
+                        $info = new PicInfo($row, $db);
+
+                        if (!$info->isSecret()) {
+                            array_push($allPicInfo, $info);
                         }
                     }
-                    
-                    // Anzeige, wenn Passwort zu keinem passt (User nicht gefunden, oder so)
-                    $successfulLogIn = FALSE;
-                    if ($userInfo == NULL) {
-                        echo '<div class="failed-login">';
-                        echo 'No user with this username/password combination found.';
-                        echo '<br><a href="./login.php">Please try again.</a></div>';
-                    } else {
-                        $successfulLogIn = TRUE;
 
-                        $picPrinter = new PicInfoPrinter($userInfo->getPicInfos($db));
-                        $picPrinter->printContainedInfo();                        
-
-                        // echo '<div class="thin-lines"><img src="./img/thin_lines.png"><div><h1>WRITING</h1></div></div>';
-                        
-                        $writPrinter = new WritingsInfoPrinter($userInfo->getWritingInfos($db));
-                        $writPrinter->printContainedInfo();
-                    }
+                    // echo pictures and information
+                    $picPrinter = new PicInfoPrinter($allPicInfo);
+                    $picPrinter->printContainedInfo();
                 ?>
             </div>
         </div>
@@ -163,25 +146,17 @@
 
             <div>
                 <p id="madewith-pushback">&nbsp;</p>
-                <p>
-                    Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved.<!--
-                    --><span onclick=""> Imprint.</span>
-                </p>
+                <p>Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved. <a>Imprint</a></p>
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo_white.png"></a></p>
             </div>
         </footer>
-
-        <div id="pic-texts" style="display:none;" class="hide">
-            <?php
-                if ($successfulLogIn) {
-                    $picPrinter->printHiddenDescriptions();
-                }
-            ?>
-        </div>
+        <?php $picPrinter->printHiddenDescriptions(); ?>
     </body>
 
     <script src="./js/image_preview.js"></script>
+    <script src="./js/positioning.js"></script>
     <script src="./js/header.js"></script>
-    <script src="./js/image_hover.js"></script>
     <script src="./js/main_menu.js"></script>
+    <script src="./js/image_hover.js"></script>
+    
 </html>
