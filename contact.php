@@ -164,4 +164,5 @@
     <script src="./js/bubbles.js"></script>
     <script src="./js/input_animation.js"></script>
     <script src="./js/resize.js"></script>
+    <script src="./js/add_links.js"></script>
 </html>

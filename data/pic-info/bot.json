@@ -1,0 +1,20 @@
+{
+    "name": "Ein Roboter",
+    "filename": "bot.jpg",
+    "day":12,
+    "month": 3,
+    "year": 2002,
+    "description":"Ein ganz normales Haus? Ich glaube nicht.",
+    "secret": false,
+    "instagram": false,
+    "twitter": false,
+    "tags": [
+        "pups",
+        "boobies",
+        "süße Hündchensuppe", 
+        "Ilia Volyova",
+        "andere Volyova",
+        "haus lol"
+    ],
+    "category": "Photography"
+}

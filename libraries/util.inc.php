@@ -106,7 +106,7 @@
         }
         */
 
-        public function __construct($row, $database) {
+        public function __construct($row) {
             $this->secret = $row["kept_secret"];
             $this->name = $row["name"];
             $this->category = $row["category"];
@@ -149,8 +149,8 @@
         private $instagram;
         private $twitter;
 
-        public function __construct($row, $database) {
-            parent::__construct($row, $database);
+        public function __construct($row) {
+            parent::__construct($row);
 
             $this->filename = $row["filename"];
             $this->description = $row["explanation"];
@@ -198,8 +198,8 @@
 
         private $text;
         
-        public function __construct($row, $database) {
-            parent::__construct($row, $database);
+        public function __construct($row) {
+            parent::__construct($row);
             $this->text = $row["text"];
 
             $tagsResult = $database->query(
@@ -243,7 +243,7 @@
         private $pics;
         private $writings;
         
-        public function __construct($row, $database) {
+        public function __construct($row) {
             $this->user = $row["name"];
             $this->pw = $row["pw"];
 

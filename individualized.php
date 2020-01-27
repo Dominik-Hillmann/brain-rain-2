@@ -183,4 +183,5 @@
     <script src="./js/header.js"></script>
     <script src="./js/image_hover.js"></script>
     <script src="./js/main_menu.js"></script>
+    <script src="./js/add_links.js"></script>
 </html>
