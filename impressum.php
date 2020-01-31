@@ -175,6 +175,8 @@
             </div>
         </footer>
     </body>
+
+    <script> const baseUrl = 'http://brain-rain.com/images.php?category='; </script>
     <script src="./js/positioning.js"></script>
     <script src="./js/image_preview.js"></script>
     <script src="./js/header.js"></script>

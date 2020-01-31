@@ -152,6 +152,7 @@
 
     </body>
 
+    <script> const baseUrl = 'http://brain-rain.com/images.php?category='; </script>
     <script src="./js/image_preview.js"></script>
     <script src="./js/positioning.js"></script>
     <script src="./js/header.js"></script>
@@ -159,4 +160,20 @@
     <script src="./js/bubbles.js"></script>
     <script src="./js/resize.js"></script>
     <script src="./js/add_links.js"></script>
+    <script>
+        let graphicDesignPanel = document.querySelector('#design');
+        graphicDesignPanel.onclick = () => window.open(baseUrl + 'Graphic%20Design');
+        
+        let illustrationPanel = document.querySelector('#illustration');
+        illustrationPanel.onclick = () => window.open(baseUrl + 'Illustrationen');
+        
+        let drawingsPanel = document.querySelector('#drawings');
+        drawingsPanel.onclick = () => window.open(baseUrl + 'Drawings');
+        
+        let photoPanel = document.querySelector('#photography');
+        photoPanel.onclick = () => window.open(baseUrl + 'Photography');
+        
+        let writingPanel = document.querySelector('#writing');
+        writingPanel.onclick = () => window.open(baseUrl + 'Writing');    
+    </script>
 </html>
