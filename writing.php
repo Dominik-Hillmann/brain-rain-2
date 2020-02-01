@@ -118,14 +118,17 @@
                     $fileNames = scandir($_SERVER['DOCUMENT_ROOT'] . '/' . $folderName);
                     $fileNames = array_splice($fileNames, 2); // get rid of . and ..
                     */
-                    require "./secret/db.inc.php";
-                    $db = mysqli_connect("127.0.0.1:3306", DB_USER, DB_PASS, "db_synchro");
+                    // require "./secret/db.inc.php";
+                    // $db = mysqli_connect("127.0.0.1:3306", DB_USER, DB_PASS, "db_synchro");
                     
-                    $result = $db->query("SELECT * FROM writ_info;");
+                    // $result = $db->query("SELECT * FROM writ_info;");
+                    require './libraries/get_data.inc.php';
+
+                    $writInfos = getAllInfos('data\writing-info');
 
                     $allWritInfo = [];
-                    while ($row = $result->fetch_assoc()) {
-                        $info = new WritingInfo($row, $db);
+                    foreach ($writInfos as $writInfo) {
+                        $info = new WritingInfo($writInfo);
 
                         if (!$info->isSecret()) {
                             array_push($allWritInfo, $info);
