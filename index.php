@@ -144,7 +144,7 @@
             <div>
                 <p id="madewith-pushback">&nbsp;</p>
                 <p>
-                    Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved. <a href="./impressum.php">Imprint.</a>
+                    Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN GbR, Wanzleben, Germany. All rights reserved. <a href="./impressum.php">Imprint.</a>
                 </p>
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo_white.png"></a></p>
             </div>

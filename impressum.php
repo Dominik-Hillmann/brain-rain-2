@@ -82,10 +82,10 @@
                         <p>Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten (nachfolgend kurz „Daten“) innerhalb unseres Onlineangebotes und der mit ihm verbundenen Webseiten, Funktionen und Inhalte sowie externen Onlinepräsenzen, wie z.B. unser Social Media Profile auf (nachfolgend gemeinsam bezeichnet als „Onlineangebot“). Im Hinblick auf die verwendeten Begrifflichkeiten, wie z.B. „Verarbeitung“ oder „Verantwortlicher“ verweisen wir auf die Definitionen im Art. 4 der Datenschutzgrundverordnung (DSGVO).<br>
                         <br>
                         </p>
-                        <br><h3>Verantwortlicher</h3><p><span class="tsmcontroller">Charlie Fricke<br>
-                        Mittelstraße 12<br>
-                        17489 Hansestadt Greifswald<br>
-                        dominik.hillmann.website@gmail.com</span></p><br><h3>Arten der verarbeiteten Daten:</h3><p>-	Bestandsdaten (z.B., Namen, Adressen).<br>
+                        <br><h3>Verantwortliche</h3><p><span class="tsmcontroller">BRAINRAIN GbR<br>
+                        Heinrich-Heine-Weg 17b<br>
+                        39164 Stadt Wanzleben-Börde<br>
+                        brainrainshop@gmail.com</span></p><br><h3>Arten der verarbeiteten Daten:</h3><p>-	Bestandsdaten (z.B., Namen, Adressen).<br>
                         -	Kontaktdaten (z.B., E-Mail, Telefonnummern).<br>
                         -	Inhaltsdaten (z.B., Texteingaben, Fotografien, Videos).<br>
                         -	Nutzungsdaten (z.B., besuchte Webseiten, Interesse an Inhalten, Zugriffszeiten).<br>
@@ -169,7 +169,7 @@
             <div>
                 <p id="madewith-pushback">&nbsp;</p>
                 <p>
-                    Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved. <a href="./impressum.php">Imprint.</a>
+                    Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN GbR, Wanzleben, Germany. All rights reserved. <a href="./impressum.php">Imprint.</a>
                 </p>
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo_white.png"></a></p>
             </div>

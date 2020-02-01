@@ -95,27 +95,13 @@
         protected $tags;
         protected $category;
 
-        /*
         public function __construct($json) {
             $this->secret = $json->secret;
             $this->name = $json->name;
-            $this->day = $json->day;
-            $this->month = $json->month;
+            $this->category = $json->category;
             $this->year = $json->year;
-            $this->tags = $json->tags;
-        }
-        */
-
-        public function __construct($row) {
-            $this->secret = $row["kept_secret"];
-            $this->name = $row["name"];
-            $this->category = $row["category"];
-
-            $dateParts = explode("-", $row["date"]);
-            $this->year = $dateParts[0];
-            $this->month = $dateParts[1];
-            $this->day = $dateParts[2];
-            
+            $this->month = $json->month;
+            $this->day = $json->day;
             // Tags will be defined in child classes because it is dependend on media type which MySQL table to use.
         }
 
@@ -149,24 +135,14 @@
         private $instagram;
         private $twitter;
 
-        public function __construct($row) {
-            parent::__construct($row);
+        public function __construct($json) {
+            parent::__construct($json);
 
-            $this->filename = $row["filename"];
-            $this->description = $row["explanation"];
-            $this->instagram = $row["insta_posted"];
-            $this->twitter = $row["twitter_posted"];
-
-            $tagsResult = $database->query(
-                "SELECT * FROM tags_pics WHERE pic_filename = \"" . 
-                $this->filename .
-                "\";"
-            );
-
-            $this->tags = [];
-            while ($tagRow = $tagsResult->fetch_assoc()) {
-                array_push($this->tags, $tagRow["tag_name"]);
-            }
+            $this->filename = $json->filename;
+            $this->description = $json->description;
+            $this->instagram = $json->instagram;
+            $this->twitter = $json->twitter;
+            $this->tags = $json->tags;
         }
 
         public function print($printedIndex, $maxNumInRow) {
@@ -198,20 +174,10 @@
 
         private $text;
         
-        public function __construct($row) {
-            parent::__construct($row);
-            $this->text = $row["text"];
-
-            $tagsResult = $database->query(
-                "SELECT * FROM tags_writs WHERE writ_name = \"" . 
-                $this->name .
-                "\";"
-            );
-
-            $this->tags = [];
-            while ($tagRow = $tagsResult->fetch_assoc()) {
-                array_push($this->tags, $tagRow["tag_name"]);
-            }
+        public function __construct($json) {
+            parent::__construct($json);
+            $this->text = $json->text;
+            $this->tags = $json->tags;
         }
 
         public function print($printedIndex, $maxNumInRow) {
@@ -243,29 +209,11 @@
         private $pics;
         private $writings;
         
-        public function __construct($row) {
-            $this->user = $row["name"];
-            $this->pw = $row["pw"];
-
-            // Adding images that this user is supposed to see.
-            $picsQuery = $database->query(
-                "SELECT * FROM user_pics WHERE " .
-                "user_pics.user_name=\"" . $this->user . "\";"
-            );
-            $this->pics = [];
-            while ($picRow = $picsQuery->fetch_assoc()) {
-                array_push($this->pics, $picRow["pic_filename"]);
-            }
-
-            // Adding writings.
-            $writsQuery = $database->query(
-                "SELECT * FROM user_writs WHERE " .
-                "user_writs.user_name=\"" . $this->user . "\";"
-            );
-            $this->writings = [];
-            while ($writRow = $writsQuery->fetch_assoc()) {
-                array_push($this->writings, $writRow["writ_name"]);
-            }
+        public function __construct($json) {
+            $this->user = $json->user;
+            $this->pw = $json->pw;
+            $this->pics = $json->pics;
+            $this->writings = $json->writings;
         }
 
         public function test() {
@@ -296,7 +244,7 @@
         }
         
         public function getWritingInfos($database) {
-            //
+            require './get_data.inc.php';
             
             $wantedWritInfos = [];
             foreach ($this->writings as $writName) {

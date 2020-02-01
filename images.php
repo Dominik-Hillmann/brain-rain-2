@@ -111,18 +111,18 @@
         <div id="main-wrapper">
             <div id="pics-main" class="main-content">
                 <?php
-                    require "./secret/db.inc.php";
-                    $db = mysqli_connect("127.0.0.1:3306", DB_USER, DB_PASS, "db_synchro");
-                    
-                    $result = $db->query(
-                        "SELECT * FROM pic_info WHERE pic_info.category=\"" . 
-                        $_GET["category"] . 
-                        "\";"
-                    );
+                    require './libraries/get_data.inc.php';
+
+                    if (array_key_exists('category', $_GET)) {
+                        $category = $_GET['category'];
+                        $categoryInfos = getCategoryFiles($category, 'data\pic-info');
+                    } else {
+                        $categoryInfos = getAllInfos('data\pic-info');
+                    }
 
                     $allPicInfo = [];
-                    while ($row = $result->fetch_assoc()) {
-                        $info = new PicInfo($row, $db);
+                    foreach ($categoryInfos as $categoryInfo) {
+                        $info = new PicInfo($categoryInfo);
 
                         if (!$info->isSecret()) {
                             array_push($allPicInfo, $info);
@@ -147,7 +147,7 @@
             <div>
                 <p id="madewith-pushback">&nbsp;</p>
                 <p>
-                    Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN, Greifswald, Germany. All rights reserved. <a href="./impressum.php">Imprint.</a>
+                    Copyright &#x24B8; <?php echo date("Y"); ?> BRAINRAIN GbR, Wanzleben, Germany. All rights reserved. <a href="./impressum.php">Imprint.</a>
                 </p>
                 <p id="madewith">Made with <span id="love">&#9829;</span> and <a href=""><img src="./img/brainrainlogo_white.png"></a></p>
             </div>
