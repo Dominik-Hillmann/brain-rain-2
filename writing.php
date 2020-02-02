@@ -124,7 +124,7 @@
                     // $result = $db->query("SELECT * FROM writ_info;");
                     require './libraries/get_data.inc.php';
 
-                    $writInfos = getAllInfos('data\writing-info');
+                    $writInfos = getAllInfos('data/writing-info');
 
                     $allWritInfo = [];
                     foreach ($writInfos as $writInfo) {

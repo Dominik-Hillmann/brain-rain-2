@@ -115,9 +115,9 @@
 
                     if (array_key_exists('category', $_GET)) {
                         $category = $_GET['category'];
-                        $categoryInfos = getCategoryFiles($category, 'data\pic-info');
+                        $categoryInfos = getCategoryFiles($category, 'data/pic-info');
                     } else {
-                        $categoryInfos = getAllInfos('data\pic-info');
+                        $categoryInfos = getAllInfos('data/pic-info');
                     }
 
                     $allPicInfo = [];

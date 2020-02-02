@@ -21,13 +21,13 @@ function getCategoryFiles($category, $picDir) {
  * @
  */
 function getAllInfos($infoDir) {
-    $picInfoFileNames = scandir(getcwd() . '\\'. $infoDir);
+    $picInfoFileNames = scandir(getcwd() . '/'. $infoDir);
     $picInfos = [];
     foreach ($picInfoFileNames as $picInfoFileName) {
         if (strpos($picInfoFileName, '.json') !== false) {
             array_push(
                 $picInfos,
-                json_decode(file_get_contents($infoDir . '\\' . $picInfoFileName))
+                json_decode(file_get_contents($infoDir . '/' . $picInfoFileName))
             );
         }
     }
@@ -37,14 +37,14 @@ function getAllInfos($infoDir) {
 
 
 function getByName($name, $path) {
-    $infoFileNames = scandir(getcwd() . '\\' . $path);
+    $infoFileNames = scandir(getcwd() . '/' . $path);
     foreach ($infoFileNames as $infoFileName) {
         $isJson = strpos($infoFileName, '.json') !== false;
         if (!$isJson) {
             continue;
         }
 
-        $info = json_decode(file_get_contents(getcwd() . '\\' . $path . '\\' . $infoFileName));
+        $info = json_decode(file_get_contents(getcwd() . '/' . $path . '/' . $infoFileName));
         $correctName = $info->name == $name;
 
         if ($correctName) {
@@ -57,14 +57,14 @@ function getByName($name, $path) {
 
 
 function getByFileName($filename, $path) {
-    $infoFileNames = scandir(getcwd() . '\\' . $path);
+    $infoFileNames = scandir(getcwd() . '/' . $path);
     foreach ($infoFileNames as $infoFileName) {
         $isJson = strpos($infoFileName, '.json') !== false;
         if (!$isJson) {
             continue;
         }
 
-        $info = json_decode(file_get_contents(getcwd() . '\\' . $path . '\\' . $infoFileName));
+        $info = json_decode(file_get_contents(getcwd() . '/' . $path . '/' . $infoFileName));
         $correctName = $info->filename == $filename;
 
         if ($correctName) {

@@ -1,6 +1,4 @@
-/**
- * 
- */
+// This script takes care of resizing the eye catcher on the landing page.
 
 // Seperate document to handle everything that has to do with
 // resizing dependet on the document's name.
@@ -8,7 +6,6 @@ let eyecatcherNode = document.querySelector('#eyecatcher');
 let welcomeNode = document.querySelector('#welcome-text-wrapper');
 let backgroundImg = document.querySelector('#eyecatcher-background');
 
-console.log(welcomeNode, eyecatcherNode, backgroundImg);
 
 let adjustEyecatcherHeight = () => {
     if (eyecatcherNode.offsetWidth < 800) {

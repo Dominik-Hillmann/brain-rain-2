@@ -218,7 +218,7 @@ class UserInfo extends Info {
     public function getPicInfos() {
         $wantedPicInfos = [];
         foreach ($this->pics as $picFileName) {
-            $json = getByFileName($picFileName, 'data\pic-info');
+            $json = getByFileName($picFileName, 'data/pic-info');
             array_push($wantedPicInfos, new PicInfo($json));
         }
         
@@ -228,7 +228,7 @@ class UserInfo extends Info {
     public function getWritingInfos() {            
         $wantedWritInfos = [];
         foreach ($this->writings as $writName) {
-            $json = getByName($writName, 'data\writing-info');
+            $json = getByName($writName, 'data/writing-info');
             array_push($wantedWritInfos, new WritingInfo($json));
         }
         

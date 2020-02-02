@@ -114,7 +114,7 @@
                 <?php
                     require './libraries/get_data.inc.php';
 
-                    $allUsersRaw = getAllInfos('data\user-info');
+                    $allUsersRaw = getAllInfos('data/user-info');
 
                     $allUsers = [];
                     foreach ($allUsersRaw as $user) {
