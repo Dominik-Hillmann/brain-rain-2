@@ -18,7 +18,6 @@
         <link rel="stylesheet" href="./css/menu.css">
         <link rel="stylesheet" href="./css/eyecatcher.css">
         <link rel="stylesheet" href="./css/mobile.css">
-        <!-- <link rel="stylesheet" href="css/mobile.css"> -->
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700i|Zilla+Slab" rel="stylesheet">
 
@@ -98,7 +97,7 @@
             <h2 id="num"><?php echo num2Roman((int) date('Y')); ?></h2>
             <div id="welcome-text-wrapper">
                 <div id="welcome-text">
-                    <h1>Stinki</h1>
+                    <h1>Welcome</h1>
                     <p>
                         Hier stellt sich Charlie vor, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -106,7 +105,7 @@
                     </p>
                     <button onclick="scrollToSelection();">PORTFOLIO</button>
                     <button><a href="./contact.php">CONTACT</a></button>
-                </div>        
+                </div>
             </div>
             <img id="welcome-text-wave" src="./img/thin_wave.png" ondragstart="return false;"> 
             <img id="eyecatcher-background" src="./img/background_eyecatcher.png" ondragstart="return false;">

@@ -1,7 +1,7 @@
 setTimeout(() => {
     let docPath = window.location.pathname;
     let fileName = docPath.split('/').pop();
-    let filesWithImagePreview = ['photography.php', 'individualized.php'];
+    let filesWithImagePreview = ['images.php', 'individualized.php'];
     let filesWithTextPreview = ['writing.php', 'individualized.php'];
 
     if (filesWithImagePreview.includes(fileName)) {

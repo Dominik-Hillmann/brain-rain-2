@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Get all the files that have the category `$category`.
  * 
@@ -40,12 +39,12 @@ function getAllInfos($infoDir) {
 function getByName($name, $path) {
     $infoFileNames = scandir(getcwd() . '\\' . $path);
     foreach ($infoFileNames as $infoFileName) {
-        $isJson = strpos($picInfoFileName, '.json') !== false;
+        $isJson = strpos($infoFileName, '.json') !== false;
         if (!$isJson) {
             continue;
         }
 
-        $info = json_decode(file_get_contents(getcwd() . '\\' . $infoFileName));
+        $info = json_decode(file_get_contents(getcwd() . '\\' . $path . '\\' . $infoFileName));
         $correctName = $info->name == $name;
 
         if ($correctName) {
@@ -56,12 +55,24 @@ function getByName($name, $path) {
     return false;
 }
 
-// $categoryFiles = getCategoryFiles('Illustrationen', '../data/pic-info');
-// foreach ($categoryFiles as $categoryFile) echo var_dump($categoryFile);
-// foreach (scandir('../data/writing-info') as $file) echo '../data/writing-info' . '/' . $file . '<br>';
-// echo $categoryFiles;
-// foreach ( as $categoryFile) {
-//     echo $category;
-// }
+
+function getByFileName($filename, $path) {
+    $infoFileNames = scandir(getcwd() . '\\' . $path);
+    foreach ($infoFileNames as $infoFileName) {
+        $isJson = strpos($infoFileName, '.json') !== false;
+        if (!$isJson) {
+            continue;
+        }
+
+        $info = json_decode(file_get_contents(getcwd() . '\\' . $path . '\\' . $infoFileName));
+        $correctName = $info->filename == $filename;
+
+        if ($correctName) {
+            return $info;
+        }
+    }
+
+    return false;
+}
 
 ?>
